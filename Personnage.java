@@ -87,6 +87,8 @@ public class Personnage implements Comparable<Personnage> {
 		    res=1;
 		return res;
 		}
-		
+	public void testModif(){
+		//voilà ma modif
+	}
 }
 
