@@ -1,27 +1,5 @@
-/*
- * Jeu.java
- * 
- * Copyright 2020 Emmanuelle ROUSSI <emmanuelle@airdeemmanuelle.insa-lyon.fr>
- * 
- * This program is free software; you can redistribute it and/or modify
- * it under the terms of the GNU General Public License as published by
- * the Free Software Foundation; either version 2 of the License, or
- * (at your option) any later version.
- * 
- * This program is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- * GNU General Public License for more details.
- * 
- * You should have received a copy of the GNU General Public License
- * along with this program; if not, write to the Free Software
- * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston,
- * MA 02110-1301, USA.
- * 
- * 
- */
-
 import java.util.*;
+import javax.swing.*; //Pour image
 public class Jeu {
 	
 	//ATTRIBUTS
@@ -37,20 +15,23 @@ public class Jeu {
 	*/
 	
 	//MÉTHODES
+    
+    //Création d'une instance d'image pour que ça compile avec la classe Personnage qui a été modifiée
+    ImageIcon imagePerso = new ImageIcon("/Users/alainboulard/Desktop/Capture d’écran 2020-03-28 à 20.11.02.png");
 	
 	// Création des personnages disponibles (À MODIFIER)
 	public void creerListePerso(){
-		Personnage p0 = new Personnage("Benjamin","homme","bouclés","blond","marron","claire");
+		Personnage p0 = new Personnage("Benjamin","homme","bouclés","blond","marron","claire", imagePerso);
 		ListePersonnage.add(p0);
-		Personnage p1 = new Personnage("Thomas","homme","bouclés","noir","marron","claire");
+		Personnage p1 = new Personnage("Thomas","homme","bouclés","noir","marron","claire",  imagePerso);
 		ListePersonnage.add(p1);
-		Personnage p2 = new Personnage("Laura","femme","bouclés","bruns","marron","claire");
+		Personnage p2 = new Personnage("Laura","femme","bouclés","bruns","marron","claire",  imagePerso);
 		ListePersonnage.add(p2);
-		Personnage p3 = new Personnage("Solenn","femme","ondulés","chatain","bleus","claire");
+		Personnage p3 = new Personnage("Solenn","femme","ondulés","chatain","bleus","claire",  imagePerso);
 		ListePersonnage.add(p3);
-		Personnage p4 = new Personnage("Clément","homme","lisses","blond","marron","claire");
+		Personnage p4 = new Personnage("Clément","homme","lisses","blond","marron","claire",  imagePerso);
 		ListePersonnage.add(p4);
-		Personnage p5 = new Personnage("Emma","femme","bouclés","noir","marron","brune");
+		Personnage p5 = new Personnage("Emma","femme","bouclés","noir","marron","brune",  imagePerso);
 		ListePersonnage.add(p5);
 		}
 		
