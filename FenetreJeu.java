@@ -5,26 +5,34 @@ import java.awt.event.*;
 public class FenetreJeu  extends JFrame{
     //Declaration des attributs de la fenêtre
     
+    //Panel Haut
     //Explications
     JLabel labelExplication ; 
     
+    //Panel Gauche
+    //Caractéristiques du personnage 
+     JLabel labelCaracPerso ;  
+     /** Sera une image plus tard mais sait pas encore faire**/
+    //Image voir perso 
+    JLabel imagePersoChoisi ;
+     
+    
+    //Panel Milieu
     //Questions de l'IA
     JLabel labelQIA ; 
+    //Bouton voir perso 
+    JButton bOui ; 
+    JButton bNon ;
     
-    //Caractéristiques du personnage 
-     JLabel labelCaracPerso ; 
-     
+    //Panel Droite 
+    JLabel labelListePerso ; 
+    
+    
+    //Panel Bas
     //Noms auteurs
     JLabel labelNomAuteurs ; 
     
-    /** Sera une image plus tard mais sait pas encore faire**/
-    //Bouton voir perso 
-    JButton bPersoChoisi ;
-    
-    
-    //Boutons réponse
-    JButton bOui ; 
-    JButton bNon ; 
+   
     
     
     public FenetreJeu(){
@@ -43,12 +51,15 @@ public class FenetreJeu  extends JFrame{
         
         //Milieu 
         labelCaracPerso = new JLabel ("Caractéristiques du personnage") ;
-        bPersoChoisi = new JButton("Perso Choisi") ; 
+        imagePersoChoisi = new JLabel( new ImageIcon("/Users/alainboulard/Desktop/École/INSA/2A/Info/S4/Projet algo/4_DOCUMENT EXPLICATIF/Photos classe/Capture d’écran 2020-03-28 à 20.11.02.png")); 
         labelQIA = new JLabel ("Questions de l'IA") ;
         bOui = new JButton("OUI"); 
         bOui.addActionListener(new EcouteurReponse(this));
         bNon = new JButton("NON") ;
         bNon.addActionListener(new EcouteurReponse(this));
+        
+        //Droite 
+        labelListePerso = new JLabel ("Personnages restants possibles :") ;
 		
         
         //Bas
@@ -67,37 +78,42 @@ public class FenetreJeu  extends JFrame{
     
 	
 		
-		//Déclaration et instanciation du conteneurMilieuGauche
-		JPanel panelMilieuGauche = new JPanel(new BorderLayout()); 
-		panelMilieuGauche.setBackground(Color.GREEN) ; 
+		//Déclaration et instanciation du conteneurGauche
+		JPanel panelGauche = new JPanel(new BorderLayout()); 
+		panelGauche.setBackground(Color.GREEN) ; 
         //Ajout des widgets (dans l'ordre de gauche à droite)
-        panelMilieuGauche.add(labelCaracPerso,BorderLayout.NORTH) ; 
-        panelMilieuGauche.add(bPersoChoisi,BorderLayout.SOUTH) ;
+        panelGauche.add(labelCaracPerso, BorderLayout.NORTH) ; 
+        panelGauche.add(imagePersoChoisi,BorderLayout.SOUTH) ;
         
-        //Déclaration et instanciation du conteneurMilieuDroite
-        JPanel panelMilieuDroite = new JPanel(new BorderLayout()); 
-		panelMilieuDroite.setBackground(Color.BLUE) ; 
         
-        //Déclaration et instanciation du sous-conteneurMilieuDroite
-        JPanel panelBoutons = new JPanel(); 
-       
+        
+        //Déclaration et instanciation du conteneurCentre
+        JPanel panelCentre = new JPanel(new BorderLayout()); 
+		panelCentre.setBackground(Color.BLUE) ;
+        
+        //Déclaration et instanciation sous-conteneurCentre
+        JPanel panelBoutons = new JPanel(new GridLayout());  
+        //panelBoutons.setBackground(Color.BLUE) ;
+        panelBoutons.setOpaque(false); /** Pour ne pas laisser apparaître la couleur initiale du panel et permettre de voir la couleur du panel parent**/
         //Ajout des widgets (dans l'ordre de gauche à droite)
         panelBoutons.add(bOui) ; 
         panelBoutons.add(bNon) ; 
         
+        //Ajout des widgets (dans l'ordre de gauche à droite) dans conteneurCentre
+        panelCentre.add(labelQIA,BorderLayout.NORTH) ; 
+        panelCentre.add(panelBoutons,BorderLayout.CENTER); 
         
-        //Ajout des widgets (dans l'ordre de gauche à droite) dans conteneurMilieuDroite
-        panelMilieuDroite.add(labelQIA,BorderLayout.NORTH) ; 
-        panelMilieuDroite.add(panelBoutons,BorderLayout.SOUTH); 
-       
-        //panelMilieuDroite.add(labelQIA,BorderLayout.NORTH) ;
     
-		
+        //Déclaration et instanciation du conteneur Droite
+        JPanel panelDroite = new JPanel(new BorderLayout()); 
+		//panelDroite.setBackground(Color.???) ;
+        //Ajout des widgets (dans l'ordre de gauche à droite) dans conteneurCentre
+        panelDroite.add(labelListePerso) ; 
         
-         
+        
         
        
-        //Déclaration et instanciation du conteneur3
+        //Déclaration et instanciation du conteneurBas
         JPanel panelBas = new JPanel(); 
         panelBas.setBackground(Color.ORANGE) ;
         panelBas.add(labelNomAuteurs); 
@@ -108,8 +124,9 @@ public class FenetreJeu  extends JFrame{
 		JPanel cadrePrincipal = new JPanel(new BorderLayout()) ; 
 		
 		cadrePrincipal.add(panelHaut,BorderLayout.NORTH); 
-		cadrePrincipal.add(panelMilieuGauche,BorderLayout.WEST); 
-        cadrePrincipal.add(panelMilieuDroite,BorderLayout.CENTER); 
+		cadrePrincipal.add(panelGauche,BorderLayout.WEST); 
+        cadrePrincipal.add(panelCentre,BorderLayout.CENTER);
+        cadrePrincipal.add(panelDroite,BorderLayout.EAST);
         cadrePrincipal.add(panelBas,BorderLayout.SOUTH);
 		
 		

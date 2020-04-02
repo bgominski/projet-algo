@@ -14,7 +14,10 @@ public class FenetreAccueil extends JFrame{
 	
 	//Widgets du panel Secondaire
 	private JButton[] tabBtn;
-	
+    
+    public Jeu jeu = new Jeu(); 
+	ImageIcon im1; 
+    Personnage p1; 
 	//METHODES
     
     /**
@@ -27,7 +30,12 @@ public class FenetreAccueil extends JFrame{
 		this.nbPersos=nbPersos;
 		setSize(1200,800);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		
+        
+        //
+        //Jeu jeu = new Jeu() ; 
+        im1 =  new ImageIcon("/Users/emmanuelle/Desktop/21 ROUSSI Emmanuelle.JPG");
+        p1 =  new Personnage("BIKIKRE Gabriel","homme","bouclés","bruns","marrons",im1) ; 
+        
 		//Instanciation des widgets de la fenetre secondaire
 		this.ajoutChoix();
         
@@ -52,7 +60,7 @@ public class FenetreAccueil extends JFrame{
 		}
 		
 		//Instanciation du panel principal
-		JPanel panel1 = new JPanel ( new BorderLayout());
+		JPanel panel1 = new JPanel (new BorderLayout());
 		panel1.add( labelAccueil, BorderLayout.NORTH);
 		panel1.add( btnJouer,BorderLayout.SOUTH);
 		panel1.add( labelDescription, BorderLayout.WEST);
@@ -64,13 +72,22 @@ public class FenetreAccueil extends JFrame{
     
     //Création des boutons de choix
     public void ajoutChoix(){
-        //Test pour voir si ça affichait l'image à remplacer
-        ImageIcon imagePerso = new ImageIcon("/Users/alainboulard/Desktop/Capture d’écran 2020-03-28 à 20.11.02.png");
         
+        //Jeu jeu = new Jeu() ; 
+        //Test pour voir si ça affichait l'image à remplacer
+        //ImageIcon imagePerso = new ImageIcon("/Users/alainboulard/Desktop/École/INSA/2A/Info/S4/Projet algo/4_DOCUMENT EXPLICATIF/Photos classe/Capture d’écran 2020-03-28 à 20.11.02.png");
+        //String nom = (jeu.getListePersonnage().get(19)).getNom();  //Marche pas
+        //String nom = p1.getNom(); 
 		tabBtn= new JButton[nbPersos];
 		for (int i=0; i<nbPersos; i++){
-			tabBtn[i]= new JButton("Personnage n°"+(i+1), imagePerso);// Ici à la place de imagePerso mettre un getter de l'image en fonction du numero du personnage
-		}
+            //tabBtn[i]= new JButton("Patrick", imagePerso) ;
+			tabBtn[i]= new JButton((jeu.getListePersonnage().get(i)).getNom(), (jeu.getListePersonnage().get(i)).getImage()  ) ;// Ici à la place de imagePerso mettre un getter de l'image en fonction du numero du personnage
+		
+        /**tabBtn[i]= new JButton(p1.getNom(),imagePerso ) ; Ça fonctionne **/
+        //((Personnage)((jeu.getListePersonnage()).get(i))).getImage()
+        }
+        
+       // jeu.ListePersonnage.get(i)).getNom(), (jeu.ListePersonnage.get(i)).getImage()
 	}
 	
 	

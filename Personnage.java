@@ -1,4 +1,5 @@
-import javax.swing.*; //Besoin de ce package pour lire les images
+import javax.swing.*;
+import java.util.*;
 
 public class Personnage {
 	
@@ -8,60 +9,63 @@ public class Personnage {
 	private String typeCheveux;
 	private String couleurCheveux;
 	private String couleurYeux;
-	private String couleurPeau;
-    private ImageIcon photo; // Pour afficher la photo correspondant au personnage 
+	private ImageIcon image; // Pour afficher la photo correspondant au personnage 
 	
 	// MÉTHODES
 	
 	//Constructeur
-	public Personnage(String nom, String genre, String typeCheveux, String couleurCheveux, String couleurYeux, String couleurPeau, ImageIcon photo)  {
+	public Personnage(String nom, String genre, String typeCheveux, String couleurCheveux, String couleurYeux,ImageIcon image)  {
 		this.nom=nom;
 		this.genre=genre;
 		this.typeCheveux=typeCheveux;
 		this.couleurCheveux=couleurCheveux;
 		this.couleurYeux=couleurYeux;
-		this.couleurPeau=couleurPeau;
-        this.photo=photo; 
-        
+		this.image=image; 
 		}
 		
 	//Getters
 	public String getNom() {
 		return nom;
-        }
+		}
 	
 	public String getGenre() {
 		return genre;
-        }
-            
+		}
+		
 	public String getTypeCheveux() {
 		return typeCheveux;	
-        }
+		}
 		
 	public String getCouleurCheveux() {
 		return couleurCheveux;	
-        }
+		}
 		
 	public String getCouleurYeux() {
 		return couleurYeux;	
-        }
-	
-	public String getCouleurPeau() {
-		return couleurPeau;	
-        }
-        
-    public ImageIcon getPhoto() {
-        return photo; 
-        }
-    
+		}
+
+	public ImageIcon getImage() {
+		return image ;
+	}
 		
 	//toString
 	public String toString(){
-		String res="Le personnage est " +this.getNom()+" : c'est un(e) "+this.getGenre()+
+		String res=this.getNom()+" : c'est un(e) "+this.getGenre()+
 		" aux cheveux "+this.getCouleurCheveux()+" et " + this.getTypeCheveux()+
-		" , aux yeux "+this.getCouleurYeux()+" et à la peau "+this.getCouleurPeau()+" alors voilà à quoi il ressemble !"+photo;
+		" , et aux yeux "+this.getCouleurYeux();
 		return res ;
 		}
+	//equals
+	public boolean equals(Personnage p) {
+		boolean res=false;
+		
+		if (nom==p.getNom() && genre==p.getGenre() &&
+		typeCheveux==p.getTypeCheveux() && couleurCheveux==p.getCouleurCheveux()&&
+		couleurYeux==p.getCouleurYeux() && image==p.getImage())
+		     res=true;
+		    
+		return res;
+	}
 		
 }
 
