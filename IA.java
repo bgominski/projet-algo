@@ -65,49 +65,48 @@ public class IA {
 	//Constructeur
 	public IA(ArrayList<Personnage> ListePersonnageInit){
 		
-		this.ListePersonnageInit=ListePersonnageInit;
-		this.ListePersonnagePossibles=ListePersonnageInit;
-		
-		 //Constitution des listes de références SANS doublons
-		for(Personnage a : ListePersonnageInit){
-			if(!ListeGenre.contains(a.getGenre())){ListeGenre.add(a.getGenre());}
-			
-			if(!ListeTypeCheveux.contains(a.getTypeCheveux())){ListeTypeCheveux.add(a.getTypeCheveux());}
-			
-			if(!ListeCouleurCheveux.contains(a.getCouleurCheveux())){ListeCouleurCheveux.add(a.getCouleurCheveux());}
-			
-			if(!ListeCouleurYeux.contains(a.getCouleurYeux())){ListeCouleurYeux.add(a.getCouleurYeux());}
-			
-			if(!ListeCouleurPeau.contains(a.getCouleurPeau())){ListeCouleurPeau.add(a.getCouleurPeau());}
-			
-		}
-        
-        ListeListe.add(ListeGenre);
-		ListeListe.add(ListeTypeCheveux);
-		ListeListe.add(ListeCouleurCheveux);
-		ListeListe.add(ListeCouleurYeux);
-		ListeListe.add(ListeCouleurPeau);
+		this.ListePersonnageInit=(ArrayList<Personnage>)ListePersonnageInit.clone();
+		this.ListePersonnagePossibles=(ArrayList<Personnage>)ListePersonnageInit.clone();
         
         
+        this.MAJListes(ListePersonnageInit);
+		    
 	}
 	
 	
 	public Question QuestionIA(){
        
         
-        //On détermine la liste la plus petite
+        //On détermine la liste la plus petite 
+     
+        // && indiceListe!=(ListeListe.size()-1) : condition pour éviter IndexOutofBounds 
         int compteur=10;            //valeur pour initialiser
         int indiceListe=0;
         for(ArrayList A : ListeListe){
-            if(A.size()<=compteur){
+              //Si une liste ne comporte qu'1 élément,la question ne peut pas porter dessus
+                
+            if( A.size()<=compteur && indiceListe!=(ListeListe.size()-1) ){
                 compteur=A.size();
                 indiceListe++;
+                
                 }
+            if (A.size()==1 && indiceListe!=(ListeListe.size()-1)){
+                indiceListe++;
+            }
+            int j=indiceListe;
+            if(A.size()==1 && indiceListe==ListeListe.size()-1){
+                while(ListeListe.get(j).size()==1){indiceListe--;j=indiceListe;}
             }
         
+            
+        }
+       
+        
         //On choisit un élément dans liste d'indice indiceListe
-        Random rand1 = new Random(); 
-		int indiceAttribut = rand1.nextInt(ListeListe.get(indiceListe).size()  );
+        //Random rand1 = new Random(); 
+		//int indiceAttribut = rand1.nextInt(ListeListe.get(indiceListe).size()  );
+        
+        int indiceAttribut =(int)(Math.random() * ((ListeListe.get(indiceListe).size())));
         
         
         
@@ -119,46 +118,68 @@ public class IA {
         
         return Q;
    }
-                        // NON     COULEURYEUX MARRONS indiceListe = 3
+     
    public void UpdateListes(boolean Ans,Question Q){
+       
+       
+      
         //Pour chaque personnage dans liste des choix possibles
-        //on crée une  liste Personnage pour pouvoir modifier DANS la boucle for each
+        //on crée une  liste Personnage pour pouvoir modifier ListePersonnagePossible DANS la boucle for each
         ArrayList<Personnage> ListePersonnageTEMP=new ArrayList<Personnage>();
-        ListePersonnageTEMP=ListePersonnagePossibles;
+        ListePersonnageTEMP=(ArrayList<Personnage>)ListePersonnagePossibles.clone();
         for (Personnage P : ListePersonnagePossibles){
            
             //Valeur à éliminer ou à garder (Question posée par QuestionIA)
-            String V;
+            String V=null;
+           
             switch (Q.indiceListe){
-                default : V=P.getGenre();           //afin que String V soit initialisé
-                case 1 : V=P.getTypeCheveux();
-                case 2 : V=P.getCouleurCheveux();
-                case 3 : V=P.getCouleurYeux();
-                case 4 : V=P.getCouleurPeau();
+                case 0 : V=P.getGenre();break;        //afin que String V soit initialisé
+                case 1 : V=P.getTypeCheveux();break;
+                case 2 : V=P.getCouleurCheveux();break;
+                case 3 : V=P.getCouleurYeux();break;
+                case 4 : V=P.getCouleurPeau();break;
             }
-        
             
+        
+        
             //Si le personnage cherché A cette caractéristique-là
             //on enlève tous les personnages n'ayant pas cette caractéristique-là
-            if(Ans && (V!=Q.valeurAttribut)){ListePersonnageTEMP.remove(P);}
+            if(Ans && (V!=Q.valeurAttribut)){
+                System.out.println("*");
+                ListePersonnageTEMP.remove(P);}
             
             //Si le personnage cherché N'a PAS cette caractéristique-là
             //on enlève tous les personnages l'ayant
-            else if (!Ans && V==Q.valeurAttribut){ListePersonnageTEMP.remove(P);}
+           if ((!Ans) && V==Q.valeurAttribut){
+                System.out.println("*");
+                ListePersonnageTEMP.remove(P);}
             
             
             
         }
+        
+         for(Personnage P : ListePersonnageTEMP){
+            
+            System.out.println(P.toString());
+        }
         ListePersonnagePossibles.clear();
-        ListePersonnagePossibles=ListePersonnageTEMP;
+        ListePersonnagePossibles=(ArrayList<Personnage>)ListePersonnageTEMP.clone();
+       
         //UPDATE FINAL DES LISTES
+        MAJListes(ListePersonnagePossibles);
+		
+   }
+   
+    //Met à jour les listes selon les personnages présents dans liste en paramètre ListePersonnage
+    public void MAJListes(ArrayList<Personnage> ListePersonnage){
+        
         ListeGenre.clear();
         ListeTypeCheveux.clear();
         ListeCouleurCheveux.clear();
         ListeCouleurYeux.clear();
         ListeCouleurPeau.clear();
         
-		for(Personnage a : ListePersonnagePossibles){
+		for(Personnage a : ListePersonnage){
 			if(!ListeGenre.contains(a.getGenre())){ListeGenre.add(a.getGenre());}
 			
 			if(!ListeTypeCheveux.contains(a.getTypeCheveux())){ListeTypeCheveux.add(a.getTypeCheveux());}
@@ -171,6 +192,9 @@ public class IA {
 			
 		}
         
+        //UPDATE LISTE LISTE
+        ListeListe.clear();
+        
         ListeListe.add(ListeGenre);
 		ListeListe.add(ListeTypeCheveux);
 		ListeListe.add(ListeCouleurCheveux);
@@ -178,23 +202,23 @@ public class IA {
 		ListeListe.add(ListeCouleurPeau);
         
         
-        //Si il ne reste qu'un élément dans une liste, on "verrouille" cette liste, l'IA ne peut plus poser de questions dessus
-        for(ArrayList L : ListeListe){
-            if (L.size()==1){ListeListe.remove(L);}
-        }
-		
+        
+        
+    }
+   
+   //Pour savoir si l'IA a éliminé toutes les possibilités
+   public int TailleListe(){return ListePersonnagePossibles.size();}
+   
+   //Renvoie TRUE si le personnage a été trouvé
+    public boolean PersonnageFound(){
+       if (ListePersonnagePossibles.size()==1){
+           return true;
+       }
+       return false;
+   
    }
    
-   public int TailleListe(){
-       
-       
-       return this.ListePersonnagePossibles.size();
-   }
    
-   public ArrayList<Personnage> getPersonnage(){
-       return (ListePersonnagePossibles);
-   }
-       
    
        
        
