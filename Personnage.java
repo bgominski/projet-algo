@@ -14,7 +14,7 @@ public class Personnage {
 	// MÉTHODES
 	
 	//Constructeur
-	public Personnage(String nom, String genre, String typeCheveux, String couleurCheveux, String couleurYeux,ImageIcon image)  {
+	public Personnage(String nom, String genre, String typeCheveux, String couleurCheveux, String couleurYeux, ImageIcon image)  {
 		this.nom=nom;
 		this.genre=genre;
 		this.typeCheveux=typeCheveux;

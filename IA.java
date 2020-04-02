@@ -137,7 +137,7 @@ public class IA {
                 case 1 : V=P.getTypeCheveux();break;
                 case 2 : V=P.getCouleurCheveux();break;
                 case 3 : V=P.getCouleurYeux();break;
-                case 4 : V=P.getCouleurPeau();break;
+                //case 4 : V=P.getCouleurPeau();break;
             }
             
         
@@ -188,7 +188,7 @@ public class IA {
 			
 			if(!ListeCouleurYeux.contains(a.getCouleurYeux())){ListeCouleurYeux.add(a.getCouleurYeux());}
 			
-			if(!ListeCouleurPeau.contains(a.getCouleurPeau())){ListeCouleurPeau.add(a.getCouleurPeau());}
+			//if(!ListeCouleurPeau.contains(a.getCouleurPeau())){ListeCouleurPeau.add(a.getCouleurPeau());}
 			
 		}
         
