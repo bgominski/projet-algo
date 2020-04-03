@@ -11,9 +11,8 @@ public class FenetreJeu  extends JFrame{
     
     //Panel Gauche
     //Caractéristiques du personnage 
-     JLabel labelCaracPerso ;  
-     /** Sera une image plus tard mais sait pas encore faire**/
-    //Image voir perso 
+    JPanel panelPersoChoisi ;
+    JLabel labelCaracPerso ;  
     JLabel imagePersoChoisi ;
      
     
@@ -36,7 +35,7 @@ public class FenetreJeu  extends JFrame{
     
     
     public FenetreJeu(){
-        super("Qui-est-ce ? -- Fenêtre de jeu --") ;  //on definit le nom de la fenetre
+        super("Qui-est-ce ? - Fenêtre de jeu ") ;  //on definit le nom de la fenetre
 		
 		//Dimensions de la fenetre graphique et fermeture
 		setSize(1200, 400) ; 
@@ -49,9 +48,15 @@ public class FenetreJeu  extends JFrame{
 		labelExplication = new JLabel("Répondre par oui ou par non à la question suivante :  ") ; 
         
         
-        //Milieu 
+        //Gauche
+        panelPersoChoisi= new JPanel( new BorderLayout());
         labelCaracPerso = new JLabel ("Caractéristiques du personnage") ;
-        imagePersoChoisi = new JLabel( new ImageIcon("/Users/alainboulard/Desktop/École/INSA/2A/Info/S4/Projet algo/4_DOCUMENT EXPLICATIF/Photos classe/Capture d’écran 2020-03-28 à 20.11.02.png")); 
+        imagePersoChoisi = new JLabel( new ImageIcon("/Users/emmanuelle/Desktop/21 ROUSSI Emmanuelle.JPG"));
+        panelPersoChoisi.add(labelCaracPerso,BorderLayout.SOUTH);
+        panelPersoChoisi.add(imagePersoChoisi,BorderLayout.CENTER);
+        //panelPersoChoisi.add(new JLabel("	 "),BorderLayout.EAST);
+        
+        //Milieu
         labelQIA = new JLabel ("Questions de l'IA") ;
         bOui = new JButton("OUI"); 
         bOui.addActionListener(new EcouteurReponse(this));
@@ -72,24 +77,22 @@ public class FenetreJeu  extends JFrame{
 		
 		//Déclaration et instanciation du conteneur du Haut 
 		JPanel panelHaut = new JPanel(); 
-		panelHaut.setBackground(Color.YELLOW) ; 
+		panelHaut.setBackground(new Color(187,210,225)) ; 
 		//Ajout des widgets (dans l'ordre de gauche à droite)
 		panelHaut.add(labelExplication); 
-    
-	
-		
+
+
 		//Déclaration et instanciation du conteneurGauche
 		JPanel panelGauche = new JPanel(new BorderLayout()); 
-		panelGauche.setBackground(Color.GREEN) ; 
+		panelGauche.setBackground(new Color(187,210,225)) ; 
         //Ajout des widgets (dans l'ordre de gauche à droite)
         panelGauche.add(labelCaracPerso, BorderLayout.NORTH) ; 
         panelGauche.add(imagePersoChoisi,BorderLayout.SOUTH) ;
-        
-        
+            
         
         //Déclaration et instanciation du conteneurCentre
         JPanel panelCentre = new JPanel(new BorderLayout()); 
-		panelCentre.setBackground(Color.BLUE) ;
+		panelCentre.setBackground(new Color(240,255,255)) ;
         
         //Déclaration et instanciation sous-conteneurCentre
         JPanel panelBoutons = new JPanel(new GridLayout());  
@@ -115,14 +118,14 @@ public class FenetreJeu  extends JFrame{
        
         //Déclaration et instanciation du conteneurBas
         JPanel panelBas = new JPanel(); 
-        panelBas.setBackground(Color.ORANGE) ;
+        panelBas.setBackground(new Color(187,210,225)) ;
         panelBas.add(labelNomAuteurs); 
 		
 		
 		
 		//Ajout des panel a un panel principal
 		JPanel cadrePrincipal = new JPanel(new BorderLayout()) ; 
-		
+		cadrePrincipal.setBackground(new Color(187,210,225)) ;
 		cadrePrincipal.add(panelHaut,BorderLayout.NORTH); 
 		cadrePrincipal.add(panelGauche,BorderLayout.WEST); 
         cadrePrincipal.add(panelCentre,BorderLayout.CENTER);

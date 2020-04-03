@@ -1,4 +1,6 @@
 import java.util.*;
+import java.awt.*;
+import java.awt.Color;
 import javax.swing.*;
 public class MainQuiEstCe {
 	
@@ -9,11 +11,13 @@ public class MainQuiEstCe {
 
          Personnage p12 = new Personnage("GRANGE Quentin","homme","lisses","bruns","marrons",im1);
 		 Jeu jeu = new Jeu(); 
+		 FenetreAccueil f1= new FenetreAccueil(); 
+		 FenetreJeu f2= new FenetreJeu(); 
 		 jeu.setQui( p12);
          IA TESTIA = new IA(jeu);
         
      
-        while (!TESTIA.PersonnageFound()){
+		while (!TESTIA.PersonnageFound()){
 			System.out.println("nouvelle boucle");
             Question Query = TESTIA.QuestionIA(); 
             System.out.println(Query.toString());
@@ -29,7 +33,7 @@ public class MainQuiEstCe {
             TESTIA.UpdateListes(ans,Query);
         } 
         
-       System.out.println("Notre ordinateur t'as démasqué... aurais-tu un crush sur "+jeu.getQui()+" ? :)");
+       System.out.println("Notre ordinateur t'as démasqué... aurais-tu un crush sur "+jeu.getQui()+" ? :)");*/
    
         
         
