@@ -55,7 +55,7 @@ public class IA {
 	private ArrayList<String> ListeTypeCheveux=new ArrayList<String>();
 	private ArrayList<String> ListeCouleurCheveux=new ArrayList<String>();
 	private ArrayList<String> ListeCouleurYeux=new ArrayList<String>();
-	private ArrayList<String> ListeCouleurPeau=new ArrayList<String>();
+	//private ArrayList<String> ListeCouleurPeau=new ArrayList<String>();
 	//Indexation de ces listes pour une utilisation plus rapide
     private ArrayList<ArrayList<String>> ListeListe= new ArrayList<ArrayList<String>>();
     
@@ -185,7 +185,7 @@ public class IA {
         ListeTypeCheveux.clear();
         ListeCouleurCheveux.clear();
         ListeCouleurYeux.clear();
-        ListeCouleurPeau.clear();
+        //ListeCouleurPeau.clear();
         
 		for(Personnage a : ListePersonnage){
 			if(!ListeGenre.contains(a.getGenre())){ListeGenre.add(a.getGenre());}
@@ -207,7 +207,7 @@ public class IA {
 		ListeListe.add(ListeTypeCheveux);
 		ListeListe.add(ListeCouleurCheveux);
 		ListeListe.add(ListeCouleurYeux);
-		ListeListe.add(ListeCouleurPeau);
+		//ListeListe.add(ListeCouleurPeau);
         
         
         
