@@ -40,14 +40,15 @@ import java.util.*;
 public class IA {
 	
 	//ATTRIBUTS
+	Jeu jeu;
     //Accès au nom du personnage pour le check final avec la méthode Personnage.getNom()
     
     
 	//Liste des personnages donnés par la méthode Jeu
-	private ArrayList<Personnage> ListePersonnageInit;
+	private LinkedList<Personnage> ListePersonnageInit;
     
     //Liste re-updated à chaque question : c'est le "pool" de l'ordi
-	private ArrayList<Personnage> ListePersonnagePossibles;
+	private LinkedList<Personnage> ListePersonnagePossibles;
 	
 	
     //Listes constituées des caractéristiques des personnages donnés par la méthode Jeu
@@ -63,10 +64,10 @@ public class IA {
     
     
 	//Constructeur
-	public IA(ArrayList<Personnage> ListePersonnageInit){
+	public IA(Jeu jeu){
 		
-		this.ListePersonnageInit=(ArrayList<Personnage>)ListePersonnageInit.clone();
-		this.ListePersonnagePossibles=(ArrayList<Personnage>)ListePersonnageInit.clone();
+		this.ListePersonnageInit=(LinkedList<Personnage>)(jeu.getListePersonnage()).clone();
+		this.ListePersonnagePossibles=(LinkedList<Personnage>)ListePersonnageInit.clone();
         
         
         this.MAJListes(ListePersonnageInit);
@@ -85,18 +86,19 @@ public class IA {
         for(ArrayList A : ListeListe){
               //Si une liste ne comporte qu'1 élément,la question ne peut pas porter dessus
                 
-            if( A.size()<=compteur && indiceListe!=(ListeListe.size()-1) ){
+            if( A.size()<=compteur && indiceListe!=(ListeListe.size()-1) && A.size()==1){
                 compteur=A.size();
                 indiceListe++;
                 
                 }
-            if (A.size()==1 && indiceListe!=(ListeListe.size()-1)){
+            /*if (A.size()==1 && indiceListe!=(ListeListe.size()-1)){
                 indiceListe++;
             }
+            
             int j=indiceListe;
             if(A.size()==1 && indiceListe==ListeListe.size()-1){
                 while(ListeListe.get(j).size()==1){indiceListe--;j=indiceListe;}
-            }
+            }*/
         
             
         }
@@ -106,12 +108,7 @@ public class IA {
         //Random rand1 = new Random(); 
 		//int indiceAttribut = rand1.nextInt(ListeListe.get(indiceListe).size()  );
         
-        int indiceAttribut =(int)(Math.random() * ((ListeListe.get(indiceListe).size())));
-        
-        
-        
-        
-      
+        int indiceAttribut =(int)(Math.random() * (ListeListe.get(indiceListe).size())); 
         
         //Question :
         Question Q = new Question(indiceListe,indiceAttribut,ListeListe.get(indiceListe).get(indiceAttribut));
@@ -125,8 +122,8 @@ public class IA {
       
         //Pour chaque personnage dans liste des choix possibles
         //on crée une  liste Personnage pour pouvoir modifier ListePersonnagePossible DANS la boucle for each
-        ArrayList<Personnage> ListePersonnageTEMP=new ArrayList<Personnage>();
-        ListePersonnageTEMP=(ArrayList<Personnage>)ListePersonnagePossibles.clone();
+       LinkedList<Personnage> ListePersonnageTEMP=new LinkedList<Personnage>();
+        ListePersonnageTEMP=(LinkedList<Personnage>)ListePersonnagePossibles.clone();
         for (Personnage P : ListePersonnagePossibles){
            
             //Valeur à éliminer ou à garder (Question posée par QuestionIA)
@@ -163,7 +160,7 @@ public class IA {
             System.out.println(P.toString());
         }
         ListePersonnagePossibles.clear();
-        ListePersonnagePossibles=(ArrayList<Personnage>)ListePersonnageTEMP.clone();
+        ListePersonnagePossibles=(LinkedList<Personnage>)ListePersonnageTEMP.clone();
        
         //UPDATE FINAL DES LISTES
         MAJListes(ListePersonnagePossibles);
@@ -171,7 +168,7 @@ public class IA {
    }
    
     //Met à jour les listes selon les personnages présents dans liste en paramètre ListePersonnage
-    public void MAJListes(ArrayList<Personnage> ListePersonnage){
+    public void MAJListes(LinkedList<Personnage> ListePersonnage){
         
         ListeGenre.clear();
         ListeTypeCheveux.clear();
@@ -188,7 +185,7 @@ public class IA {
 			
 			if(!ListeCouleurYeux.contains(a.getCouleurYeux())){ListeCouleurYeux.add(a.getCouleurYeux());}
 			
-			//if(!ListeCouleurPeau.contains(a.getCouleurPeau())){ListeCouleurPeau.add(a.getCouleurPeau());}
+			
 			
 		}
         
@@ -214,16 +211,12 @@ public class IA {
        if (ListePersonnagePossibles.size()==1){
            return true;
        }
+       else
        return false;
    
    }
    
-   
-   
        
-       
-   
-  
 	   
 }
 

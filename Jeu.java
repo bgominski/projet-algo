@@ -52,11 +52,8 @@ public class Jeu {
 		Personnage p4 = new Personnage("BEGAZO Gabriel","femme","lisses","bruns","marrons",im4);
 		ListePersonnage.add(p4);
 		ImageIcon im5 = new ImageIcon("/Users/alainboulard/Desktop/École/INSA/2A/Info/S4/Projet algo/4_DOCUMENT EXPLICATIF/Photos classe/Capture d’écran 2020-03-28 à 20.11.02.png");
-		Personnage p5 = new Personnage("CANJURA Sonia","femme","bouclés","noir","marron",im5);
+		Personnage p5 = new Personnage("CANJURA Sonia","femme","lisses","noir","marron",im5);
 		ListePersonnage.add(p5);
-		ImageIcon im6 = new ImageIcon("/Users/alainboulard/Desktop/École/INSA/2A/Info/S4/Projet algo/4_DOCUMENT EXPLICATIF/Photos classe/Capture d’écran 2020-03-28 à 20.11.02.png");
-		Personnage p6 = new Personnage("CANJURA Sonia","femme","bouclés","noir","marron",im6);
-		ListePersonnage.add(p6);
 		ImageIcon im7 = new ImageIcon("/Users/alainboulard/Desktop/École/INSA/2A/Info/S4/Projet algo/4_DOCUMENT EXPLICATIF/Photos classe/Capture d’écran 2020-03-28 à 20.11.02.png");
 		Personnage p7 = new Personnage("CLAUDE Edouard","homme","bouclés","blonds","bleus",im7);
 		ListePersonnage.add(p7);
@@ -70,7 +67,7 @@ public class Jeu {
 		Personnage p10 = new Personnage("FAURE Ninon","femme","bouclés","chatains","marrons",im10);
 		ListePersonnage.add(p10);
 		ImageIcon im11 = new ImageIcon("/Users/alainboulard/Desktop/École/INSA/2A/Info/S4/Projet algo/4_DOCUMENT EXPLICATIF/Photos classe/Capture d’écran 2020-03-28 à 20.11.02.png");
-		Personnage p11 = new Personnage("GOMINSKI Benjamin","homme","lisses","blonds","?",im11);
+		Personnage p11 = new Personnage("GOMINSKI Benjamin","homme","lisses","blonds","bleus",im11);
 		ListePersonnage.add(p11);
 		ImageIcon im12 = new ImageIcon("//Users/alainboulard/Desktop/École/INSA/2A/Info/S4/Projet algo/4_DOCUMENT EXPLICATIF/Photos classe/Capture d’écran 2020-03-28 à 20.11.02.png");
 		Personnage p12 = new Personnage("GRANGE Quentin","homme","lisses","bruns","marrons",im12);
@@ -109,8 +106,8 @@ public class Jeu {
 		return this.pseudo;
 		}
 		
-	public Personnage getQui(){
-		return this.qui;
+	public String getQui(){
+		return qui.toString();
 		}
 	
 	public LinkedList<Personnage> getListePersonnage() {
