@@ -76,27 +76,35 @@ public class IA {
 	
 	public Question QuestionIA(){
        
-        
-        //On détermine la liste la plus petite 
+        /*Si une liste ne comporte qu'1 élément,la question ne peut pas porter dessus*/
      
-        // && indiceListe!=(ListeListe.size()-1) : condition pour éviter IndexOutofBounds 
+       
         int compteur=10;            //valeur pour initialiser
         int indiceListe=0;
+        
+        //Pour chaque Liste de caractéristiques : 
         for(ArrayList A : ListeListe){
-              //Si une liste ne comporte qu'1 élément,la question ne peut pas porter dessus
-                
-            if( A.size()<=compteur && indiceListe!=(ListeListe.size()-1) ){
-                compteur=A.size();
+            
+            
+            
+            //Si la taille de la liste est inférieure à compteur et ce n'est pas la dernière liste
+            if( A.size()<=compteur && indiceListe!=(ListeListe.size()-1) ){       //&& indiceListe!=(ListeListe.size()-1) : condition pour éviter IndexOutofBounds 
+                compteur=A.size();                                                
                 indiceListe++;
-                
                 }
-            if (A.size()==1 && indiceListe!=(ListeListe.size()-1)){
-                indiceListe++;
-            }
+                
+          
+            //Si la liste ne contient qu'un élément ET que c'est la dernière Liste : on décremente indiceListe jusqu'à obtenir une liste de plus d'un String
             int j=indiceListe;
             if(A.size()==1 && indiceListe==ListeListe.size()-1){
                 while(ListeListe.get(j).size()==1){indiceListe--;j=indiceListe;}
             }
+            
+            //Si la liste ne contient qu'un élément mais que ce n'est pas la dernière liste, on la passe
+            if (A.size()==1 && indiceListe!=(ListeListe.size()-1)){
+                indiceListe++;
+            }
+            
         
             
         }
