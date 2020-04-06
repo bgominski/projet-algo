@@ -6,7 +6,7 @@ import java.util.*;
 public class FenetreAccueil extends JFrame{
 	
 	//Variables du jeu
-	private int nbPersos;
+	public int nbPersos;
 	public Jeu jeu = new Jeu(); 
 	
 	//Widgets du panel Princial
@@ -36,6 +36,7 @@ public class FenetreAccueil extends JFrame{
         
 		//Instanciation des widgets de la fenetre secondaire
 		this.ajoutChoix();
+      
         
         //Instanciation des widges de la fenetre principale
         labelAccueil1 = new JLabel("                                                                  "
@@ -88,11 +89,22 @@ public class FenetreAccueil extends JFrame{
 			tabPan[i].add(new JLabel("   "), BorderLayout.NORTH); //Pour espacer les boutons
 			tabPan[i].add(new JLabel("   "), BorderLayout.EAST); //Pour espacer les boutons
 			tabPan[i].add(new JLabel("   "), BorderLayout.WEST); //Pour espacer les boutons
+            //tabBtn[i].addActionListener(new EcouteurChoixPerso(this, tabBtn[i])); //Pour lier chaque bouton à l'écouteur
+            tabBtn[i].addActionListener(new EcouteurChoixPerso(this, i));
+        }
 		
         /**tabBtn[i]= new JButton(p1.getNom(),imagePerso ) ; Ça fonctionne **/
+    }
+    
+     
+    
+      /** public int getNumBouton(){
+        tabBtn= new JButton[nbPersos];
+        public Personnage trouverPerso(){**/
+    
+    
         
-        }
-	}
+    
 	
 	
 }

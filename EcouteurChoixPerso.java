@@ -1,22 +1,43 @@
 import java.awt.event.*;
 import java.util.*;
+import javax.swing.*;
 
 public class EcouteurChoixPerso implements ActionListener{
-	private FenetreJeu fen;
+	private FenetreAccueil fen;
+    private JButton bouton; 
+    private Jeu jeu; 
+    private int theIndex; 
 	
-	public EcouteurChoixPerso(FenetreJeu fen) {
+	public EcouteurChoixPerso(FenetreAccueil fen, int theIndex) {
 		this.fen = fen;
+        this.theIndex=theIndex; 
 		
 	}
     //actionPerformed indique les instructions a executer au clic du bouton
     public void actionPerformed(ActionEvent e){
-    //Lorsqu'on répond oui il va accéder à la liste des personnages et supprimer tout les personnages ne correspondant pas
-    //Ou créer une méthode qui trie directement et l'utiliser
+        
+        // On cherche l'indice du bouton qui a été appuyé
+        //On parcourt le tableau de bouton et on prend l'indice de celui qui a été appuyé
+       /** int a=0; 
+        for(int i=0; i<nbPersos; i++){
+            if (e.getSource() == tabBtn[i]) {
+			a=i;
+            }
+        }**/
+        
+        jeu.setQui(jeu.getListePersonnage().get(theIndex));
     
-    
-    //Lorsqu'on répond non il va accéder à la liste des personnages et supprimer tout les personnages ne correspondant pas
-    //Ou créer une méthode qui trie et l'utiliser
-		
-
-    }
+        }
 }
+ 
+    
+ 
+  
+
+
+
+        
+        // Récupérer le personnage associé du bouton et le transmettre à la classe Jeu
+     
+    
+

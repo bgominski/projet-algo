@@ -11,7 +11,9 @@ public class EcouteurJouer implements ActionListener{
 	}
     //actionPerformed indique les instructions a executer au clic du bouton
     public void actionPerformed(ActionEvent e){
+        //Ferme la fenêtre d'accueil
 		fen.hide();
+        //Ouvre la fenêtre de jeu
 		fen2 = new FenetreJeu();
 
     }
