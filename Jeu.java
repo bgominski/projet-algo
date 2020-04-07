@@ -52,7 +52,7 @@ public class Jeu {
 		Personnage p4 = new Personnage("BEGAZO Gabriel","femme","lisses","bruns","marrons",im4);
 		ListePersonnage.add(p4);
 		ImageIcon im5 = new ImageIcon("/Users/alainboulard/Desktop/photos ajustée algo/7 CANJURA Sonia.png");
-		Personnage p5 = new Personnage("CANJURA Sonia","femme","lisses","noir","marron",im5);
+		Personnage p5 = new Personnage("CANJURA Sonia","femme","lisses","noirs","marrons",im5);
 		ListePersonnage.add(p5);
 		ImageIcon im7 = new ImageIcon("/Users/emmanuelle/Desktop/21 ROUSSI Emmanuelle.JPG");
 		Personnage p7 = new Personnage("CLAUDE Edouard","homme","bouclés","blonds","bleus",im7);
@@ -88,7 +88,7 @@ public class Jeu {
 		Personnage p17 = new Personnage("ROUGIER Julia","femme","lisses","bruns","bleus",im17);
 		ListePersonnage.add(p17);
 		ImageIcon im18 = new ImageIcon("/Users/alainboulard/Desktop/photos ajustée algo/21 ROUSSI Emmanuelle.JPG");
-		Personnage p18 = new Personnage("ROUSSI Emmanuelle","femme","bouclés","noir","marron",im18);
+		Personnage p18 = new Personnage("ROUSSI Emmanuelle","femme","bouclés","noirs","marrons",im18);
 		ListePersonnage.add(p18);
 		ImageIcon im19 = new ImageIcon("/Users/alainboulard/Desktop/photos ajustée algo/21 ROUSSI Emmanuelle.JPG");
 		Personnage p19 = new Personnage("SANDOZ Alexandre","homme","bouclés","chatains","marrons",im19);

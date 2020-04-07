@@ -22,8 +22,8 @@ public class Question {
         this.valeurAttribut = valeurAttribut ; 
         
         if(indiceListe==0){nomListe="Genre";}
-		if(indiceListe==1){nomListe="Type Cheveux";}
-		if(indiceListe==2){nomListe="Couleur Cheveux";}
+		if(indiceListe==1){nomListe="Couleur Cheveux";}
+		if(indiceListe==2){nomListe="Type Cheveux";}
 		if(indiceListe==3){nomListe="Couleur Yeux";}
 		if(indiceListe==4){nomListe="Couleur Peau";}
         
@@ -31,7 +31,7 @@ public class Question {
     }
     
     public String toString(){
-        return indiceListe+"  "+indiceAttribut+"  Le personnage a "+nomListe+" de type "+valeurAttribut;
+        return "  Le personnage a "+nomListe+" de type "+valeurAttribut+" ?";
     }
     
     
