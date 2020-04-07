@@ -39,12 +39,10 @@ import java.util.*;
 
 public class IA {
 	
+    
 	//ATTRIBUTS
-	Jeu jeu;
-    //Accès au nom du personnage pour le check final avec la méthode Personnage.getNom()
-    
-    
-	//Liste des personnages donnés par la méthode Jeu
+
+	//Liste des personnages donnés par Jeu
 	final LinkedList<Personnage> ListePersonnageInit;
     
     //Liste re-updated à chaque question : c'est le "pool" de l'ordi
@@ -97,7 +95,7 @@ public class IA {
             
             int j=indiceListe;
             if(A.size()==1 && indiceListe==ListeListe.size()-1){
-                while(ListeListe.get(j).size()==1){indiceListe--;j=indiceListe;}
+                while(ListeListe.get(j).size()==1 && indiceListe!=0){indiceListe--;j=indiceListe;}
             }
         
             

@@ -6,19 +6,8 @@ public class MainTESTIA {
 	
 	public static void main (String[] args) {
 		
-		// Test classe Personnage
-        ImageIcon im1 = new ImageIcon("/Users/emmanuelle/Desktop/21 ROUSSI Emmanuelle.JPG");
-
-         //Personnage p12 = new Personnage("GRANGE Quentin","homme","lisses","bruns","marrons",im1);
-		 Jeu jeu = new Jeu(); 
-		 //FenetreAccueil f1= new FenetreAccueil(); 
-         
-         
-         //System.out.println(jeu.getQui()); 
-         
-		 //FenetreJeu f2= new FenetreJeu(); 
-		 //jeu.setQui( p12);
-         IA TESTIA = new IA(jeu);
+        Jeu jeu= new Jeu(); 
+        IA TESTIA = new IA(jeu);
         
      
 		while (!TESTIA.PersonnageFound()){
