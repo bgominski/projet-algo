@@ -111,9 +111,13 @@ public class Jeu {
 		return this.pseudo;
 		}
 		
-	public String getQui(){
+	public String gettoStringQui(){
 		return qui.toString();
 		}
+		
+	public Personnage getQui(){
+		return qui;
+	}
 	
 	public LinkedList<Personnage> getListePersonnage() {
 		return this.ListePersonnage;
