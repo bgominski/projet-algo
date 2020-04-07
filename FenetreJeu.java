@@ -31,11 +31,15 @@ public class FenetreJeu  extends JFrame{
     //Noms auteurs
     JLabel labelNomAuteurs ; 
     
-   
+    Jeu jeu ; 
+    
+    FenetreAccueil fenA; 
     
     
-    public FenetreJeu(){
+    public FenetreJeu(FenetreAccueil fenA){
         super("Qui-est-ce ? - Fenêtre de jeu ") ;  //on definit le nom de la fenetre
+        
+        jeu= fenA.getJeu(); 
 		
 		//Dimensions de la fenetre graphique et fermeture
 		setSize(1200, 400) ; 
