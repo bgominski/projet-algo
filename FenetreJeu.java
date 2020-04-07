@@ -67,9 +67,9 @@ public class FenetreJeu  extends JFrame{
         //Milieu
         labelQIA = new JLabel ("Questions de l'IA") ;
         bOui = new JButton("OUI"); 
-        bOui.addActionListener(new EcouteurReponse(this));
+        bOui.addActionListener(new EcouteurReponse(this, "Oui"));
         bNon = new JButton("NON") ;
-        bNon.addActionListener(new EcouteurReponse(this));
+        bNon.addActionListener(new EcouteurReponse(this, "Non"));
         
         //Droite 
         labelListePerso = new JLabel ("Personnages restants possibles :") ;
