@@ -95,6 +95,11 @@ public class FenetreAccueil extends JFrame{
 		
         /**tabBtn[i]= new JButton(p1.getNom(),imagePerso ) ; Ça fonctionne **/
     }
+    //Création d'un getter du jeu pour pouvoir le récupérer dans 
+    //EcouteurChoixPerso et l'utiliser pour retrouver le personnage sélectionner
+    public Jeu getJeu(){ 
+        return jeu ; 
+    }
     
      
     

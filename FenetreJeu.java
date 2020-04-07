@@ -12,7 +12,7 @@ public class FenetreJeu  extends JFrame{
     //Panel Gauche
     //Caractéristiques du personnage 
     JPanel panelPersoChoisi ;
-    JLabel labelCaracPerso ;  
+    JTextArea labelCaracPerso ;  
     JLabel imagePersoChoisi ;
      
     
@@ -31,11 +31,15 @@ public class FenetreJeu  extends JFrame{
     //Noms auteurs
     JLabel labelNomAuteurs ; 
     
-   
+    //Jeu courant
+    Jeu jeu ; 
+    FenetreAccueil fenA; 
     
     
-    public FenetreJeu(){
+    public FenetreJeu(FenetreAccueil fenA){
         super("Qui-est-ce ? - Fenêtre de jeu ") ;  //on definit le nom de la fenetre
+        
+        jeu= fenA.getJeu(); 
 		
 		//Dimensions de la fenetre graphique et fermeture
 		setSize(1200, 400) ; 
@@ -48,9 +52,13 @@ public class FenetreJeu  extends JFrame{
 		labelExplication = new JLabel("Répondre par oui ou par non à la question suivante :  ") ; 
         
         
-        //Gauche
+        //Gauche   ("Ton texte\nTon texte");
         panelPersoChoisi= new JPanel( new BorderLayout());
-        labelCaracPerso = new JLabel ("Caractéristiques du personnage") ;
+        labelCaracPerso = new JTextArea("Votre personnage :\nNom: "+jeu.getQui().getNom()+"\nGenre: "+
+        jeu.getQui().getGenre()+"\nCouleur cheveux: "+jeu.getQui().getCouleurCheveux()
+        +"\nType cheveux: "+jeu.getQui().getTypeCheveux() +"\nYeux: "+jeu.getQui().getCouleurYeux());     
+		labelCaracPerso.setEditable(false);
+		labelCaracPerso.setBackground(new Color(187,210,225)) ;		
         imagePersoChoisi = new JLabel( new ImageIcon("/Users/emmanuelle/Desktop/21 ROUSSI Emmanuelle.JPG"));
         panelPersoChoisi.add(labelCaracPerso,BorderLayout.SOUTH);
         panelPersoChoisi.add(imagePersoChoisi,BorderLayout.CENTER);
@@ -59,9 +67,9 @@ public class FenetreJeu  extends JFrame{
         //Milieu
         labelQIA = new JLabel ("Questions de l'IA") ;
         bOui = new JButton("OUI"); 
-        bOui.addActionListener(new EcouteurReponse(this));
+        bOui.addActionListener(new EcouteurReponse(this, "Oui"));
         bNon = new JButton("NON") ;
-        bNon.addActionListener(new EcouteurReponse(this));
+        bNon.addActionListener(new EcouteurReponse(this, "Non"));
         
         //Droite 
         labelListePerso = new JLabel ("Personnages restants possibles :") ;
@@ -109,7 +117,6 @@ public class FenetreJeu  extends JFrame{
     
         //Déclaration et instanciation du conteneur Droite
         JPanel panelDroite = new JPanel(new BorderLayout()); 
-		//panelDroite.setBackground(Color.???) ;
         //Ajout des widgets (dans l'ordre de gauche à droite) dans conteneurCentre
         panelDroite.add(labelListePerso) ; 
         
@@ -134,12 +141,12 @@ public class FenetreJeu  extends JFrame{
 		
 		
 		//Ajout le gros conteneur à la fenêtre
-		add(cadrePrincipal) ; 
-        
-        setVisible(true) ; 
-        
-    
-    
+		add(cadrePrincipal) ;       
+        setVisible(true) ;      
     }
+    
+    public Jeu getJeu() {
+		return jeu;
+	}
 }
     

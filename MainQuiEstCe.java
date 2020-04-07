@@ -14,7 +14,8 @@ public class MainQuiEstCe {
 		 FenetreAccueil f1= new FenetreAccueil(); 
          
          
-         //System.out.println(jeu.getQui()); 
+         System.out.println(jeu.getQui()); 
+         
          
 		 //FenetreJeu f2= new FenetreJeu(); 
 		 //jeu.setQui( p12);

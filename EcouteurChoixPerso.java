@@ -7,6 +7,7 @@ public class EcouteurChoixPerso implements ActionListener{
     private JButton bouton; 
     private Jeu jeu; 
     private int theIndex; 
+    private Personnage qui ; 
 	
 	public EcouteurChoixPerso(FenetreAccueil fen, int theIndex) {
 		this.fen = fen;
@@ -24,8 +25,12 @@ public class EcouteurChoixPerso implements ActionListener{
 			a=i;
             }
         }**/
+        //Instancier un jeu en récupérant celui en cours dans la fenêtre Accueil
         
-        jeu.setQui(jeu.getListePersonnage().get(theIndex));
+        jeu=fen.getJeu() ; 
+        qui = jeu.getListePersonnage().get(theIndex); 
+        jeu.setQui(qui);
+        //System.out.println(qui.toString()) ;  Vérifier si quand on clique sur le bouton ça set bien le personnage "qui"
     
         }
 }

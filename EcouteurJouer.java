@@ -14,7 +14,7 @@ public class EcouteurJouer implements ActionListener{
         //Ferme la fenêtre d'accueil
 		fen.hide();
         //Ouvre la fenêtre de jeu
-		fen2 = new FenetreJeu();
+		fen2 = new FenetreJeu(fen);
 
     }
 }

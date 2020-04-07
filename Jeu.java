@@ -99,6 +99,8 @@ public class Jeu {
 		ImageIcon im21 = new ImageIcon("/Users/alainboulard/Desktop/photos ajustée algo/24 VARGAS Diego.png");
 		Personnage p21 = new Personnage("VARGAS Diego","homme","lisses","bruns","marrons",im21);
 		ListePersonnage.add(p21);
+        
+        qui = p1 ; //instanciation dun personnage
 		
 		}
 	
@@ -109,9 +111,13 @@ public class Jeu {
 		return this.pseudo;
 		}
 		
-	public String getQui(){
+	public String gettoStringQui(){
 		return qui.toString();
 		}
+		
+	public Personnage getQui(){
+		return qui;
+	}
 	
 	public LinkedList<Personnage> getListePersonnage() {
 		return this.ListePersonnage;
