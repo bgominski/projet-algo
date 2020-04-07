@@ -15,9 +15,12 @@ public class EcouteurReponse implements ActionListener{
     public void actionPerformed(ActionEvent e){
     
         jeu = fen.getJeu(); 
-        ia = new IA(jeu);/**instancie un IA avec le jeu en cours dans la fenetreJeu donc pas besoin d'instancier jeu ?**/
-        Question Query = ia.QuestionIA(); 
-        
+        ia = new IA(jeu); /**instancie un IA avec le jeu en cours dans la fenetreJeu donc pas besoin d'instancier jeu ?**/
+        System.out.println("nouvelle boucle");
+        ia.afficheListe();
+        Question Query = ia.QuestionIA();
+        System.out.println(Query.toString());
+        System.out.println("Veuillez saisir réponse :");     
         if(rep.equals("Oui")){
         //Appel de la méthode triant les personnage en fonction de la réponse
         ia.UpdateListes(true,Query);
@@ -29,8 +32,9 @@ public class EcouteurReponse implements ActionListener{
         if(rep.equals("Non")){
         ia.UpdateListes(false,Query);
             
-        }
+        
     }
+	}
     
 }
 

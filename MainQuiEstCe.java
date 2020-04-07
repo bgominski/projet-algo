@@ -19,17 +19,17 @@ public class MainQuiEstCe {
          
 		 //FenetreJeu f2= new FenetreJeu(); 
 		 //jeu.setQui( p12);
-         //IA TESTIA = new IA(jeu);
+         IA TESTIA = new IA(jeu);
         
-     /**
-		while (!TESTIA.PersonnageFound()){
+     while (!TESTIA.PersonnageFound()){
 			System.out.println("nouvelle boucle");
+            TESTIA.afficheListe();
             Question Query = TESTIA.QuestionIA(); 
             System.out.println(Query.toString());
             System.out.println("Veuillez saisir réponse :");
             Scanner sc = new Scanner(System.in);
             String str = sc.nextLine();
-            System.out.println("Vous avez saisi : " + str);
+          
             char carac = str.charAt(0);
             boolean ans;
             if (carac=='o'){ans=true;}
@@ -38,7 +38,7 @@ public class MainQuiEstCe {
             TESTIA.UpdateListes(ans,Query);
         } 
         
-       System.out.println("Notre ordinateur t'as démasqué... aurais-tu un crush sur "+jeu.getQui()+" ? :)");*/
+       System.out.println("Notre ordinateur t'as démasqué... aurais-tu un crush sur "+jeu.getQui()+" ? :)");
        
        
    
