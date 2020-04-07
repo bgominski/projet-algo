@@ -99,6 +99,8 @@ public class Jeu {
 		ImageIcon im21 = new ImageIcon("/Users/alainboulard/Desktop/photos ajustée algo/24 VARGAS Diego.png");
 		Personnage p21 = new Personnage("VARGAS Diego","homme","lisses","bruns","marrons",im21);
 		ListePersonnage.add(p21);
+        
+        qui = p1 ; //instanciation dun personnage
 		
 		}
 	
