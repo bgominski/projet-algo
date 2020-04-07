@@ -45,7 +45,7 @@ public class IA {
     
     
 	//Liste des personnages donnés par la méthode Jeu
-	private LinkedList<Personnage> ListePersonnageInit;
+	final LinkedList<Personnage> ListePersonnageInit;
     
     //Liste re-updated à chaque question : c'est le "pool" de l'ordi
 	private LinkedList<Personnage> ListePersonnagePossibles;
@@ -133,26 +133,26 @@ public class IA {
             //Valeur à éliminer ou à garder (Question posée par QuestionIA)
             String V=null;
            
-            switch (Q.indiceListe){
+            switch (Q.getindiceListe()){
                 case 0 : V=P.getGenre();break;        //afin que String V soit initialisé
                 case 1 : V=P.getCouleurCheveux();break;
                 case 2 : V=P.getTypeCheveux();break;
                 case 3 : V=P.getCouleurYeux();break;
                 //case 4 : V=P.getCouleurPeau();break;
             }
-            System.out.println(V+Q.valeurAttribut);
+            System.out.println(V+Q.getvaleurAttribut());
             
         
         
             //Si le personnage cherché A cette caractéristique-là
             //on enlève tous les personnages n'ayant pas cette caractéristique-là
-            if(Ans && (V!=Q.valeurAttribut)){
+            if(Ans && (V!=Q.getvaleurAttribut())){
                 System.out.println("*");
                 ListePersonnageTEMP.remove(P);}
             
             //Si le personnage cherché N'a PAS cette caractéristique-là
             //on enlève tous les personnages l'ayant
-           if ((!Ans) && V==Q.valeurAttribut){
+           if ((!Ans) && V==Q.getvaleurAttribut()){
                 System.out.println("*");
                 ListePersonnageTEMP.remove(P);}
             

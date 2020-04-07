@@ -7,10 +7,10 @@ public class Question {
     
     //ATTRIBUTS
     
-    public int indiceListe;
-    public int indiceAttribut;
-    public String nomListe;
-    public String valeurAttribut;
+    private int indiceListe;
+    private int indiceAttribut;
+    private String nomListe;
+    private String valeurAttribut;
     
     //CONSTRUCTEUR 
     
@@ -34,8 +34,12 @@ public class Question {
         return "  Le personnage a "+nomListe+" de type "+valeurAttribut+" ?";
     }
     
+    //GETTERs
     
-    
+    public int getindiceListe(){return indiceListe;}
+    public int getindiceAttribut(){return indiceAttribut;}
+    public String getnomList(){return nomListe;}
+    public String getvaleurAttribut(){return valeurAttribut;}
     
 }
 
