@@ -29,12 +29,15 @@ public class Jeu {
 	private String pseudo;
 	private Personnage qui;
 	private LinkedList<Personnage> ListePersonnage=new LinkedList<Personnage>();
+	private Question question;
+	private IA ia;
 	
 	//MÉTHODES
 	
 	// Création des personnages disponibles (À MODIFIER)
 	public Jeu(){
 		creerListePerso();
+		jouer();
 	}
 	
 	public void creerListePerso(){
@@ -46,10 +49,10 @@ public class Jeu {
 		Personnage p2 = new Personnage("BEUGIN Maeva","femme","lisses","blonds","marrons",im2);
 		ListePersonnage.add(p2);
 		ImageIcon im3 = new ImageIcon("/Users/alainboulard/Desktop/photos ajustée algo/6 BOULARD Solenn.png");
-		Personnage p3 = new Personnage("BOULARD Solenn","homme","lisses","chatains","bleus",im3);
+		Personnage p3 = new Personnage("BOULARD Solenn","femme","lisses","chatains","bleus",im3);
 		ListePersonnage.add(p3);
 		ImageIcon im4 = new ImageIcon("/Users/alainboulard/Desktop/photos ajustée algo/4 BEGAZO Gabriel.png");
-		Personnage p4 = new Personnage("BEGAZO Gabriel","femme","lisses","bruns","marrons",im4);
+		Personnage p4 = new Personnage("BEGAZO Gabriel","homme","lisses","bruns","marrons",im4);
 		ListePersonnage.add(p4);
 		ImageIcon im5 = new ImageIcon("/Users/alainboulard/Desktop/photos ajustée algo/7 CANJURA Sonia.png");
 		Personnage p5 = new Personnage("CANJURA Sonia","femme","lisses","noirs","marrons",im5);
@@ -58,7 +61,7 @@ public class Jeu {
 		Personnage p7 = new Personnage("CLAUDE Edouard","homme","bouclés","blonds","bleus",im7);
 		ListePersonnage.add(p7);
 		ImageIcon im8= new ImageIcon("/Users/alainboulard/Desktop/photos ajustée algo/9 DRUTEL Maxence.png");
-		Personnage p8 = new Personnage("DRUTEL Maxence","homme","lisses","bruns","marrons",im8);
+		Personnage p8 = new Personnage("DRUTEL Maxence","homme","lisses","chatain","marrons",im8);
 		ListePersonnage.add(p8);
 		ImageIcon im9 = new ImageIcon("/Users/alainboulard/Desktop/photos ajustée algo/10 DAGHNI Samya.png");
 		Personnage p9 = new Personnage("DAGHNI Samya","femme","bouclés","bruns","marrons",im9);
@@ -79,7 +82,7 @@ public class Jeu {
 		Personnage p14 = new Personnage("LENGANEY Nicolas","homme","lisses","bruns","marrons",im14);
 		ListePersonnage.add(p14);
 		ImageIcon im15 = new ImageIcon("/Users/alainboulard/Desktop/photos ajustée algo/19 RAGOT Andres.png");
-		Personnage p15 = new Personnage("RAGOT Andres","homme","lisses","bruns","marrons",im15);
+		Personnage p15 = new Personnage("RAGOT Andres","homme","bouclés","bruns","marrons",im15);
 		ListePersonnage.add(p15);
         ImageIcon im16 = new ImageIcon("/Users/alainboulard/Desktop/photos ajustée algo/16 MARTINEZ Karina.png");
 		Personnage p16 = new Personnage("MARTINEZ Karina","femme","bouclés","bruns","marrons",im16);
@@ -122,27 +125,31 @@ public class Jeu {
 	public LinkedList<Personnage> getListePersonnage() {
 		return this.ListePersonnage;
 		}
-
+		
+	public Question getQuestion(){
+		return this.question;
+		}
+		
+	public IA getIA(){
+		return this.ia;
+		}
 	
 	//Setters
-	public void setPseudo(String pseudo){
-		this.pseudo=pseudo;
-		}
 		
 	public void setQui(Personnage p){
 		this.qui=p;
 		}
 		
+	public void setQuestion(Question q){
+		this.question=q;
+		}
+		
 	
 	
 	//Boucle de Jeu	
-	//À compléter
-	
-	/* niveau IA :
-	 * Question sur une caractéristique 
-	 * si non : rayer tout pers. ayant cette caract.
-	 * si oui : rayer tout pers n'ayant pas cette caract. 
-		*/
+	public void jouer(){
+		ia = new IA(this);
+		question = ia.QuestionIA(); //affiche une première question	
 	}
-
-
+	
+	}

@@ -112,6 +112,7 @@ public class IA {
         
         //Question :
         Question Q = new Question(indiceListe,indiceAttribut,ListeListe.get(indiceListe).get(indiceAttribut));
+        System.out.println(Q.toString());
         
         return Q;
    }
@@ -217,6 +218,14 @@ public class IA {
        for(Personnage A : ListePersonnagePossibles){
               System.out.println(A.toString());
           }
+      }
+    
+    public String affichePersoPossibles(){ //Récupère les description des perso possibles pour l'interface
+	   String res="";
+       for(Personnage A : ListePersonnagePossibles){
+              res=res+"\n"+(A.toString());
+          }
+          return res;
       }
    
    //Renvoie TRUE si le personnage a été trouvé

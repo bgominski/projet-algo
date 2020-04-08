@@ -3,11 +3,11 @@ import java.awt.*;
 import java.awt.event.*;
 
 public class FenetreJeu  extends JFrame{
-    //Declaration des attributs de la fenêtre
+	
+    //ATTRIBUTS
     
     //Panel Haut
-    //Explications
-    JLabel labelExplication ; 
+    JLabel labelExplication ; //Explications du jeu
     
     //Panel Gauche
     //Caractéristiques du personnage 
@@ -17,22 +17,21 @@ public class FenetreJeu  extends JFrame{
      
     
     //Panel Milieu
-    //Questions de l'IA
-    JLabel labelQIA ; 
-    //Bouton voir perso 
-    JButton bOui ; 
-    JButton bNon ;
+    JLabel aireQIA ; //Contient les questions de l'IA
+    JButton bOui ; //Bouton de réponse
+    JButton bNon ; //Bouton de réponse
     
     //Panel Droite 
-    JLabel labelListePerso ; 
+    JTextArea PersoPossibles ; //Liste des personnages possibles (voir le raisonnement de l'IA)
     
     
     //Panel Bas
-    //Noms auteurs
-    JLabel labelNomAuteurs ; 
+    JLabel labelNomAuteurs ; //Noms auteurs
     
     //Jeu courant
     Jeu jeu ; 
+    
+    //fenetre d'accueil 
     FenetreAccueil fenA; 
     
     
@@ -42,12 +41,11 @@ public class FenetreJeu  extends JFrame{
         jeu= fenA.getJeu(); 
 		
 		//Dimensions de la fenetre graphique et fermeture
-		setSize(1200, 400) ; 
+		setSize(1600, 500) ; 
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE) ; 
         
         
         //===== Instanciation des widgets de la fenêtre ====
-        
         //Haut
 		labelExplication = new JLabel("Répondre par oui ou par non à la question suivante :  ") ; 
         
@@ -65,15 +63,16 @@ public class FenetreJeu  extends JFrame{
         //panelPersoChoisi.add(new JLabel("	 "),BorderLayout.EAST);
         
         //Milieu
-        labelQIA = new JLabel ("Questions de l'IA") ;
+        aireQIA = new JLabel() ;
+        aireQIA.setText(jeu.getQuestion().toString());
         bOui = new JButton("OUI"); 
         bOui.addActionListener(new EcouteurReponse(this, "Oui"));
         bNon = new JButton("NON") ;
         bNon.addActionListener(new EcouteurReponse(this, "Non"));
         
         //Droite 
-        labelListePerso = new JLabel ("Personnages restants possibles :") ;
-		
+        PersoPossibles = new JTextArea(15,30);
+		PersoPossibles.setText("Personnages possibles:\n"+jeu.getIA().affichePersoPossibles()); //affiche la liste de personnage initiale
         
         //Bas
         labelNomAuteurs = new JLabel("Nom auteurs") ; 
@@ -111,17 +110,15 @@ public class FenetreJeu  extends JFrame{
         panelBoutons.add(bNon) ; 
         
         //Ajout des widgets (dans l'ordre de gauche à droite) dans conteneurCentre
-        panelCentre.add(labelQIA,BorderLayout.NORTH) ; 
+        panelCentre.add(aireQIA,BorderLayout.NORTH) ; 
         panelCentre.add(panelBoutons,BorderLayout.CENTER); 
         
     
         //Déclaration et instanciation du conteneur Droite
         JPanel panelDroite = new JPanel(new BorderLayout()); 
         //Ajout des widgets (dans l'ordre de gauche à droite) dans conteneurCentre
-        panelDroite.add(labelListePerso) ; 
-        
-        
-        
+        panelDroite.add(PersoPossibles) ; 
+             
        
         //Déclaration et instanciation du conteneurBas
         JPanel panelBas = new JPanel(); 
@@ -145,8 +142,21 @@ public class FenetreJeu  extends JFrame{
         setVisible(true) ;      
     }
     
+    //MÉTHODES
+   
     public Jeu getJeu() {
 		return jeu;
+	}
+	
+	//Mise à jour de la question posée
+	public void afficheQuestion() {
+		aireQIA.setText(jeu.getQuestion().toString());
+	}
+	
+	//Mise à jour de la liste des personnages possibles
+	public void affichePerso() {
+	PersoPossibles.setText("Personnage(s) possible(s):\n"+jeu.getIA().affichePersoPossibles());	
+		
 	}
 }
     

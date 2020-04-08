@@ -5,14 +5,16 @@ import java.util.*;
 
 public class FenetreAccueil extends JFrame{
 	
-	//Variables du jeu
-	public int nbPersos;
-	public Jeu jeu = new Jeu(); 
+	//ATTRIBUTS
+	
+	//Variables du jeu courant
+	public int nbPersos; //nombre de personnages initiale
+	private Jeu jeu; //jeu courant
 	
 	//Widgets du panel Princial
-	private JLabel labelAccueil1;
-	private JLabel labelAccueil2;
-	private JLabel labelAccueil3;
+	private JLabel labelAccueil1; //LLbel de bienvue
+	private JLabel labelAccueil2; //Label d'instruction
+	private JLabel labelAccueil3; //Label untilisé pour un rendu plus esthétique
 	private JPanel panelAcceuil; //Panel utilisé pour un rendu plus esthétique
 	private JLabel labelDescription;
 	private JButton btnJouer;
@@ -28,9 +30,13 @@ public class FenetreAccueil extends JFrame{
      */
 	
 	//Constructeur
-	public FenetreAccueil(){
+	public FenetreAccueil(Jeu jeu){
+		
 		super("Qui est-ce? - Fenetre d'accueil");
-		this.nbPersos=jeu.getListePersonnage().size();
+		this.jeu=jeu; //récupération d'un nouveau jeu
+		this.nbPersos=jeu.getListePersonnage().size();//récuparation du notre de personnages initiale
+		
+		//Dimensions de la fenetre graphique et fermeture
 		setSize(1200,800);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         
@@ -80,37 +86,24 @@ public class FenetreAccueil extends JFrame{
     public void ajoutChoix(){
         tabPan = new JPanel[nbPersos];
 		tabBtn= new JButton[nbPersos];
-		for (int i=0; i<nbPersos; i++){
-			tabPan[i]= new JPanel(new BorderLayout());
+		for (int i=0; i<nbPersos; i++){ 
+			tabPan[i]= new JPanel(new BorderLayout());//On crée un panel pour chaque personne
 			tabPan[i].setBackground(new Color(240,255,255)); 
-			tabBtn[i]= new JButton((jeu.getListePersonnage().get(i)).getImage()) ;
-			tabPan[i].add(tabBtn[i],BorderLayout.CENTER); //Pour afficher l'image du personage dans le bouton
-			tabPan[i].add(new JLabel("		"+jeu.getListePersonnage().get(i).getNom()), BorderLayout.SOUTH); // Pour afficher le nom du Perso en dessous de sa photo
+			tabBtn[i]= new JButton((jeu.getListePersonnage().get(i)).getImage()) ; //On crée un bouton pour chaque personne
+			tabPan[i].add(tabBtn[i],BorderLayout.CENTER); //Affiche l'image du personnage dans le bouton
+			tabPan[i].add(new JLabel("		"+jeu.getListePersonnage().get(i).getNom()), BorderLayout.SOUTH); //Affiche le nom du personnage
 			tabPan[i].add(new JLabel("   "), BorderLayout.NORTH); //Pour espacer les boutons
 			tabPan[i].add(new JLabel("   "), BorderLayout.EAST); //Pour espacer les boutons
 			tabPan[i].add(new JLabel("   "), BorderLayout.WEST); //Pour espacer les boutons
-            //tabBtn[i].addActionListener(new EcouteurChoixPerso(this, tabBtn[i])); //Pour lier chaque bouton à l'écouteur
-            tabBtn[i].addActionListener(new EcouteurChoixPerso(this, i));
+            tabBtn[i].addActionListener(new EcouteurChoixPerso(this, i)); //Définit le personnage du bouton comme 'qui'
         }
-		
-        /**tabBtn[i]= new JButton(p1.getNom(),imagePerso ) ; Ça fonctionne **/
     }
-    //Création d'un getter du jeu pour pouvoir le récupérer dans 
-    //EcouteurChoixPerso et l'utiliser pour retrouver le personnage sélectionner
+    
+    //Getters
     public Jeu getJeu(){ 
         return jeu ; 
     }
     
-     
-    
-      /** public int getNumBouton(){
-        tabBtn= new JButton[nbPersos];
-        public Personnage trouverPerso(){**/
-    
-    
-        
-    
-	
 	
 }
 
