@@ -11,13 +11,15 @@ public class FenetreAccueil extends JFrame{
 	public int nbPersos; //nombre de personnages initiale
 	private Jeu jeu; //jeu courant
 	
-	//Widgets du panel Princial
+	//Widgets du panel Accueil
+    private JPanel panelAcceuil; 
 	private JLabel labelAccueil1; //LLbel de bienvue
 	private JLabel labelAccueil2; //Label d'instruction
 	private JLabel labelAccueil3; //Label untilisé pour un rendu plus esthétique
-	private JPanel panelAcceuil; //Panel utilisé pour un rendu plus esthétique
+	private JPanel panel2Accueil; //Panel utilisé pour un rendu plus esthétique
 	private JLabel labelDescription;
 	private JButton btnJouer;
+    private ImageIcon imageQuiEstCe; 
 	
 	//Widgets du panel Secondaire
 	private JButton[] tabBtn;
@@ -47,18 +49,24 @@ public class FenetreAccueil extends JFrame{
         //Instanciation des widges de la fenetre principale
         labelAccueil1 = new JLabel("                                                                  "
         +"BIENVENUE DANS 'QUI EST-CE?' ÉDITION SPÉCIALE AMERINSA! ES-TU PRÊT À JOUER CONTRE NOTRE IA?");
+        imageQuiEstCe = new ImageIcon("/Users/alainboulard/Desktop/Image Algo/QuiEstce.png"); 
+        JLabel imageAccueil = new JLabel(imageQuiEstCe);
         labelAccueil2= new JLabel("                                                                           "
         +"CHOISI UN PERSONNAGE PUIS CLIQUE SUR 'JOUER' POUR COMMENCER LA PARTIE!");
         labelAccueil3= new JLabel("  ");
+        panel2Accueil = new JPanel(new BorderLayout());
+        panel2
         panelAcceuil = new JPanel(new BorderLayout());
         panelAcceuil.setBackground(new Color(187,210,225)) ; 
         panelAcceuil.add(labelAccueil1, BorderLayout.NORTH); 
+        panelAcceuil.add(imageAccueil, BorderLayout.NORTH); 
         panelAcceuil.add(labelAccueil2,BorderLayout.CENTER);
         panelAcceuil.add(labelAccueil3,BorderLayout.SOUTH);
         
         labelDescription = new JLabel ("Description et règles du jeu");
         btnJouer= new JButton("Jouer");
-        //btnJouer.setBackground(Color.BLUE); //changer la couleur du bouton
+        btnJouer.setForeground(new Color(0,123, 123)); //Changer la couleur de la police
+        //btnJouer.setBackground(new Color(12,255,14)); //changer la couleur du bouton
         btnJouer.addActionListener(new EcouteurJouer(this));
         
         //Instanciation panel secondaire

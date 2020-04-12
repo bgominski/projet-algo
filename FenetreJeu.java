@@ -57,7 +57,7 @@ public class FenetreJeu  extends JFrame{
         +"\nType cheveux: "+jeu.getQui().getTypeCheveux() +"\nYeux: "+jeu.getQui().getCouleurYeux());     
 		labelCaracPerso.setEditable(false);
 		labelCaracPerso.setBackground(new Color(187,210,225)) ;		
-        imagePersoChoisi = new JLabel( new ImageIcon("/Users/emmanuelle/Desktop/21 ROUSSI Emmanuelle.JPG"));
+        imagePersoChoisi = new JLabel((jeu.getQui()).getImage());
         panelPersoChoisi.add(labelCaracPerso,BorderLayout.SOUTH);
         panelPersoChoisi.add(imagePersoChoisi,BorderLayout.CENTER);
         //panelPersoChoisi.add(new JLabel("	 "),BorderLayout.EAST);
@@ -66,6 +66,7 @@ public class FenetreJeu  extends JFrame{
         aireQIA = new JLabel() ;
         aireQIA.setText(jeu.getQuestion().toString());
         bOui = new JButton("OUI"); 
+        bOui.setBackground(Color.BLUE);
         bOui.addActionListener(new EcouteurReponse(this, "Oui"));
         bNon = new JButton("NON") ;
         bNon.addActionListener(new EcouteurReponse(this, "Non"));
