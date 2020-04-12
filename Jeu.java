@@ -20,6 +20,12 @@
  * 
  * 
  */
+ 
+ import java.awt.*;
+import java.awt.Color;
+import javax.swing.*;
+import java.util.*;
+
 
 import java.util.*;
 import javax.swing.*;
@@ -41,8 +47,8 @@ public class Jeu {
 	}
 	
 	public void creerListePerso(){
-
-		ImageIcon im1 = new ImageIcon("/Users/alainboulard/Desktop/photos ajustée algo/3 BIKIKRE Gabriel.jpeg.png");
+        ImageIcon im1 = new ImageIcon(new ImageIcon("/Users/alainboulard/Desktop/photos ajustée algo/3 BIKIKRE Gabriel.jpeg.png").getImage().getScaledInstance(175,160, Image.SCALE_DEFAULT)) ; 
+		//ImageIcon im1 = new ImageIcon("/Users/alainboulard/Desktop/photos ajustée algo/3 BIKIKRE Gabriel.jpeg.png");
 		Personnage p1 = new Personnage("BIKIKRE Gabriel","homme","frisés","noirs","marrons",im1);
 		ListePersonnage.add(p1);
 		ImageIcon im2 = new ImageIcon("/Users/alainboulard/Desktop/photos ajustée algo/5 BEUGIN Maéva.png");
@@ -93,7 +99,8 @@ public class Jeu {
 		ImageIcon im18 = new ImageIcon("/Users/alainboulard/Desktop/photos ajustée algo/21 ROUSSI Emmanuelle.JPG");
 		Personnage p18 = new Personnage("ROUSSI Emmanuelle","femme","bouclés","noirs","marrons",im18);
 		ListePersonnage.add(p18);
-		ImageIcon im19 = new ImageIcon("/Users/alainboulard/Desktop/photos ajustée algo/22 SANDOZ Alexandre.png");
+		//ImageIcon im19 = new ImageIcon("/Users/alainboulard/Desktop/photos ajustée algo/22 SANDOZ Alexandre.png");
+        ImageIcon im19 = new ImageIcon(new ImageIcon("/Users/alainboulard/Desktop/photos ajustée algo/22 SANDOZ Alexandre.png").getImage().getScaledInstance(175,160, Image.SCALE_DEFAULT)) ; 
 		Personnage p19 = new Personnage("SANDOZ Alexandre","homme","bouclés","chatains","marrons",im19);
 		ListePersonnage.add(p19);
 		ImageIcon im20 = new ImageIcon("/Users/alainboulard/Desktop/photos ajustée algo/23 SIMONNET Léa.png");
