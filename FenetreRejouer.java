@@ -18,29 +18,36 @@ public class FenetreRejouer  extends JFrame{
 		jeu=fenetreJeu.getJeu();
 		
 		//Dimensions et fermetrure de la fenêtre
-		setSize(350, 300) ; 
+		setSize(1280, 1024) ; 
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE) ; 
+        
+        //Ajout du fond d'écran
+        setContentPane(new AfficheImage("/Users/alainboulard/Desktop/Image Algo/fond-colore-confettis-qui-est-baisse-illustration-vectorielle_41084-389.png")); 
+        getContentPane().setLayout(new BorderLayout()); 
+        getContentPane().setBackground(new Color(187,210,225)) ; 
 		
 		//===== Instanciation des widgets de la fenêtre ====//
 		jeuFini=new JLabel("Notre IA t'as démasqué... Aurais-tu un crush sur:");
 		descriptionPerso=new JTextArea("Nom: "+jeu.getQui().getNom()+"\nGenre: "+
         jeu.getQui().getGenre()+"\nCouleur cheveux: "+jeu.getQui().getCouleurCheveux()
         +"\nType cheveux: "+jeu.getQui().getTypeCheveux() +"\nYeux: "+jeu.getQui().getCouleurYeux());
+        descriptionPerso.setOpaque(false); 
         descriptionPerso.setEditable(false);
-		imagePerso=new JLabel(new ImageIcon("/Users/emmanuelle/Desktop/21 ROUSSI Emmanuelle.JPG")); //À REMPLACER PAR L'IMAGE DE 'QUI'
-		btnRejouer=new JButton("Rejouer");
+        descriptionPerso.setFont(new Font("Arial", Font.BOLD, 35));
+		imagePerso=new JLabel(jeu.getQui().getImage()); //À REMPLACER PAR L'IMAGE DE 'QUI'
+		btnRejouer=new JButton("Rejouer !!");
 		btnRejouer.addActionListener(new EcouteurRejouer(this));
+      
 		
 		//=========== Organisation structurelle ======//
 		
 		JPanel panelPrincipal=new JPanel(new BorderLayout()); //panel contenant tous les widgets
-		panelPrincipal.add(jeuFini,BorderLayout.NORTH);
-		panelPrincipal.add(imagePerso,BorderLayout.WEST);
-		panelPrincipal.add(descriptionPerso,BorderLayout.CENTER);
-		panelPrincipal.add(btnRejouer,BorderLayout.SOUTH);
+        getContentPane().add(jeuFini,BorderLayout.NORTH);
+        getContentPane().add(imagePerso,BorderLayout.WEST);
+        getContentPane().add(descriptionPerso,BorderLayout.CENTER);
+        getContentPane().add(btnRejouer,BorderLayout.SOUTH);
 		
-		//Ajout du panel principal a la fenetre
-		this.add(panelPrincipal);
+		// Fenêtre visible
 		setVisible(true);
 	}
 

@@ -4,6 +4,8 @@ import javax.swing.*;
 import java.util.*;
 import java.awt.event.*;
 
+
+
 public class FenetreFinJeu extends JFrame{
 
     //ATTRIBUTS
@@ -32,7 +34,9 @@ public class FenetreFinJeu extends JFrame{
     aireCongrats.setLocation(20,20) ; 
     aireCongrats.setFont(new Font("Arial", Font.BOLD, 35));
     JButton bReJouer = new JButton("Rejouer !") ;
-    bReJouer.setLocation(50, 50) ; 
+    //bReJouer.setLocation(50, 50) ; //Fonctionne pas
+    bReJouer.setBackground(Color.red) ; 
+     bReJouer.setForeground(Color.red) ; 
     //bRejouer.setOpaque(false) ;  
    // Dimension tailleMaxBouton = new Dimension(1, 5) ; 
     //bReJouer.setSize(tailleMaxBouton); 
@@ -75,5 +79,9 @@ public class FenetreFinJeu extends JFrame{
     
     
     }
+    
+    
+  
+
 }
 	
