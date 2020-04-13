@@ -21,14 +21,19 @@
  * 
  */
  
- import java.awt.*;
+import java.awt.*;
 import java.awt.Color;
 import javax.swing.*;
 import java.util.*;
 
+//son
+import java.io.*; 
+import javax.sound.sampled.AudioInputStream;
+import javax.sound.sampled.AudioInputStream;
+import javax.sound.sampled.Clip;
+import javax.sound.sampled.AudioSystem;
 
-import java.util.*;
-import javax.swing.*;
+
 public class Jeu {
 	
 	//ATTRIBUTS
@@ -151,6 +156,22 @@ public class Jeu {
 	public void setQuestion(Question q){
 		this.question=q;
 		}
+        
+                public void playSound(String soundName){
+   try 
+   {
+    AudioInputStream audioInputStream = AudioSystem.getAudioInputStream(new File(soundName).getAbsoluteFile( ));
+    Clip clip = AudioSystem.getClip( );
+    clip.open(audioInputStream);
+    clip.start( );
+   }
+   catch(Exception ex)
+   {
+     System.out.println("Error with playing sound.");
+     ex.printStackTrace( );
+   }
+ }
+        
 		
 	
 	

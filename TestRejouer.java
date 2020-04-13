@@ -20,6 +20,8 @@
  * 
  * 
  */
+ import javax.swing.plaf.ButtonUI;
+import javax.swing.plaf.basic.BasicButtonUI;
 
 
 public class TestRejouer {
@@ -33,6 +35,7 @@ public class TestRejouer {
         FenetreJeu f2 =new FenetreJeu(f1);
         //Création de la fenêtre fin de jeu
         FenetreRejouer f3= new FenetreRejouer(f2);
+        
 	}
 }
 

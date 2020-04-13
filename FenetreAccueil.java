@@ -79,10 +79,17 @@ public class FenetreAccueil extends JFrame{
         labelDescription = new JTextArea ("Clique sur le joueur de ton choix et\nla machine virtuelle\n tentera de lire dans tes pensées.\n Une fois que tu auras cliqué\n n'oublie pas\n pas de cliquer sur le bouton 'jouer' en bas de l'écran ! ");
         labelDescription.setBackground(Color.WHITE) ; 
         labelDescription.setEditable(false) ; 
+        
+        
         btnJouer= new JButton("Jouer");
         btnJouer.setForeground(new Color(0,123, 123)); //Changer la couleur de la police
+        btnJouer.setOpaque(true);
+        btnJouer.setBorderPainted(false);
+        btnJouer.setBackground(Color.red) ; 
         //btnJouer.setBackground(new Color(12,255,14)); //changer la couleur du bouton
         btnJouer.addActionListener(new EcouteurJouer(this));
+        JPanel panelBouton = new JPanel() ; 
+        panelBouton.add(btnJouer) ; 
         
         //Instanciation panel secondaire
         int l =nbPersos/3;
@@ -122,7 +129,7 @@ public class FenetreAccueil extends JFrame{
         **/
         
         getContentPane().add(panelAcceuil, BorderLayout.NORTH);
-        getContentPane().add(btnJouer,BorderLayout.SOUTH);
+        getContentPane().add(panelBouton,BorderLayout.SOUTH);
         getContentPane().add(labelDescription, BorderLayout.WEST);
         getContentPane().add(panel2,BorderLayout.CENTER);
         getContentPane().add(labelAccueil3,BorderLayout.EAST);
@@ -137,8 +144,8 @@ public class FenetreAccueil extends JFrame{
 			tabPan[i]= new JPanel(new BorderLayout());//On crée un panel pour chaque personne
 			//tabPan[i].setBackground(new Color(240,255,255)); 
             tabPan[i].setOpaque(false) ; 
-			tabBtn[i]= new JButton((jeu.getListePersonnage().get(i)).getImage()) ; //On crée un bouton pour chaque personne
-			tabPan[i].add(tabBtn[i],BorderLayout.CENTER); //Affiche l'image du personnage dans le bouton
+			tabBtn[i]= new JButton((jeu.getListePersonnage().get(i)).getImage()) ; //On crée un bouton pour chaque personne en affichant l'image du personnage dans le bouton
+			tabPan[i].add(tabBtn[i],BorderLayout.CENTER); //On ajoute les boutons au Panel
 			tabPan[i].add(new JLabel("		"+jeu.getListePersonnage().get(i).getNom()), BorderLayout.SOUTH); //Affiche le nom du personnage
 			tabPan[i].add(new JLabel("   "), BorderLayout.NORTH); //Pour espacer les boutons
 			tabPan[i].add(new JLabel("   "), BorderLayout.EAST); //Pour espacer les boutons
