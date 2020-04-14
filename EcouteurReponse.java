@@ -1,6 +1,9 @@
 import java.awt.event.*;
 import java.util.*;
 import javax.sound.sampled.*;
+import javax.sound.sampled.AudioInputStream;
+import javax.sound.sampled.Clip;
+import javax.sound.sampled.AudioSystem;
 
 public class EcouteurReponse implements ActionListener{
 	private FenetreJeu fen;
@@ -22,25 +25,27 @@ public class EcouteurReponse implements ActionListener{
     public void actionPerformed(ActionEvent e){
     
         if(rep.equals("Oui")){
-		jeu.playSound("/Users/emmanuelle/Desktop/oui.wav");
+	
         jeu.getIA().UpdateListes(true,jeu.getQuestion()); //Mise à jour des listes selon la réponse
         query = jeu.getIA().QuestionIA(); //génération d'une nouvelle question
         jeu.setQuestion(query);
         System.out.println(jeu.getQuestion().toString()); //Pour vérifier la question
         fen.afficheQuestion(); //Affichage de la question
         fen.affichePerso(); //Mise à jour des persos possible
+        jeu.playSound("/Users/alainboulard/Desktop/OUI.wav");
         
         }
          
        
         if(rep.equals("Non")){
-		jeu.playSound("/Users/emmanuelle/Desktop/non.wav");
+		
         jeu.getIA().UpdateListes(false,jeu.getQuestion()); //Mise à jour des listes selon la réponse
         query = jeu.getIA().QuestionIA(); //génération d'une nouvelle question
         jeu.setQuestion(query);
         System.out.println(jeu.getQuestion().toString()); //Pour vérifier la question
         fen.afficheQuestion(); //Affichage de la question
         fen.affichePerso(); //Mise à jour des persos possible
+        jeu.playSound("/Users/alainboulard/Desktop/NON.wav");
             
     }
     

@@ -6,16 +6,16 @@ import javax.swing.JPanel;
 
 class AfficheImage extends JPanel { 
     
-    Image salleClasse; 
+    Image fondEcran; 
 
 
     AfficheImage(String s) 
     { 
-    salleClasse = getToolkit().getImage(s); 
+    fondEcran = getToolkit().getImage(s); 
     } 
 
     public void paintComponent(Graphics g) { 
         super.paintComponent(g); 
-        g.drawImage(salleClasse, 0, 0, getWidth(), getHeight(), this); 
+        g.drawImage(fondEcran , 0, 0, getWidth(), getHeight(), this); 
     } 
 } 

@@ -11,7 +11,10 @@ public class MainQuiEstCe {
 		//Création de la fenêtre de jeu
         FenetreAccueil f1= new FenetreAccueil(jeu); 	
         //FenetreFinJeu f2 = new FenetreFinJeu();
-        //FenetreFinJeu f3 = new FenetreFinJeu() ; 
+        FenetreJeu f2 =new FenetreJeu(f1);
+        //Création de la fenêtre fin de jeu
+        FenetreRejouer f3= new FenetreRejouer(f2);
+        
         }
         
 
