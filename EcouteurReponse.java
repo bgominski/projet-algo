@@ -1,11 +1,13 @@
 import java.awt.event.*;
 import java.util.*;
+import javax.sound.sampled.*;
 
 public class EcouteurReponse implements ActionListener{
 	private FenetreJeu fen;
     private String rep ; 
     private Jeu jeu ; 
     private Question query ;
+    private AudioInputStream audio;
     
     //Constructeur
 	public EcouteurReponse(FenetreJeu fen, String rep) {
@@ -20,6 +22,7 @@ public class EcouteurReponse implements ActionListener{
     public void actionPerformed(ActionEvent e){
     
         if(rep.equals("Oui")){
+		jeu.playSound("/Users/emmanuelle/Desktop/oui.wav");
         jeu.getIA().UpdateListes(true,jeu.getQuestion()); //Mise à jour des listes selon la réponse
         query = jeu.getIA().QuestionIA(); //génération d'une nouvelle question
         jeu.setQuestion(query);
@@ -30,7 +33,8 @@ public class EcouteurReponse implements ActionListener{
         }
          
        
-        if(rep.equals("Non")){	
+        if(rep.equals("Non")){
+		jeu.playSound("/Users/emmanuelle/Desktop/non.wav");
         jeu.getIA().UpdateListes(false,jeu.getQuestion()); //Mise à jour des listes selon la réponse
         query = jeu.getIA().QuestionIA(); //génération d'une nouvelle question
         jeu.setQuestion(query);

@@ -157,7 +157,7 @@ public class Jeu {
 		this.question=q;
 		}
         
-                public void playSound(String soundName){
+   public void playSound(String soundName){
    try 
    {
     AudioInputStream audioInputStream = AudioSystem.getAudioInputStream(new File(soundName).getAbsoluteFile( ));

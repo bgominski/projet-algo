@@ -1,7 +1,7 @@
 import java.util.*;
 import java.awt.*;
-import java.awt.Color;
 import javax.swing.*;
+import javax.sound.sampled.*;
 
 public class MainQuiEstCe {
 	
