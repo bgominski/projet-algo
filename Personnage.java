@@ -47,6 +47,10 @@ public class Personnage {
 	public ImageIcon getImage() {
 		return image ;
 	}
+    
+    /**public String getStringImage() {
+       // return image.toString ; 
+    }**/
 		
 	//toString
 	public String toString(){
