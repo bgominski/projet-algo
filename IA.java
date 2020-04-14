@@ -207,8 +207,9 @@ public class IA {
 		ListeListe.add(ListeCouleurCheveux);        
         ListeListe.add(ListeTypeCheveux);
 		ListeListe.add(ListeCouleurYeux);
-        ListeListe.add(ListePays);
         ListeListe.add(ListeAccessoire);
+        ListeListe.add(ListePays);
+        
 		
         //ListeListe.add(ListeCouleurPeau);
         
