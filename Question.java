@@ -25,13 +25,16 @@ public class Question {
 		if(indiceListe==1){nomListe="Couleur Cheveux";}
 		if(indiceListe==2){nomListe="Type Cheveux";}
 		if(indiceListe==3){nomListe="Couleur Yeux";}
+        
+        if(indiceListe==4){nomListe="Accessoires";}
+        if(indiceListe==5){nomListe="Pays";}
 		//if(indiceListe==4){nomListe="Couleur Peau";}
         
         this.nomListe = nomListe;
     }
     
     public String toString(){
-        return "  Le personnage a la caractérique "+nomListe+" de type "+valeurAttribut+" ?";
+        return "  Le personnage a la caractéristique "+nomListe+" de type "+valeurAttribut+" ?";
     }
     
     //GETTERs

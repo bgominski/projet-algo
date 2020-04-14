@@ -39,7 +39,7 @@ public class Jeu {
 	//ATTRIBUTS
 	private String pseudo;
 	private Personnage qui;
-	private LinkedList<Personnage> ListePersonnage=new LinkedList<Personnage>();
+	private ArrayList<Personnage> ListePersonnage=new ArrayList<Personnage>();
 	private Question question;
 	private IA ia;
 	
@@ -134,7 +134,7 @@ public class Jeu {
 		return qui;
 	}
 	
-	public LinkedList<Personnage> getListePersonnage() {
+	public ArrayList<Personnage> getListePersonnage() {
 		return this.ListePersonnage;
 		}
 		

@@ -43,6 +43,13 @@ public class Personnage {
 	public String getCouleurYeux() {
 		return couleurYeux;	
 		}
+       //à modifier 
+    public String getAccessoire() {
+		return " ";	
+		}
+    public String getPays() {
+		return " ";	
+		}
 
 	public ImageIcon getImage() {
 		return image ;

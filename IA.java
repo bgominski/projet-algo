@@ -30,7 +30,7 @@
   * 
   * 
   * 
-  * 
+  * ajouter accessoire pays
   * 
   * 
   */
@@ -54,6 +54,9 @@ public class IA {
 	private ArrayList<String> ListeTypeCheveux=new ArrayList<String>();
 	private ArrayList<String> ListeCouleurCheveux=new ArrayList<String>();
 	private ArrayList<String> ListeCouleurYeux=new ArrayList<String>();
+    
+    private ArrayList<String> ListeAccessoire= new ArrayList<String>();
+    private ArrayList<String> ListePays= new ArrayList<String>();
 	//private ArrayList<String> ListeCouleurPeau=new ArrayList<String>();
 	//Indexation de ces listes pour une utilisation plus rapide
     private ArrayList<ArrayList<String>> ListeListe= new ArrayList<ArrayList<String>>();
@@ -64,7 +67,7 @@ public class IA {
 	//Constructeur
 	public IA(Jeu jeu){
 		
-		this.ListePersonnageInit=(ArrayList<Personnage>)((jeu.getListePersonnage()).clone());
+		this.ListePersonnageInit=(ArrayList<Personnage>)(jeu.getListePersonnage().clone());
 		this.ListePersonnagePossibles=(ArrayList<Personnage>)(ListePersonnageInit.clone());
         
         
@@ -79,7 +82,7 @@ public class IA {
         //On détermine la liste la plus petite 
      
         // && indiceListe!=(ListeListe.size()-1) : condition pour éviter IndexOutofBounds 
-        int compteur=10;            //valeur pour initialiser
+        int compteur=20;            //valeur pour initialiser
         int indiceListe=0;
         for(ArrayList A : ListeListe){
               //Si une liste ne comporte qu'1 élément,la question ne peut pas porter dessus
@@ -137,6 +140,8 @@ public class IA {
                 case 1 : V=P.getCouleurCheveux();break;
                 case 2 : V=P.getTypeCheveux();break;
                 case 3 : V=P.getCouleurYeux();break;
+                case 4 : V=P.getAccessoire();break;
+                case 5 : V=P.getPays();break;
                 //case 4 : V=P.getCouleurPeau();break;
             }
             System.out.println(V+Q.getvaleurAttribut());
@@ -178,8 +183,8 @@ public class IA {
         ListeCouleurCheveux.clear();
         ListeCouleurYeux.clear();
         //ListeCouleurPeau.clear();
-       
-        
+        ListeAccessoire.clear();  
+        ListePays.clear();      
 		for(Personnage a : ListePersonnage){
 			if(!ListeGenre.contains(a.getGenre())){ListeGenre.add(a.getGenre());}
 			
@@ -188,8 +193,10 @@ public class IA {
 			if(!ListeCouleurCheveux.contains(a.getCouleurCheveux())){ListeCouleurCheveux.add(a.getCouleurCheveux());}
 			
 			if(!ListeCouleurYeux.contains(a.getCouleurYeux())){ListeCouleurYeux.add(a.getCouleurYeux());}
+            
+            if(!ListeAccessoire.contains(a.getAccessoire())){ListeAccessoire.add(a.getAccessoire());}
 			
-			
+			if(!ListePays.contains(a.getPays())){ListePays.add(a.getPays());}
 			
 		}
         
@@ -200,10 +207,12 @@ public class IA {
 		ListeListe.add(ListeCouleurCheveux);        
         ListeListe.add(ListeTypeCheveux);
 		ListeListe.add(ListeCouleurYeux);
+        ListeListe.add(ListePays);
+        ListeListe.add(ListeAccessoire);
 		
         //ListeListe.add(ListeCouleurPeau);
         
-        
+        //débuggage
           for(ArrayList A : ListeListe){
               System.out.println(A.size());
           }
@@ -213,14 +222,12 @@ public class IA {
         
     }
    
-   //Pour savoir si l'IA a éliminé toutes les possibilités
-   public void afficheListe(){
-       for(Personnage A : ListePersonnagePossibles){
-              System.out.println(A.toString());
-          }
+   //Pour renvoyer le personnage trouvé
+   public Personnage affichePersonnage(){
+        return ListePersonnagePossibles.get(0);
       }
     
-    public String affichePersoPossibles(){ //Récupère les description des perso possibles pour l'interface
+    public String affichePersoPossibles(){ //Récupère les description des perso possibles pour affichage console
 	   String res="";
        for(Personnage A : ListePersonnagePossibles){
               res=res+"\n"+(A.toString());
@@ -231,10 +238,9 @@ public class IA {
    //Renvoie TRUE si le personnage a été trouvé
     public boolean PersonnageFound(){
        if (ListePersonnagePossibles.size()==1){
-           System.out.println("Notre ordinateur t'as démasqué... aurais-tu un crush sur "+" ? :)"+ListePersonnagePossibles.get(0).toString());
+           //System.out.println("Notre ordinateur t'as démasqué... aurais-tu un crush sur "+" ? :)"+ListePersonnagePossibles.get(0).toString());
            return true;
        }
-       else
        return false;
    
    }

@@ -12,9 +12,9 @@ public class MainTESTIA {
      
 		while (!TESTIA.PersonnageFound()){
 			System.out.println("nouvelle boucle");
-            TESTIA.afficheListe();
+            System.out.println(TESTIA.affichePersoPossibles());
             Question Query = TESTIA.QuestionIA(); 
-            System.out.println(Query.toString());
+            
             System.out.println("Veuillez saisir réponse :");
             Scanner sc = new Scanner(System.in);
             String str = sc.nextLine();
