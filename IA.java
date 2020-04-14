@@ -43,10 +43,10 @@ public class IA {
 	//ATTRIBUTS
 
 	//Liste des personnages donnés par Jeu
-	final LinkedList<Personnage> ListePersonnageInit;
+	final ArrayList<Personnage> ListePersonnageInit;
     
     //Liste re-updated à chaque question : c'est le "pool" de l'ordi
-	private LinkedList<Personnage> ListePersonnagePossibles;
+	private ArrayList<Personnage> ListePersonnagePossibles;
 	
 	
     //Listes constituées des caractéristiques des personnages donnés par la méthode Jeu
@@ -64,8 +64,8 @@ public class IA {
 	//Constructeur
 	public IA(Jeu jeu){
 		
-		this.ListePersonnageInit=(LinkedList<Personnage>)(jeu.getListePersonnage()).clone();
-		this.ListePersonnagePossibles=(LinkedList<Personnage>)ListePersonnageInit.clone();
+		this.ListePersonnageInit=(ArrayList<Personnage>)((jeu.getListePersonnage()).clone());
+		this.ListePersonnagePossibles=(ArrayList<Personnage>)(ListePersonnageInit.clone());
         
         
         this.MAJListes(ListePersonnageInit);
@@ -122,8 +122,8 @@ public class IA {
       
         //Pour chaque personnage dans liste des choix possibles
         //on crée une  liste Personnage pour pouvoir modifier ListePersonnagePossible DANS la boucle for each
-        LinkedList<Personnage> ListePersonnageTEMP=new LinkedList<Personnage>();
-        ListePersonnageTEMP=(LinkedList<Personnage>)ListePersonnagePossibles.clone();
+        ArrayList<Personnage> ListePersonnageTEMP=new ArrayList<Personnage>();
+        ListePersonnageTEMP=(ArrayList<Personnage>)(ListePersonnagePossibles.clone());
         
         System.out.println("//INFO DEBUG\\");
         for (Personnage P : ListePersonnagePossibles){
@@ -161,7 +161,7 @@ public class IA {
         
        
         ListePersonnagePossibles.clear();
-        ListePersonnagePossibles=(LinkedList<Personnage>)ListePersonnageTEMP.clone();
+        ListePersonnagePossibles=(ArrayList<Personnage>)(ListePersonnageTEMP.clone());
         System.out.println("Il reste "+ListePersonnagePossibles.size()+" personnages");
        
         //UPDATE FINAL DES LISTES
@@ -170,7 +170,7 @@ public class IA {
    }
    
     //Met à jour les listes selon les personnages présents dans liste en paramètre ListePersonnage
-    public void MAJListes(LinkedList<Personnage> ListePersonnage){
+    public void MAJListes(ArrayList<Personnage> ListePersonnage){
         
         ListeGenre.clear();
         ListeTypeCheveux.clear();
