@@ -26,7 +26,7 @@ public class FenetreJeu  extends JFrame{
     
     
     //Panel Bas
-    JLabel labelNomAuteurs ; //Noms auteurs
+    JLabel labelNomAuteurs ; //Noms auteurs 
     
     //Jeu courant
     Jeu jeu ; 
