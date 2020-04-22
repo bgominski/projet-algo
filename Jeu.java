@@ -46,11 +46,22 @@ public class Jeu {
 	//MÉTHODES
 	
 	// Création des personnages disponibles (À MODIFIER)
-	public Jeu(){
-		creerListePerso();
-		jouer();
+	public Jeu(int numeroVersion){
+        
+        creerListePerso();
+        
+        if(numeroVersion==1) {
+		jouerVersion1();
+        }
+        
+        if(numeroVersion==2){
+        jouerVersion2();
+        }
+            
 	}
+    
 	
+    
 	public void creerListePerso(){
         ImageIcon im1 = new ImageIcon(new ImageIcon("/Users/alainboulard/Desktop/photos ajustée algo/3 BIKIKRE Gabriel.jpeg.png").getImage().getScaledInstance(175,160, Image.SCALE_DEFAULT)) ; 
 		//ImageIcon im1 = new ImageIcon("/Users/alainboulard/Desktop/photos ajustée algo/3 BIKIKRE Gabriel.jpeg.png");
@@ -175,10 +186,18 @@ public class Jeu {
 		
 	
 	
-	//Boucle de Jeu	
-	public void jouer(){
+	//Boucles de Jeu	
+	public void jouerVersion1(){
 		ia = new IA(this);
 		question = ia.QuestionIA(); //affiche une première question	
+        FenetreAccueil f1= new FenetreAccueil(this); 	
 	}
+    
+    public void jouerVersion2(){
+		//Ouvre fenêtre Benji
+        //FenetreAccueil f1= new FenetreAccueil(this); 	
+	}
+    
+    
 	
 	}

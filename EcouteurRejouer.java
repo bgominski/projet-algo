@@ -21,7 +21,7 @@ public class EcouteurRejouer implements ActionListener{
 	//Constructeur
 	public EcouteurRejouer(FenetreRejouer fenetreRejouer) {
 		this.fenetreRejouer=fenetreRejouer;
-		this.jeu=new Jeu(); //création d'un nouveau jeu	
+		this.jeu=new Jeu(1); //création d'un nouveau jeu	
 	}
     
 	
