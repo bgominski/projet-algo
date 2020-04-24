@@ -25,7 +25,8 @@
 public class TestFenetreLancement {
 	
 	public static void main (String[] args) {
-		FenetreLancement fen = new FenetreLancement() ;
+		//FenetreLancement fen = new FenetreLancement() ;
+		FenetreJeu2 fen2 = new FenetreJeu2();
 		
 	}
 }
