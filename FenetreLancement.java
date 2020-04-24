@@ -42,7 +42,10 @@ public class FenetreLancement extends JFrame{
 		
 		//Conteneur centre
 		btnV1 = new JButton("Version 1:\nJe choisis un personnage!");
+        btnV1.addActionListener(new EcouteurChoixVersion1(this));
 		btnV2 = new JButton("Version 2:\nJe devine un personnage!");
+        btnV2.addActionListener(new EcouteurChoixVersion2(this));
+        
 		
 		//=========== Organisation structurelle ======//
 		

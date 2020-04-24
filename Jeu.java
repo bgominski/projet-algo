@@ -194,8 +194,8 @@ public class Jeu {
 	}
     
     public void jouerVersion2(){
-		//Ouvre fenêtre Benji
-        //FenetreAccueil f1= new FenetreAccueil(this); 	
+		//FenetreJeu2 f2 = new FenetreJeu2(); 
+        //FenetreAccueil f1= new FenetreAccueil(this);	
 	}
     
     
