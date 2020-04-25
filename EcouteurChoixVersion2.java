@@ -22,6 +22,12 @@ public class EcouteurChoixVersion2 implements ActionListener{
     //Dans ce cas on aurait mis un 2e attribut à l'écouteur 
     
     jeu = new Jeu(2) ; 
+    //FenetreJeu2 f2 = new FenetreJeu2(); 
+    int persoChoisi = (int)(Math.random()*jeu.getListePersonnage().size()); 
+    System.out.println(persoChoisi) ; 
+    jeu.setQui(jeu.getListePersonnage().get(persoChoisi)) ; 
+    System.out.println(jeu.getQui()) ; 
+   
 
     }
 }

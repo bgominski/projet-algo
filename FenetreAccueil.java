@@ -77,6 +77,7 @@ public class FenetreAccueil extends JFrame{
         panelAcceuil.add(labelAccueil3,BorderLayout.SOUTH);
         
         labelDescription = new JTextArea ("Clique sur le joueur de ton choix et\nla machine virtuelle\n tentera de lire dans tes pensées.\n Une fois que tu auras cliqué\n n'oublie pas\n pas de cliquer sur le bouton 'jouer' en bas de l'écran ! ");
+        labelDescription.setBounds(20, 20, 20, 20) ; 
         labelDescription.setBackground(Color.WHITE) ; 
         labelDescription.setEditable(false) ; 
         

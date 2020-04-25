@@ -148,7 +148,7 @@ public class Jeu {
 	public ArrayList<Personnage> getListePersonnage() {
 		return this.ListePersonnage;
 		}
-		
+        
 	public Question getQuestion(){
 		return this.question;
 		}
@@ -194,7 +194,7 @@ public class Jeu {
 	}
     
     public void jouerVersion2(){
-		//FenetreJeu2 f2 = new FenetreJeu2(); 
+		FenetreJeu2 f2 = new FenetreJeu2(this); 
         //FenetreAccueil f1= new FenetreAccueil(this);	
 	}
     
