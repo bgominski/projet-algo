@@ -92,7 +92,7 @@ public class Jeu {
 		Personnage p10 = new Personnage("FAURE Ninon","femme","bouclés","chatains","verts",im10, "lunettes", "Guadeloupe");
 		ListePersonnage.add(p10);
 		ImageIcon im11 = new ImageIcon("/Users/alainboulard/Desktop/photos ajustée algo/12 GOMINSKI Benjamin.png");
-		Personnage p11 = new Personnage("GOMINSKI Benjamin","homme musclé","lisses","blonds","bleus",im11, "rien", "France");
+		Personnage p11 = new Personnage("GOMINSKI Benjamin","homme","frisés","blonds","bleus",im11, "rien", "France");
 		ListePersonnage.add(p11);
 		ImageIcon im12 = new ImageIcon("/Users/alainboulard/Desktop/photos ajustée algo/13 GRANGE Quentin.png");
 		Personnage p12 = new Personnage("GRANGE Quentin","homme","lisses","chatains","bleus",im12, "lunettes", "France");
@@ -113,7 +113,7 @@ public class Jeu {
 		Personnage p17 = new Personnage("ROUGIER Julia","femme","lisses","bruns foncé","bleus",im17, "rien", "Le ciel");
 		ListePersonnage.add(p17);
 		ImageIcon im18 = new ImageIcon("/Users/alainboulard/Desktop/photos ajustée algo/21 ROUSSI Emmanuelle.JPG");
-		Personnage p18 = new Personnage("ROUSSI Emmanuelle","femme","frisés","noirs","marrons",im18, "sa beauté", "Mada");
+		Personnage p18 = new Personnage("ROUSSI Emmanuelle","femme","frisés","noirs","marrons",im18, "sa beauté", "Martinique");
 		ListePersonnage.add(p18);
 		//ImageIcon im19 = new ImageIcon("/Users/alainboulard/Desktop/photos ajustée algo/22 SANDOZ Alexandre.png");
         ImageIcon im19 = new ImageIcon(new ImageIcon("/Users/alainboulard/Desktop/photos ajustée algo/22 SANDOZ Alexandre.png").getImage().getScaledInstance(175,160, Image.SCALE_DEFAULT)) ; 
