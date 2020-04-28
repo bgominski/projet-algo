@@ -32,13 +32,13 @@ public class FenetreJeu2  extends JFrame{
     //Création de toutes les listes de valeurs possibles
     //Tablaux utilisés dans la JComboBox boxValeur (impossible d'utiliser des ArrayList)
     private String[] ListeGenre=new String[] {"femme","homme"} ; //Genres possibles
-	private String[] ListeTypeCheveux = new String[]{"lisses" ,"bouclés", "ondulés"};; //CheveuxTypes de cheveux possibles
+	private String[] ListeTypeCheveux = new String[]{"lisses" ,"bouclés", "ondulés", "frisés", "verts"};; //CheveuxTypes de cheveux possibles
 	private String[] ListeCouleurCheveux =new String[]{"lisses" ,"bouclés", "ondulés"};; //Couleurs de cheveux possibles
 	private String[] ListeCouleurYeux =new String[]{"lisses" ,"bouclés", "ondulés"};; //Couleurs d'yeux possibles
     private String[] ListeAccessoire =new String[]{"lunettes", "Rien"};; //Accessoires possibles
     private String[] ListePays =new String[]{"Inde", "Chine"};; //Pays possibles
     private String[] ListeNoms =new String[]{"Ajouter tous les noms? les récupérer ?"};; //Pays possibles
-	   
+    
     
         
     //Jeu courant
@@ -130,62 +130,61 @@ public class FenetreJeu2  extends JFrame{
         return (String) boxAttribut.getSelectedItem(); 
     }
     
-      public String getValeur(){
-        return (String) boxValeur.getSelectedItem(); 
-        
-    }
+    public String getValeur(){ 
+        return (String) boxValeur.getSelectedItem(); }
     
-    public String[] getListeGenre(){
-		return ListeGenre;
-	} 
     
-    public String[] getListeTypeCheveux(){
-		return ListeTypeCheveux;
-    }
-    public String[] getListeCouleurCheveux(){
-		return ListeCouleurCheveux;
-    }
-    public String[] getListeCouleurYeux(){
-		return ListeCouleurYeux;
-    }
-    public String[] getListeAccessoire(){
-		return ListeAccessoire;
-    }
-    public String[] getListePays(){
-		return ListePays;
-    }
-      public String[] getListeNoms(){
-		return ListeNoms;
-    }
+    public String[] getListeGenre(){ return ListeGenre;} 
+    public String[] getListeTypeCheveux(){return ListeTypeCheveux;}
+    public String[] getListeCouleurCheveux(){return ListeCouleurCheveux;}
+    public String[] getListeCouleurYeux(){return ListeCouleurYeux;}
+    public String[] getListeAccessoire(){return ListeAccessoire;}
+    public String[] getListePays(){return ListePays;}
+    public String[] getListeNoms(){return ListeNoms;}
         
 
 	public JComboBox getboxValeur(){
 		return boxValeur;
 	}
     
+   
+
+    
+   /** public String[] getContentBox(JComboBox box){
+        JComboBox box1=JComboBox(String[] tableau) ;
+        return tableau ; 
+    }**/
+        
+    
     
     //méthode pour rafrachir la 2e comBoBox en fonction de la première
-    public void adapterBoxValeur(){
+    public String[] adapterBoxValeur(){
         
         String attribut=this.getAttribut();
-        String[] valeurs2 ; 
+        String[] valeurs2 = {""}; 
+        
+        
         
         switch(attribut) {
 			
 			case "Genre":
 			//valeurs2 = modifListeValeur("Genre"); //Je n'arrive pas à le modifier donc je l'ai instancié ici
             boxValeur = new JComboBox(getListeGenre()); 
+            valeurs2 = getListeGenre();
             panelTerciaire.removeAll() ; 
             panelTerciaire.add(boxAttribut);
             panelTerciaire.add(boxValeur);
             panelTerciaire.add(btnDemander);
             //repaint(); 
             validate(); 
+            
 			break;
+            
             
             case "Type de cheveux":
 			//valeurs2 = modifListeValeur("Type de cheveux"); //Je n'arrive pas à le modifier donc je l'ai instancié ici
             boxValeur = new JComboBox(getListeTypeCheveux()); 
+            valeurs2 = getListeTypeCheveux();
             panelTerciaire.removeAll() ; 
             panelTerciaire.add(boxAttribut);
             panelTerciaire.add(boxValeur);
@@ -253,8 +252,41 @@ public class FenetreJeu2  extends JFrame{
             
             
         }
+        return valeurs2; 
     }
+    
+    public void refreshList(){
+         
+        //Regarder ce sur quoi on a cliqué dans la 
+            //Parcourir le tableau en question
+            //Regarder quel indice est égal à ce qu'on a cliqué
+            //Recréer le tableau sans cet indice
+            
+        String[] tab = new String[0]; 
+        tab = adapterBoxValeur(); 
+        int tailleTableau = tab.length ; 
         
+        for(int i=0; i<tab.length; i++) {
+            if(getValeur().equals(tab[i])) {
+                
+                for(int j=i+1; j<tailleTableau; j++){ 
+				tab[j-1]=tab[j]; //Chaque valeur plus loin que la valeur souhaitant être retiré va être décalé d'une place en avant
+				System.out.println(tab[j]);		
+                }
+                
+				tailleTableau=tailleTableau-1;	
+				for(int k=0; k<tailleTableau; k++){
+                    System.out.println(tab[k]);
+				}
+            }
+        }
+    }
+                
+                
+        //Copier le tableau en ne mettant pas l'élément cliqué
+        
+            
+
     
 
 

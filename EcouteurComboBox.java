@@ -19,6 +19,7 @@ public class EcouteurComboBox implements ActionListener{
      //Mettre méthode donnerRéponse
      
      //Rafraichir les listes
+     fen.refreshList();
      
      
      }
