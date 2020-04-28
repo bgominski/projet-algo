@@ -26,7 +26,7 @@ public class EcouteurChoixVersion2 implements ActionListener{
     int persoChoisi = (int)(Math.random()*jeu.getListePersonnage().size()); 
     System.out.println(persoChoisi) ; 
     jeu.setQui(jeu.getListePersonnage().get(persoChoisi)) ; 
-    System.out.println(jeu.getQui()) ; 
+    //System.out.println(jeu.getQui()) ; 
    
 
     }
