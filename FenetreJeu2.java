@@ -274,8 +274,9 @@ public class FenetreJeu2  extends JFrame{
     
     //Méthode de maj des attributs contenue dans boxValeur en fonction de la question posée
     public void refreshList(){
-		
+		System.out.println("élément sélectionné : "+(String) boxValeur.getSelectedItem());
         String[] tab = adapterBoxValeur(); //on récupère les valeurs possible avant la question posée
+        System.out.println("élément sélectionné : "+(String) boxValeur.getSelectedItem());
         
         //Juste pour vérif ( à supprimer )
         String res="Ancien contenu:";//Vérif du contenu du tableau
