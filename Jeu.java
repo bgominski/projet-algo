@@ -115,7 +115,6 @@ public class Jeu {
 		ImageIcon im18 = new ImageIcon("/Users/alainboulard/Desktop/photos ajustée algo/21 ROUSSI Emmanuelle.JPG");
 		Personnage p18 = new Personnage("ROUSSI Emmanuelle","femme","frisés","noirs","marrons",im18, "sa beauté", "Martinique");
 		ListePersonnage.add(p18);
-		//ImageIcon im19 = new ImageIcon("/Users/alainboulard/Desktop/photos ajustée algo/22 SANDOZ Alexandre.png");
         ImageIcon im19 = new ImageIcon(new ImageIcon("/Users/alainboulard/Desktop/photos ajustée algo/22 SANDOZ Alexandre.png").getImage().getScaledInstance(175,160, Image.SCALE_DEFAULT)) ; 
 		Personnage p19 = new Personnage("SANDOZ Alexandre","homme","bouclés","chatains","marrons",im19, "rien", "Guadeloupe");
 		ListePersonnage.add(p19);
@@ -123,7 +122,7 @@ public class Jeu {
 		Personnage p20 = new Personnage("SIMONNET Léa","femme","bouclés","chatains","marrons",im20, "rien", "France");
 		ListePersonnage.add(p20);
 		ImageIcon im21 = new ImageIcon("/Users/alainboulard/Desktop/photos ajustée algo/24 VARGAS Diego.png");
-		Personnage p21 = new Personnage("VARGAS Diego","homme","lisses","bicolore","marrons",im21, "rien", "Méééxico");
+		Personnage p21 = new Personnage("VARGAS Diego","homme","lisses","bicolores","marrons",im21, "rien", "Méééxico");
 		ListePersonnage.add(p21);
         
         qui = p1 ; //instanciation dun personnage

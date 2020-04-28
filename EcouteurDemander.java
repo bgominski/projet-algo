@@ -16,10 +16,10 @@ public class EcouteurDemander implements ActionListener{
     //MÉTHODES
      public void actionPerformed(ActionEvent e){
         //Chercher si le personne répond à ça, va répondre oui ou non
-         System.out.println(fen.donnerReponse()); 
+         //System.out.println(fen.donnerReponse()); 
         //Va actualiser la liste des personnages disponibles
         
-        
+       fen.refreshList();
      }
 	
     
