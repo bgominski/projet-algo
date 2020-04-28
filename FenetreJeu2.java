@@ -288,6 +288,7 @@ public class FenetreJeu2  extends JFrame{
 		for(int i=0; i<tab.length; i++) {
 			ListeIntermediaire.add(tab[i]);//on récupère les éléments présents dans boxValeurs et on les places dans ListeIntermédiaire
 		}
+		System.out.println("élément sélectionné : "+(String) boxValeur.getSelectedItem());//Vérif du contenu du tableau
 		ListeIntermediaire.removeIf(s -> (getValeur().equals(s))); //on élimine la valeur sélectionnée (valeur testée par la question) 
 		
 		//Juste pour vérif ( à supprimer )
