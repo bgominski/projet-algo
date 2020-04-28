@@ -31,7 +31,8 @@ public class FenetreJeu2  extends JFrame{
     private String[] ListePays =new String[]{"France", "Guadeloupe","Pérou","El Salvador","Maroc","Martinique","Guyane","Vénézuela","Panama","Le ciel","Méééxico"}; //Pays possibles
     private String[] ListeNoms =new String[]{"Ajouter tous les noms? les récupérer ?"};; //Pays possibles
     
-    
+    //Liste en cours dans boxValeur
+    String[] listeEnCours; //permet de récupérer la liste présente dans boxValeur
         
     //Jeu courant
     Jeu jeu ; 
@@ -145,6 +146,10 @@ public class FenetreJeu2  extends JFrame{
 		return ListePays;
 	}
 	
+	public String[] getListeEnCours(){
+		return listeEnCours;
+	}
+	
     /*public String[] getListeNoms(){
 		return ListeNoms;
 	}*/
@@ -176,6 +181,10 @@ public class FenetreJeu2  extends JFrame{
 	
     public void setListePays(String[] tab){
 		ListePays=tab;
+	}
+	
+	 public void setListeEnCours(String[] tab){
+		listeEnCours=tab;
 	}
     
        
@@ -268,6 +277,7 @@ public class FenetreJeu2  extends JFrame{
             
             
         }
+        setListeEnCours(valeurs);
         return valeurs; 
     }
     
@@ -275,7 +285,7 @@ public class FenetreJeu2  extends JFrame{
     //Méthode de maj des attributs contenue dans boxValeur en fonction de la question posée
     public void refreshList(){
 		System.out.println("élément sélectionné : "+(String) boxValeur.getSelectedItem());
-        String[] tab = adapterBoxValeur(); //on récupère les valeurs possible avant la question posée
+        String[] tab = getListeEnCours(); //on récupère les valeurs possible avant la question posée
         System.out.println("élément sélectionné : "+(String) boxValeur.getSelectedItem());
         
         //Juste pour vérif ( à supprimer )
