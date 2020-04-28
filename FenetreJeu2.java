@@ -21,6 +21,7 @@ public class FenetreJeu2  extends JFrame{
     JComboBox boxValeur; //Contient les valeurs de l'attribut choisi
     JButton btnDemander; //Permet de poser un question (MAJ des attributs possibles, des valeur d'attributs possibles et des persos possibles)
     JPanel panelTerciaire = new JPanel(new FlowLayout()); //Contient les JComboBox et le bouton "demander", passé en attribut car MAJ au cours du jeu
+    JTextArea reponse ;
     
     //Tablaux utilisés dans la JComboBox boxValeur (impossible d'utiliser des ArrayList)
     private String[] ListeGenre=new String[] {"femme","homme"} ; //Genres possibles
@@ -37,6 +38,15 @@ public class FenetreJeu2  extends JFrame{
     //Jeu courant
     Jeu jeu ; 
     
+    //Stock de la valeur du select item Attribut
+    String valeurSelectionnee;
+    
+    //Liste des persos possibles à mettre à jour à chaque questions
+    ArrayList<String> ListePersonnagePossibles ;
+    //réponses associées 
+    boolean aAttribut =false; 
+    
+  
     
     //CONSTRUCTEUR
     public FenetreJeu2(Jeu jeu){
@@ -67,6 +77,10 @@ public class FenetreJeu2  extends JFrame{
         listePersos.setEditable(false);
         listePersos.setOpaque(false);
         
+        reponse =  new JTextArea(" test reponse");
+        reponse.setEditable(false);
+        reponse.setOpaque(false);
+        
         //String[] types = new String[] {"Type 1","Type 2", "Type 3"}; //À remplacer par la liste des attributs
         String[] types = new String[] {"Genre", "Type de cheveux", "Couleur de cheveux", "Couleur des yeux", "Accessoire", "Pays", "Nom"}; //À remplacer par la liste des attributs
         boxAttribut = new JComboBox(types);
@@ -91,6 +105,8 @@ public class FenetreJeu2  extends JFrame{
         //Ajout des widgets
         panelSecondaire.add(panelTerciaire,BorderLayout.NORTH);
         panelSecondaire.add(listePersos,BorderLayout.CENTER);
+        panelSecondaire.add(reponse,BorderLayout.EAST);
+        
         
         //Création du panel principal
         JPanel panelPrincipal = new JPanel(new BorderLayout());
@@ -150,9 +166,9 @@ public class FenetreJeu2  extends JFrame{
 		return listeEnCours;
 	}
 	
-    /*public String[] getListeNoms(){
+    public String[] getListeNoms(){
 		return ListeNoms;
-	}*/
+	}
         
 	public JComboBox getboxValeur(){
 		return boxValeur;
@@ -265,7 +281,7 @@ public class FenetreJeu2  extends JFrame{
             validate(); 
 			break;
             
-            /*case "Nom":
+            case "Nom":
 			//valeurs2 = modifListeValeur("Type de cheveux"); //Je n'arrive pas à le modifier donc je l'ai instancié ici
             boxValeur = new JComboBox(getListeNoms()); 
             panelTerciaire.removeAll() ; 
@@ -273,7 +289,7 @@ public class FenetreJeu2  extends JFrame{
             panelTerciaire.add(boxValeur);
             panelTerciaire.add(btnDemander);
             validate(); 
-			break;*/
+			break;
             
             
         }
@@ -284,6 +300,12 @@ public class FenetreJeu2  extends JFrame{
     
     //Méthode de maj des attributs contenue dans boxValeur en fonction de la question posée
     public void refreshList(){
+        
+        valeurSelectionnee= (String)boxValeur.getSelectedItem();
+        
+        System.out.println("DEBUT REFRESH"+boxValeur.getSelectedItem()); 
+        System.out.println("DEBUT REFRESH'"+valeurSelectionnee); 
+        
 		System.out.println("élément sélectionné : "+(String) boxValeur.getSelectedItem());
         String[] tab = getListeEnCours(); //on récupère les valeurs possible avant la question posée
         System.out.println("élément sélectionné : "+(String) boxValeur.getSelectedItem());
@@ -347,25 +369,140 @@ public class FenetreJeu2  extends JFrame{
             case "Pays":
             setListePays(tabMAJ);
 			break;
+        
 		}
+        System.out.println("FIN REFRESH"+valeurSelectionnee); 
 	}		
     
     public String donnerReponse(){
         String res = "Non"; 
+        System.out.println("DEBUT DONNER REPONSE"+valeurSelectionnee); 
+        
+        System.out.println(jeu.getQui()); 
+        System.out.println(jeu.getQui().getGenre());
+        System.out.println(jeu.getQui().getCouleurCheveux());
+        System.out.println(jeu.getQui().getTypeCheveux());
+        System.out.println(jeu.getQui().getAccessoire());
+        System.out.println(jeu.getQui().getCouleurYeux());
+        System.out.println(jeu.getQui().getNom());
+        System.out.println(jeu.getQui().getPays());
+        
+        
         
         //Vérifier si ça correspond au personnage
-        if(jeu.getQui().getGenre().equals(boxValeur.getSelectedItem())){
+        
+        //SOLUTION 1 QUI MARCHE PAS
+		/**switch(valeurSelectionnee) {
+			case (String)jeu.getQui().getGenre():
+			res = "oui"; 
+			break;
+			
+			case jeu.getQui().getCouleurCheveux():
+			res = "oui"; 
+			break;
+			
+			case getTypeCheveux():
+			res = "oui"; 
+			break;
+			
+            case getCouleurYeux():
+            res = "oui"; 
+			break;
+            
+            case getAccessoire():
+            res = "oui"; 
+			break;
+            
+            case getPays():
+            res = "oui"; 
+			break;
+            
+            case getNom():
+            res = "oui"; 
+			break;
+        }**/
+        //SOLUTION 2 QUI MARCHE
+        /**
+        if(jeu.getQui().getGenre().equals(valeurSelectionnee)){
         res = "Oui"; 
-        //System.out.println(res); 
+        }
+        
+        if(jeu.getQui().getCouleurCheveux().equals(valeurSelectionnee)){
+        res = "Oui"; 
         }
          
+        if(jeu.getQui().getTypeCheveux().equals(valeurSelectionnee)){
+        res = "Oui"; 
+        }
         
+        if(jeu.getQui().getAccessoire().equals(valeurSelectionnee)){
+        res = "Oui"; 
+        }
+        
+        if(jeu.getQui().getCouleurYeux().equals(valeurSelectionnee)){
+        res = "Oui"; 
+        }
+        if(jeu.getQui().getNom().equals(valeurSelectionnee)){
+        res = "Oui"; 
+        }
+         if(jeu.getQui().getPays().equals(valeurSelectionnee)){
+        res = "Oui"; 
+        }
+        **/
+        
+          //SOLUTION 3 QUI MARCHE
+        
+         //Stocket toutes les caractéristqieus du perso dans une liste
+        ArrayList<String> caractéristiquesPerso = new ArrayList<String>(); //on crée une liste intermédiaire
+            caractéristiquesPerso.add(jeu.getQui().getGenre()) ; 
+            caractéristiquesPerso.add(jeu.getQui().getCouleurCheveux()) ;
+            caractéristiquesPerso.add(jeu.getQui().getTypeCheveux()) ;
+            caractéristiquesPerso.add(jeu.getQui().getAccessoire()) ;
+            caractéristiquesPerso.add(jeu.getQui().getCouleurYeux()) ;
+            caractéristiquesPerso.add(jeu.getQui().getPays()) ;
+            caractéristiquesPerso.add(jeu.getQui().getNom()) ;
+            
+        //On parcourt les éléments de la liste et ça renvoie oui s'il y a une correspondance
+		for(String s : caractéristiquesPerso){
+            if(valeurSelectionnee.equals(s)){
+                res="oui";
+                aAttribut=true; 
+                
+            }
+			
+		}
+        
+        System.out.println("FIN DONNER REPONSE"+valeurSelectionnee); 
+        
+        System.out.println(res); 
         //Afficher ça dans un panel à créer
-        //panel.setText(res); 
+        reponse.setText(res); 
+        repaint(); 
+        revalidate() ; 
         return res;
     }
     
     //MÉTHODES POUR ACTUALISER LA LISTE DES PERSOS DISPO
+    /**public void actualiseListePerso(){
+        //On clone la liste des persos possibles
+        this.ListePersonnagePossibles=(ArrayList<Personnage>)(getListePersonnage().clone());
+
+        
+        // Si on a dit non pour un truc ou c'était oui pour ce perso il faut supprimer
+        
+        
+        //Si le personnage cherché A cette caractéristique-là
+                //on enlève tous les personnages n'ayant pas cette caractéristique-là
+                if(aAttribut && ){
+                    System.out.println("*");
+                    ListePersonnagePossibles.remove(Perso);}
+                
+                //Si le personnage cherché N'a PAS cette caractéristique-là
+                //on enlève tous les personnages l'ayant
+               if ((!aAttribut) &&){
+                    ListePersonnagePossibles.remove(Perso);}
+                }**/
+        
     
     
 }

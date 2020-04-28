@@ -19,7 +19,11 @@ public class EcouteurDemander implements ActionListener{
          //System.out.println(fen.donnerReponse()); 
         //Va actualiser la liste des personnages disponibles
         
-       fen.refreshList();
+    
+        fen.refreshList();
+        
+        fen.donnerReponse();
+
      }
 	
     
