@@ -19,25 +19,34 @@ public class FenetreJeu2  extends JFrame{
     JTextArea listePersos ; //Affiche la liste des personnages possibles
     JComboBox boxAttribut; //Contient les attributs à tester
     JComboBox boxValeur; //Contient les valeurs de l'attribut choisi
-    JButton btnDemander; //Permet de poser un question (MAJ des attributs possibles, des valeur d'attributs possibles et des persos possibles)   
+    JButton btnDemander; //Permet de poser un question (MAJ des attributs possibles, des valeur d'attributs possibles et des persos possibles)
     JPanel panelTerciaire = new JPanel(new FlowLayout());
+    
+    //Pour pouvoir y accéder dans la méthode en dessous
+    String[] valeurs=new String[]{"Valeur 1","Valeur 2", "Valeur 3"}; //À remplacer par la liste des valeurs possibles SELON L'ATTRIBUT CHOISI
+    
+    //Juste pour les tests
+    //String[] types = new String[] {"Nom","Genre", "Type de cheveux", "Couleur de cheveux", "Couleur des yeux", "Accessoire", "Pays"}; //À remplacer par la liste des attributs
+    ArrayList<String> ListeTypes=new ArrayList<String>();
+    
+    //Création de toutes les listes de valeurs possibles
+    //Tablaux utilisés dans la JComboBox boxValeur (impossible d'utiliser des ArrayList)
+    private String[] ListeGenre=new String[] {"femme","homme"} ; //Genres possibles
+	private String[] ListeTypeCheveux = new String[]{"lisses" ,"bouclés", "ondulés"};; //CheveuxTypes de cheveux possibles
+	private String[] ListeCouleurCheveux =new String[]{"lisses" ,"bouclés", "ondulés"};; //Couleurs de cheveux possibles
+	private String[] ListeCouleurYeux =new String[]{"lisses" ,"bouclés", "ondulés"};; //Couleurs d'yeux possibles
+    private String[] ListeAccessoire =new String[]{"lunettes", "Rien"};; //Accessoires possibles
+    private String[] ListePays =new String[]{"Inde", "Chine"};; //Pays possibles
+    private String[] ListeNoms =new String[]{"Ajouter tous les noms? les récupérer ?"};; //Pays possibles
+	   
     
         
     //Jeu courant
     Jeu jeu ; 
     
-    //Tablaux utilisés dans la JComboBox boxValeur (impossible d'utiliser des ArrayList)
-    private String[] ListeGenre=new String[] {"femme","homme"} ; //Genres possibles
-	private String[] ListeTypeCheveux ; //CheveuxTypes de cheveux possibles
-	private String[] ListeCouleurCheveux ; //Couleurs de cheveux possibles
-	private String[] ListeCouleurYeux ; //Couleurs d'yeux possibles
-    private String[] ListeAccessoire ; //Accessoires possibles
-    private String[] ListePays ; //Pays possibles
-	   
     
     //CONSTRUCTEUR
     public FenetreJeu2(Jeu jeu){
-		
         super("Qui-est-ce ? - Fenêtre de jeu ") ;  //on definit le nom de la fenetre
         
         this.jeu=jeu; //récupération d'un nouveau jeu
@@ -65,11 +74,15 @@ public class FenetreJeu2  extends JFrame{
         listePersos.setEditable(false);
         listePersos.setOpaque(false);
         
-        String[] types = new String[] {"Genre", "Type cheveux", "Couleur cheveux", "Couleur yeux", "Accessoire", "Pays"};
+        //String[] types = new String[] {"Type 1","Type 2", "Type 3"}; //À remplacer par la liste des attributs
+        String[] types = new String[] {"Genre", "Type de cheveux", "Couleur de cheveux", "Couleur des yeux", "Accessoire", "Pays", "Nom"}; //À remplacer par la liste des attributs
         boxAttribut = new JComboBox(types);
         boxAttribut.addActionListener(new EcouteurComboBox(this));
         
-        boxValeur = new JComboBox();
+        //String[] valeurs=new String[]{"Valeur 1","Valeur 2", "Valeur 3"}; //À remplacer par la liste des valeurs possibles SELON L'ATTRIBUT CHOISI
+        //boxValeur = new JComboBox(valeurs);
+        //System.out.println(valeurs) ; 
+       
         
         btnDemander = new JButton("DEMANDER"); //Ajouter un écouteur de MAJ
         btnDemander.addActionListener(new EcouteurDemander(this));
@@ -78,9 +91,10 @@ public class FenetreJeu2  extends JFrame{
         //=========== Organisation structurelle ======//
         
         //Création du panel terciaire
-        JPanel panelTerciaire = new JPanel(new FlowLayout());
+        //JPanel panelTerciaire = new JPanel(new FlowLayout());
         //Ajout des widgets de gauche à droite
         panelTerciaire.add(boxAttribut);
+        //panelTerciaire.add(boxValeur);
         panelTerciaire.add(btnDemander);
         
         //Création du panel secondaire
@@ -101,23 +115,13 @@ public class FenetreJeu2  extends JFrame{
         //Ajout du conteneur principal à la fenêtre
         this.add(panelPrincipal);
         this.setVisible(true);
+         
+        }
         
-        //Instanciation des listes
-        //this.creerListes();
-		}
+        //MÉTHODES
+        //Méthode MAJListes à prévoir
         
-        /*public void creerListes(){ //Ne fonctionne pas, renvoie des listes nulles... 
-        //Création des listes initiales contenue par boxValeur
-		String[] ListeGenre = new String[] {"femme","homme"} ; //Genres possibles
-		String[] ListeTypeCheveux = new String[] {"bouclés","frisés","lisses"} ; //CheveuxTypes de cheveux possibles
-		String[] ListeCouleurCheveux = new String[] {"blonds","bruns","bruns foncé","châtains","noirs"} ; //Couleurs de cheveux possibles
-		String[] ListeCouleurYeux = new String[] {"bleus","marrons","verts"} ; //Couleurs d'yeux possibles
-		String[] ListeAccessoire = new String[] {"lunettes","rien","sa beauté","sa tête"} ; //Accessoires possibles
-		String[] ListePays = new String[] {"El Salvador","France","Guadeloupe","Pérou","Maroc","Martinique","Guyane","Vénézuéla","Panama","Le ciel","Méééxico"}; //Pays possible
-        }*/
-        
-        
-   //Getters
+        //Getters
     public Jeu getJeu(){ 
         return jeu ; 
     }
@@ -126,7 +130,7 @@ public class FenetreJeu2  extends JFrame{
         return (String) boxAttribut.getSelectedItem(); 
     }
     
-    public String getValeur(){
+      public String getValeur(){
         return (String) boxValeur.getSelectedItem(); 
         
     }
@@ -134,68 +138,125 @@ public class FenetreJeu2  extends JFrame{
     public String[] getListeGenre(){
 		return ListeGenre;
 	} 
+    
+    public String[] getListeTypeCheveux(){
+		return ListeTypeCheveux;
+    }
+    public String[] getListeCouleurCheveux(){
+		return ListeCouleurCheveux;
+    }
+    public String[] getListeCouleurYeux(){
+		return ListeCouleurYeux;
+    }
+    public String[] getListeAccessoire(){
+		return ListeAccessoire;
+    }
+    public String[] getListePays(){
+		return ListePays;
+    }
+      public String[] getListeNoms(){
+		return ListeNoms;
+    }
+        
+
 	public JComboBox getboxValeur(){
 		return boxValeur;
 	}
-	
-	
     
     
-    //méthode pour rafraichir la 2e comBoBox en fonction de la première
+    //méthode pour rafrachir la 2e comBoBox en fonction de la première
     public void adapterBoxValeur(){
-		if(boxAttribut.getSelectedItem().equals("Genre")) {
-			boxValeur = new JComboBox(ListeGenre); 
-		}
-		panelTerciaire.removeAll() ;  
-		panelTerciaire.add(boxAttribut);
-		//panelTerciaire.add(boxValeur);
-		//panelTerciaire.add(btnDemander);
-			validate(); 
-		}
-		
-        /**
-        //Appelle la méthode qui met à jour la liste des valeurs
-        //String[] valeurs2 = modifListeValeur("Genre"); 
         
-        //Fonctionne pas
-        //JComboBox boxValeur2 = new JComboBox(valeurs2);
-        //boxValeur= boxValeur2; 
+        String attribut=this.getAttribut();
+        String[] valeurs2 ; 
         
-        //Affiche un truc chelou'LJavalang...' au lieu de valeurs2
-        //boxValeur.addItem(valeurs2); 
-        //repaint(); 
-        //add(boxValeur);
-        //validate();**/
-         
-        
-    /*public String[] modifListeValeur(String attribut){
-        //Créer toutes les listes de valeurs possibles ou chercher comment les récupérer avec les classes déjà existantes
-        String[] valeursGenre=new String[]{"femme", "homme"}; 
-        String[] valeursNom=new String[]{"", ""}; //Ajouter les noms des persos
-        String[] valeursTypeCheveux=new String[]{"lisses" ,"bouclés", "ondulés"}; 
-        /** String[] CouleurCheveux=new String[]{"femme", "homme"}; 
-        String[] couleurYeux=new String[]{"femme", "homme"}; 
-        String[] accessoire=new String[]{"lunettes", "Rien"}; 
-        String[] pays=new String[]{"Femme", "Homme"}; **/
-        
-        //Trouver un moyen pour ne pas les tester une par une
-        /*if(attribut.equals("Genre")) {
-            //valeurs.removeAll(); 
-            valeurs= valeursGenre ; 
-        }
-        
-         if(attribut.equals("Type de cheveux")) {
-            //valeurs.removeAll(); 
-            valeurs= valeursTypeCheveux ; 
-        }
-        
-        
-        
-        System.out.println(valeurs) ; 
+        switch(attribut) {
+			
+			case "Genre":
+			//valeurs2 = modifListeValeur("Genre"); //Je n'arrive pas à le modifier donc je l'ai instancié ici
+            boxValeur = new JComboBox(getListeGenre()); 
+            panelTerciaire.removeAll() ; 
+            panelTerciaire.add(boxAttribut);
+            panelTerciaire.add(boxValeur);
+            panelTerciaire.add(btnDemander);
+            //repaint(); 
+            validate(); 
+			break;
             
-            return valeurs; 
+            case "Type de cheveux":
+			//valeurs2 = modifListeValeur("Type de cheveux"); //Je n'arrive pas à le modifier donc je l'ai instancié ici
+            boxValeur = new JComboBox(getListeTypeCheveux()); 
+            panelTerciaire.removeAll() ; 
+            panelTerciaire.add(boxAttribut);
+            panelTerciaire.add(boxValeur);
+            panelTerciaire.add(btnDemander);
+            //repaint(); 
+            validate(); 
+			break;
+            
+            
+            case "Couleur de cheveux":
+			//valeurs2 = modifListeValeur("Type de cheveux"); //Je n'arrive pas à le modifier donc je l'ai instancié ici
+            boxValeur = new JComboBox(getListeCouleurCheveux()); 
+            panelTerciaire.removeAll() ; 
+            panelTerciaire.add(boxAttribut);
+            panelTerciaire.add(boxValeur);
+            panelTerciaire.add(btnDemander);
+            //repaint(); 
+            validate(); 
+			break;
+            
+            
+            case "Couleur des yeux":
+			//valeurs2 = modifListeValeur("Type de cheveux"); //Je n'arrive pas à le modifier donc je l'ai instancié ici
+            boxValeur = new JComboBox(getListeCouleurYeux()); 
+            panelTerciaire.removeAll() ; 
+            panelTerciaire.add(boxAttribut);
+            panelTerciaire.add(boxValeur);
+            panelTerciaire.add(btnDemander);
+            //repaint(); 
+            validate(); 
+			break;
+            
+            case "Accessoire":
+			//valeurs2 = modifListeValeur("Type de cheveux"); //Je n'arrive pas à le modifier donc je l'ai instancié ici
+            boxValeur = new JComboBox(getListeAccessoire()); 
+            panelTerciaire.removeAll() ; 
+            panelTerciaire.add(boxAttribut);
+            panelTerciaire.add(boxValeur);
+            panelTerciaire.add(btnDemander);
+            //repaint(); 
+            validate(); 
+			break;
+            
+            case "Pays":
+			//valeurs2 = modifListeValeur("Type de cheveux"); //Je n'arrive pas à le modifier donc je l'ai instancié ici
+            boxValeur = new JComboBox(getListePays()); 
+            panelTerciaire.removeAll() ; 
+            panelTerciaire.add(boxAttribut);
+            panelTerciaire.add(boxValeur);
+            panelTerciaire.add(btnDemander);
+            //repaint(); 
+            validate(); 
+			break;
+            
+            case "Nom":
+			//valeurs2 = modifListeValeur("Type de cheveux"); //Je n'arrive pas à le modifier donc je l'ai instancié ici
+            boxValeur = new JComboBox(getListeNoms()); 
+            panelTerciaire.removeAll() ; 
+            panelTerciaire.add(boxAttribut);
+            panelTerciaire.add(boxValeur);
+            panelTerciaire.add(btnDemander);
+            //repaint(); 
+            validate(); 
+			break;
+            
+            
+        }
+    }
+        
     
-    }*/
+
 
     
     public String donnerReponse(){
@@ -215,43 +276,5 @@ public class FenetreJeu2  extends JFrame{
     
     //MÉTHODES POUR ACTUALISER LA LISTE DES PERSOS DISPO
     
+    
 }
-//String attribut=this.getAttribut();
-		//Mise a jour de boxValeur selon l'attribut choisi dans boxAttribut
-		/*switch(attribut) {
-			
-			case "Genre":
-			boxValeur = new JComboBox(ListeGenre); 
-			panelTerciaire.removeAll() ; 
-			panelTerciaire.add(boxAttribut);
-			panelTerciaire.add(boxValeur);
-			panelTerciaire.add(btnDemander);
-			validate(); 
-			break;
-			
-			case "Type cheveux":
-			boxValeur = new JComboBox(ListeTypeCheveux); 
-			break;
-			
-			case "Couleur cheveux":
-			boxValeur = new JComboBox(ListeCouleurCheveux); 
-			break;
-			
-			case "Couleur yeux":
-			boxValeur = new JComboBox(ListeCouleurYeux); 
-			break;
-			
-			case "Accesoire":
-			boxValeur = new JComboBox(ListeAccessoire); 
-			break;
-			
-			case "Pays":
-			boxValeur = new JComboBox(ListePays); 
-			break;
-			
-			//Mise à jour de l'interface
-			/*panelTerciaire.removeAll() ; 
-			panelTerciaire.add(boxAttribut);
-			panelTerciaire.add(boxValeur);
-			panelTerciaire.add(btnDemander);
-			validate(); */

@@ -15,11 +15,12 @@ public class EcouteurComboBox implements ActionListener{
     
     //MÉTHODES
      public void actionPerformed(ActionEvent e){
-	 if (fen.getListeGenre()==null)
-	 System.out.println("ListeGenre nulle");
-	 if (fen.getboxValeur()==null)
-	 System.out.println("boxValeur nulle");
      fen.adapterBoxValeur(); 
+     //Mettre méthode donnerRéponse
+     
+     //Rafraichir les listes
+     
+     
      }
 	
   
