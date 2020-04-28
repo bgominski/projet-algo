@@ -28,7 +28,7 @@ public class TestRejouer {
 	
 	public static void main (String[] args) {
 		//Création du jeu
-		Jeu jeu = new Jeu(); 
+		Jeu jeu = new Jeu(1); 
 		//Création de la fenêtre d'acceuil
         FenetreAccueil f1= new FenetreAccueil(jeu); 
         //Création de la fenêtre de jeu
