@@ -15,20 +15,9 @@ public class EcouteurDemander implements ActionListener{
     
     //MÉTHODES
      public void actionPerformed(ActionEvent e){
-        //Chercher si le personne répond à ça, va répondre oui ou non
-         //System.out.println(fen.donnerReponse()); 
-        //Va actualiser la liste des personnages disponibles
-        
-    
-        fen.refreshList();
-        
-        fen.donnerReponse();
-
+        fen.refreshList(); //mise à jour de la ComboBox boxValeur
+        fen.donnerReponse(); //affichage de la réponse
      }
-	
-    
-    //Va actualiser la liste des personnages disponibles
-        
 }
 
 

@@ -16,13 +16,6 @@ public class EcouteurComboBox implements ActionListener{
     //MÉTHODES
      public void actionPerformed(ActionEvent e){
      fen.adapterBoxValeur(); 
-     //System.out.println(jeu.getQui()); 
-     //Mettre méthode donnerRéponse
-     
-     //Rafraichir les listes
-     //fen.refreshList();
-     
-     
      }
 	
   

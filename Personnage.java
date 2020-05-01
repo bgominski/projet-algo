@@ -66,7 +66,7 @@ public class Personnage {
 	public String toString(){
 		String res=this.getNom()+" : c'est un(e) "+this.getGenre()+" aux cheveux "+
 		this.getCouleurCheveux()+" et " + this.getTypeCheveux()+" , et aux yeux "+
-		this.getCouleurYeux()+". Accesoire et pays : "+this.getAccessoire()+" "+ this.getPays();
+		this.getCouleurYeux()+". Accesoire et pays : "+this.getAccessoire()+" et "+ this.getPays();
 		return res ;
 		}
 		

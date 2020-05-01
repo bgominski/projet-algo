@@ -27,10 +27,6 @@ public class TestFenetreLancement {
 	public static void main (String[] args) {
         
 		FenetreLancement fen = new FenetreLancement() ;
-        //Jeu jeu= new Jeu(2); 
-        //FenetreJeu2 fen2 = new FenetreJeu2(jeu);
-        //FenetreLancement fé = new FenetreLancement() ; 
-		
 	}
 }
 

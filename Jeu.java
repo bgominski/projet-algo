@@ -1,26 +1,4 @@
-/*
- * Jeu.java
- * 
- * Copyright 2020 Emmanuelle ROUSSI <emmanuelle@airdeemmanuelle.insa-lyon.fr>
- * 
- * This program is free software; you can redistribute it and/or modify
- * it under the terms of the GNU General Public License as published by
- * the Free Software Foundation; either version 2 of the License, or
- * (at your option) any later version.
- * 
- * This program is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- * GNU General Public License for more details.
- * 
- * You should have received a copy of the GNU General Public License
- * along with this program; if not, write to the Free Software
- * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston,
- * MA 02110-1301, USA.
- * 
- * 
- */
- 
+//interface
 import java.awt.*;
 import java.awt.Color;
 import javax.swing.*;
@@ -45,7 +23,7 @@ public class Jeu {
 	
 	//MÉTHODES
 	
-	// Création des personnages disponibles (À MODIFIER)
+	//Constructeur
 	public Jeu(int numeroVersion){
         
         creerListePerso();
@@ -59,12 +37,10 @@ public class Jeu {
         }
             
 	}
-    
-	
-    
+    	
+    //Création des personnages disponibles
 	public void creerListePerso(){
         ImageIcon im1 = new ImageIcon(new ImageIcon("/Users/alainboulard/Desktop/photos ajustée algo/3 BIKIKRE Gabriel.jpeg.png").getImage().getScaledInstance(175,160, Image.SCALE_DEFAULT)) ; 
-		//ImageIcon im1 = new ImageIcon("/Users/alainboulard/Desktop/photos ajustée algo/3 BIKIKRE Gabriel.jpeg.png");
 		Personnage p1 = new Personnage("BIKIKRE Gabriel","homme","frisés","noirs","marrons",im1, "rien", "Guadeloupe");
 		ListePersonnage.add(p1);
 		ImageIcon im2 = new ImageIcon("/Users/alainboulard/Desktop/photos ajustée algo/5 BEUGIN Maéva.png");
@@ -125,7 +101,7 @@ public class Jeu {
 		Personnage p21 = new Personnage("VARGAS Diego","homme","lisses","bicolores","marrons",im21, "rien", "Méééxico");
 		ListePersonnage.add(p21);
         
-        qui = p1 ; //instanciation dun personnage
+        qui = p1 ; //initialisation de la valeur  de "qui" 
 		
 		}
 	
@@ -157,8 +133,7 @@ public class Jeu {
 		}
 	
 
-	//Setters
-		
+	//Setters	
 	public void setQui(Personnage p){
 		this.qui=p;
 		}
@@ -166,7 +141,8 @@ public class Jeu {
 	public void setQuestion(Question q){
 		this.question=q;
 		}
-        
+    
+    //Méthode pour le son     
    public void playSound(String soundName){
    try 
    {
@@ -182,21 +158,16 @@ public class Jeu {
    }
  }
         
-		
-	
-	
+			
 	//Boucles de Jeu	
 	public void jouerVersion1(){
 		ia = new IA(this);
-		question = ia.QuestionIA(); //affiche une première question	
+		question = ia.QuestionIA(); //récupère une première question	
         FenetreAccueil f1= new FenetreAccueil(this); 	
 	}
     
     public void jouerVersion2(){
 		FenetreJeu2 f2 = new FenetreJeu2(this); 
-        //FenetreAccueil f1= new FenetreAccueil(this);	
 	}
     
-    
-	
-	}
+}
