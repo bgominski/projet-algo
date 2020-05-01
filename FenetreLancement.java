@@ -10,7 +10,7 @@ public class FenetreLancement extends JFrame{
 	JLabel labelAccueil ;
 	
 	//Conteneur Gauche
-	JTextArea TexteInstructions;
+	JTextArea texteInstructions;
 	
 	//Conteneur Bas
 	JLabel nomAuteurs;
@@ -33,9 +33,9 @@ public class FenetreLancement extends JFrame{
 		labelAccueil=new JLabel("BIENVENUE DANS 'QUI EST-CE?', ÉDITION AMERINSA 2020 !");
 	
 		//Conteneur Gauche
-		TexteInstructions= new JTextArea("Description des règles à compléter");
-		TexteInstructions.setEditable(false);
-		TexteInstructions.setBackground(new Color(187,210,225)) ;
+		texteInstructions= new JTextArea("Description des règles à compléter");
+		texteInstructions.setEditable(false);
+		texteInstructions.setBackground(new Color(187,210,225)) ;
 	
 		//Conteneur Bas
 		nomAuteurs = new JLabel ("Auteurs : BOULARD Solenn, GOMINSKI Benjamin, ROUSSI Emmanuelle");
@@ -60,7 +60,7 @@ public class FenetreLancement extends JFrame{
 		JPanel panelPrincipal = new JPanel(new BorderLayout());
 		//Ajout des widgets au conteneur principal
 		panelPrincipal.add(labelAccueil,BorderLayout.NORTH);
-		panelPrincipal.add(TexteInstructions,BorderLayout.WEST);
+		panelPrincipal.add(texteInstructions,BorderLayout.WEST);
 		panelPrincipal.add(panelSecondaire,BorderLayout.CENTER);
 		panelPrincipal.add(nomAuteurs,BorderLayout.SOUTH);
 		
