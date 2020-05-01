@@ -367,6 +367,7 @@ public class FenetreJeu2  extends JFrame{
     //METHODE POUR VERIFIER SI LA CARACTÉRISTIQUE DEMANDÉE CORRESPOND AU PERSONNAGE
     public String donnerReponse(){
         String res = "Non"; 
+        System.out.println(jeu.getQui()); 
         /**TESTS
          * System.out.println("DEBUT DONNER REPONSE"+valeurSelectionnee); 
         
@@ -395,7 +396,7 @@ public class FenetreJeu2  extends JFrame{
             
             if(valeurSelectionnee.equals(s)){
                 if(s.equals(jeu.getQui().getNom())){
-                   // FenetreRejouer fenRejouer  = new FenetreRejouer(this);
+                   FenetreRejouer fenRejouer  = new FenetreRejouer(this);
                 }
                 res="oui";
                 aAttribut=true; 
