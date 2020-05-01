@@ -38,7 +38,7 @@ public class FenetreJeu2  extends JFrame{
     //Jeu courant
     Jeu jeu ; 
     
-    //Stock de la valeur du select item Attribut
+    //Stock de la valeur du selected item Attribut
     String valeurSelectionnee;
     
     //Liste des persos possibles à mettre à jour à chaque questions
