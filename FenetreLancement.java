@@ -33,7 +33,7 @@ public class FenetreLancement extends JFrame{
 		labelAccueil=new JLabel("BIENVENUE DANS 'QUI EST-CE?', ÉDITION AMERINSA 2020 !");
 	
 		//Conteneur Gauche
-		texteInstructions= new JTextArea("Description des règles à compléter");
+		texteInstructions= new JTextArea("Ici tu peux choisir si tu veux que \n l'IA devine le personnage que tu auras choisi (Version 1) \n ou bien si tu veux deviner celui que l'IA aura choisi");
 		texteInstructions.setEditable(false);
 		texteInstructions.setBackground(new Color(187,210,225)) ;
 	
