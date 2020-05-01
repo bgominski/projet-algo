@@ -72,7 +72,6 @@ public class FenetreJeu2  extends JFrame{
         labelNomAuteurs = new JLabel ("Auteurs : BOULARD Solenn, GOMINSKI Benjamin, ROUSSI Emmanuelle");
         
         //Conteneur Centre
-        
         reponse = new JLabel("La réponse à votre question s'affichera ici");
         int s=jeu.getListePersonnage().size()+1;
         JPanel listePersos = new JPanel (new GridLayout(s,1)); //On crée une grille  une case par personnage + une case pour afficher les réponses
