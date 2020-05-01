@@ -30,7 +30,8 @@ public class FenetreJeu2  extends JFrame{
 	private String[] listeCouleurYeux =new String[]{"marrons" ,"bleus", "ondulés"};; //Couleurs d'yeux possibles
     private String[] listeAccessoire =new String[]{"lunettes", "rien","sa beauté"};; //Accessoires possibles
     private String[] listePays =new String[]{"France", "Guadeloupe","Pérou","El Salvador","Maroc","Martinique","Guyane","Vénézuela","Panama","Le ciel","Méééxico"}; //Pays possibles
-    private String[] listeNoms =new String[]{"Ajouter tous les noms? les récupérer ?"};; //Pays possibles
+    private String[] listeNoms =new String[]{"BIKIKRE Gabriel", "BEUGIN Maeva", "BOULARD Solenn", "BEGAZO Gabriel", "CANJURA Sonia", "CLAUDE Edouard", "DRUTEL Maxence", "DAGHNI Samya", "FAURE Ninon", 
+    "GOMINSKI Benjamin", "GRANGE Quentin", "HARDY Guenael", "LENGANEY Nicolas", "RAGOT Andres", "MARTINEZ Karina", "ROUGIER Julia", "ROUSSI Emmanuelle", "SANDOZ Alexandre", "SIMONNET Léa", "VARGAS Diego"}; //Noms possibles
     
     //Liste en cours dans boxValeur
     String[] listeEnCours; //permet de récupérer la liste présente dans boxValeur
@@ -38,7 +39,7 @@ public class FenetreJeu2  extends JFrame{
     //Jeu courant
     Jeu jeu ; 
     
-    //Stock de la valeur du selected item Attribut
+    //Stockage de la valeur du selected item Attribut
     String valeurSelectionnee;
     
     //Liste des persos possibles à mettre à jour à chaque questions
@@ -65,7 +66,7 @@ public class FenetreJeu2  extends JFrame{
         labelExplication = new JLabel("Pour poser une question, choisissez la caractéristique grâce aux menus déroulants puis cliquez sur DEMANDER") ;
         
         //Conteneur Gauche
-        textRegles= new JTextArea("Règles à compléter");
+        textRegles= new JTextArea("\n\n\n L'IA te dira alors \n si tu es sur la bonne piste. \nTu pourras donc ensuite cliquer sur \n les personnages que tu souhaites pour\n pour les supprimer") ; 
         textRegles.setEditable(false);
         
         //Conteneur Bas
@@ -363,10 +364,11 @@ public class FenetreJeu2  extends JFrame{
 		   }
 	}
 			
-    
+    //METHODE POUR VERIFIER SI LA CARACTÉRISTIQUE DEMANDÉE CORRESPOND AU PERSONNAGE
     public String donnerReponse(){
         String res = "Non"; 
-        /*System.out.println("DEBUT DONNER REPONSE"+valeurSelectionnee); 
+        /**TESTS
+         * System.out.println("DEBUT DONNER REPONSE"+valeurSelectionnee); 
         
         System.out.println(jeu.getQui()); 
         System.out.println(jeu.getQui().getGenre());
@@ -375,74 +377,10 @@ public class FenetreJeu2  extends JFrame{
         System.out.println(jeu.getQui().getAccessoire());
         System.out.println(jeu.getQui().getCouleurYeux());
         System.out.println(jeu.getQui().getNom());
-        System.out.println(jeu.getQui().getPays());*/
+        System.out.println(jeu.getQui().getPays());**/
         
         
-        
-        //Vérifier si ça correspond au personnage
-        
-        //SOLUTION 1 QUI MARCHE PAS
-		/**switch(valeurSelectionnee) {
-			case (String)jeu.getQui().getGenre():
-			res = "oui"; 
-			break;
-			
-			case jeu.getQui().getCouleurCheveux():
-			res = "oui"; 
-			break;
-			
-			case getTypeCheveux():
-			res = "oui"; 
-			break;
-			
-            case getCouleurYeux():
-            res = "oui"; 
-			break;
-            
-            case getAccessoire():
-            res = "oui"; 
-			break;
-            
-            case getPays():
-            res = "oui"; 
-			break;
-            
-            case getNom():
-            res = "oui"; 
-			break;
-        }**/
-        //SOLUTION 2 QUI MARCHE
-        /**
-        if(jeu.getQui().getGenre().equals(valeurSelectionnee)){
-        res = "Oui"; 
-        }
-        
-        if(jeu.getQui().getCouleurCheveux().equals(valeurSelectionnee)){
-        res = "Oui"; 
-        }
-         
-        if(jeu.getQui().getTypeCheveux().equals(valeurSelectionnee)){
-        res = "Oui"; 
-        }
-        
-        if(jeu.getQui().getAccessoire().equals(valeurSelectionnee)){
-        res = "Oui"; 
-        }
-        
-        if(jeu.getQui().getCouleurYeux().equals(valeurSelectionnee)){
-        res = "Oui"; 
-        }
-        if(jeu.getQui().getNom().equals(valeurSelectionnee)){
-        res = "Oui"; 
-        }
-         if(jeu.getQui().getPays().equals(valeurSelectionnee)){
-        res = "Oui"; 
-        }
-        **/
-        
-          //SOLUTION 3 QUI MARCHE
-        
-         //Stocket toutes les caractéristqieus du perso dans une liste
+         //Stocker toutes les caractéristqieus du perso dans une liste
         ArrayList<String> caractéristiquesPerso = new ArrayList<String>(); //on crée une liste intermédiaire
             caractéristiquesPerso.add(jeu.getQui().getGenre()) ; 
             caractéristiquesPerso.add(jeu.getQui().getCouleurCheveux()) ;
@@ -454,7 +392,11 @@ public class FenetreJeu2  extends JFrame{
             
         //On parcourt les éléments de la liste et ça renvoie oui s'il y a une correspondance
 		for(String s : caractéristiquesPerso){
+            
             if(valeurSelectionnee.equals(s)){
+                if(s.equals(jeu.getQui().getNom())){
+                   // FenetreRejouer fenRejouer  = new FenetreRejouer(this);
+                }
                 res="oui";
                 aAttribut=true; 
                 
