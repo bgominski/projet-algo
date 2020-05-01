@@ -17,7 +17,7 @@ public class Jeu {
 	//ATTRIBUTS
 	private String pseudo;
 	private Personnage qui;
-	private ArrayList<Personnage> ListePersonnage=new ArrayList<Personnage>();
+	private ArrayList<Personnage> listePersonnage=new ArrayList<Personnage>();
 	private Question question;
 	private IA ia;
 	
@@ -42,64 +42,64 @@ public class Jeu {
 	public void creerListePerso(){
         ImageIcon im1 = new ImageIcon(new ImageIcon("/Users/alainboulard/Desktop/photos ajustée algo/3 BIKIKRE Gabriel.jpeg.png").getImage().getScaledInstance(175,160, Image.SCALE_DEFAULT)) ; 
 		Personnage p1 = new Personnage("BIKIKRE Gabriel","homme","frisés","noirs","marrons",im1, "rien", "Guadeloupe");
-		ListePersonnage.add(p1);
+		listePersonnage.add(p1);
 		ImageIcon im2 = new ImageIcon("/Users/alainboulard/Desktop/photos ajustée algo/5 BEUGIN Maéva.png");
 		Personnage p2 = new Personnage("BEUGIN Maeva","femme","lisses","blonds","marrons",im2, "lunettes", "France");
-		ListePersonnage.add(p2);
+		listePersonnage.add(p2);
 		ImageIcon im3 = new ImageIcon("/Users/alainboulard/Desktop/photos ajustée algo/6 BOULARD Solenn.png");
 		Personnage p3 = new Personnage("BOULARD Solenn","femme","lisses","chatains","bleus",im3, "rien", "Guadeloupe");
-		ListePersonnage.add(p3);
+		listePersonnage.add(p3);
 		ImageIcon im4 = new ImageIcon("/Users/alainboulard/Desktop/photos ajustée algo/4 BEGAZO Gabriel.png");
 		Personnage p4 = new Personnage("BEGAZO Gabriel","homme","lisses","bruns","marrons",im4, "rien", "Pérou");
-		ListePersonnage.add(p4);
+		listePersonnage.add(p4);
 		ImageIcon im5 = new ImageIcon("/Users/alainboulard/Desktop/photos ajustée algo/7 CANJURA Sonia.png");
 		Personnage p5 = new Personnage("CANJURA Sonia","femme","lisses","noirs","marrons",im5, "rien", "El Salvador");
-		ListePersonnage.add(p5);
+		listePersonnage.add(p5);
 		ImageIcon im7 = new ImageIcon("/Users/alainboulard/Desktop/photos ajustée algo/8 CLAUDE Edouard.png");
 		Personnage p7 = new Personnage("CLAUDE Edouard","homme","bouclés","blonds","bleus",im7, "sa tête", "France");
-		ListePersonnage.add(p7);
+		listePersonnage.add(p7);
 		ImageIcon im8= new ImageIcon("/Users/alainboulard/Desktop/photos ajustée algo/9 DRUTEL Maxence.png");
 		Personnage p8 = new Personnage("DRUTEL Maxence","homme","lisses","chatains","marrons",im8, "rien", "France");
-		ListePersonnage.add(p8);
+		listePersonnage.add(p8);
 		ImageIcon im9 = new ImageIcon("/Users/alainboulard/Desktop/photos ajustée algo/10 DAGHNI Samya.png");
 		Personnage p9 = new Personnage("DAGHNI Samya","femme","bouclés","bruns","marrons",im9, "rien", "Maroc");
-		ListePersonnage.add(p9);
+		listePersonnage.add(p9);
 		ImageIcon im10 = new ImageIcon("/Users/alainboulard/Desktop/photos ajustée algo/11 FAURE Ninon.png");
 		Personnage p10 = new Personnage("FAURE Ninon","femme","bouclés","chatains","verts",im10, "lunettes", "Guadeloupe");
-		ListePersonnage.add(p10);
+		listePersonnage.add(p10);
 		ImageIcon im11 = new ImageIcon("/Users/alainboulard/Desktop/photos ajustée algo/12 GOMINSKI Benjamin.png");
 		Personnage p11 = new Personnage("GOMINSKI Benjamin","homme","frisés","blonds","bleus",im11, "rien", "France");
-		ListePersonnage.add(p11);
+		listePersonnage.add(p11);
 		ImageIcon im12 = new ImageIcon("/Users/alainboulard/Desktop/photos ajustée algo/13 GRANGE Quentin.png");
 		Personnage p12 = new Personnage("GRANGE Quentin","homme","lisses","chatains","bleus",im12, "lunettes", "France");
-		ListePersonnage.add(p12);
+		listePersonnage.add(p12);
 		ImageIcon im13 = new ImageIcon("/Users/alainboulard/Desktop/photos ajustée algo/14 HARDY Guenael.png");
 		Personnage p13 = new Personnage("HARDY Guenael","homme","bouclés","noirs","marrons",im13, "rien", "Martinique");
-		ListePersonnage.add(p13);
+		listePersonnage.add(p13);
 		ImageIcon im14 = new ImageIcon("/Users/alainboulard/Desktop/photos ajustée algo/15 LENGANEY Nicolas.png");
 		Personnage p14 = new Personnage("LENGANEY Nicolas","homme","lisses","noirs","marrons",im14, "lunettes", "Guyane");
-		ListePersonnage.add(p14);
+		listePersonnage.add(p14);
 		ImageIcon im15 = new ImageIcon("/Users/alainboulard/Desktop/photos ajustée algo/19 RAGOT Andres.png");
 		Personnage p15 = new Personnage("RAGOT Andres","homme","bouclés","bruns","marrons",im15, "rien", "Vénézuela");
-		ListePersonnage.add(p15);
+		listePersonnage.add(p15);
         ImageIcon im16 = new ImageIcon("/Users/alainboulard/Desktop/photos ajustée algo/16 MARTINEZ Karina.png");
 		Personnage p16 = new Personnage("MARTINEZ Karina","femme","bouclés","bruns","marrons",im16, "rien", "Panama");
-		ListePersonnage.add(p16);
+		listePersonnage.add(p16);
 		ImageIcon im17 = new ImageIcon("/Users/alainboulard/Desktop/photos ajustée algo/20 ROUGIER Julia.png");
 		Personnage p17 = new Personnage("ROUGIER Julia","femme","lisses","bruns foncé","bleus",im17, "rien", "Le ciel");
-		ListePersonnage.add(p17);
+		listePersonnage.add(p17);
 		ImageIcon im18 = new ImageIcon("/Users/alainboulard/Desktop/photos ajustée algo/21 ROUSSI Emmanuelle.JPG");
 		Personnage p18 = new Personnage("ROUSSI Emmanuelle","femme","frisés","noirs","marrons",im18, "sa beauté", "Martinique");
-		ListePersonnage.add(p18);
+		listePersonnage.add(p18);
         ImageIcon im19 = new ImageIcon(new ImageIcon("/Users/alainboulard/Desktop/photos ajustée algo/22 SANDOZ Alexandre.png").getImage().getScaledInstance(175,160, Image.SCALE_DEFAULT)) ; 
 		Personnage p19 = new Personnage("SANDOZ Alexandre","homme","bouclés","chatains","marrons",im19, "rien", "Guadeloupe");
-		ListePersonnage.add(p19);
+		listePersonnage.add(p19);
 		ImageIcon im20 = new ImageIcon("/Users/alainboulard/Desktop/photos ajustée algo/23 SIMONNET Léa.png");
 		Personnage p20 = new Personnage("SIMONNET Léa","femme","bouclés","chatains","marrons",im20, "rien", "France");
-		ListePersonnage.add(p20);
+		listePersonnage.add(p20);
 		ImageIcon im21 = new ImageIcon("/Users/alainboulard/Desktop/photos ajustée algo/24 VARGAS Diego.png");
 		Personnage p21 = new Personnage("VARGAS Diego","homme","lisses","bicolores","marrons",im21, "rien", "Méééxico");
-		ListePersonnage.add(p21);
+		listePersonnage.add(p21);
         
         qui = p1 ; //initialisation de la valeur  de "qui" 
 		
@@ -121,7 +121,7 @@ public class Jeu {
 	}
 	
 	public ArrayList<Personnage> getListePersonnage() {
-		return this.ListePersonnage;
+		return this.listePersonnage;
 		}
         
 	public Question getQuestion(){

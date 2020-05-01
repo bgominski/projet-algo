@@ -24,13 +24,13 @@ public class FenetreJeu2  extends JFrame{
     JLabel reponse ; //Contient la réponse à la question précédente
     
     //Tablaux utilisés dans la JComboBox boxValeur (impossible d'utiliser des ArrayList)
-    private String[] ListeGenre=new String[] {"femme","homme"} ; //Genres possibles
-	private String[] ListeTypeCheveux = new String[]{"lisses" ,"bouclés", "ondulés", "frisés"};; //CheveuxTypes de cheveux possibles
-	private String[] ListeCouleurCheveux =new String[]{"blonds" ,"chatains", "bruns","noirs","bicolores"};; //Couleurs de cheveux possibles
-	private String[] ListeCouleurYeux =new String[]{"marrons" ,"bleus", "ondulés"};; //Couleurs d'yeux possibles
-    private String[] ListeAccessoire =new String[]{"lunettes", "rien","sa beauté"};; //Accessoires possibles
-    private String[] ListePays =new String[]{"France", "Guadeloupe","Pérou","El Salvador","Maroc","Martinique","Guyane","Vénézuela","Panama","Le ciel","Méééxico"}; //Pays possibles
-    private String[] ListeNoms =new String[]{"Ajouter tous les noms? les récupérer ?"};; //Pays possibles
+    private String[] listeGenre=new String[] {"femme","homme"} ; //Genres possibles
+	private String[] listeTypeCheveux = new String[]{"lisses" ,"bouclés", "ondulés", "frisés"};; //CheveuxTypes de cheveux possibles
+	private String[] listeCouleurCheveux =new String[]{"blonds" ,"chatains", "bruns","noirs","bicolores"};; //Couleurs de cheveux possibles
+	private String[] listeCouleurYeux =new String[]{"marrons" ,"bleus", "ondulés"};; //Couleurs d'yeux possibles
+    private String[] listeAccessoire =new String[]{"lunettes", "rien","sa beauté"};; //Accessoires possibles
+    private String[] listePays =new String[]{"France", "Guadeloupe","Pérou","El Salvador","Maroc","Martinique","Guyane","Vénézuela","Panama","Le ciel","Méééxico"}; //Pays possibles
+    private String[] listeNoms =new String[]{"Ajouter tous les noms? les récupérer ?"};; //Pays possibles
     
     //Liste en cours dans boxValeur
     String[] listeEnCours; //permet de récupérer la liste présente dans boxValeur
@@ -42,7 +42,7 @@ public class FenetreJeu2  extends JFrame{
     String valeurSelectionnee;
     
     //Liste des persos possibles à mettre à jour à chaque questions
-    ArrayList<String> ListePersonnagePossibles ;
+    ArrayList<String> listePersonnagePossibles ;
     
     //Pour répondre aux questions
     boolean aAttribut =false; 
@@ -139,27 +139,27 @@ public class FenetreJeu2  extends JFrame{
     
     
     public String[] getListeGenre(){ 
-		return ListeGenre;
+		return listeGenre;
 	} 
 	
     public String[] getListeTypeCheveux(){
-		return ListeTypeCheveux;
+		return listeTypeCheveux;
 	}
 	
     public String[] getListeCouleurCheveux(){
-		return ListeCouleurCheveux;
+		return listeCouleurCheveux;
 	}
 	
     public String[] getListeCouleurYeux(){
-		return ListeCouleurYeux;
+		return listeCouleurYeux;
 	}
 	
     public String[] getListeAccessoire(){
-		return ListeAccessoire;
+		return listeAccessoire;
 	}
 	
     public String[] getListePays(){
-		return ListePays;
+		return listePays;
 	}
 	
 	public String[] getListeEnCours(){
@@ -167,7 +167,7 @@ public class FenetreJeu2  extends JFrame{
 	}
 	
     public String[] getListeNoms(){
-		return ListeNoms;
+		return listeNoms;
 	}
         
 	public JComboBox getboxValeur(){
@@ -176,27 +176,27 @@ public class FenetreJeu2  extends JFrame{
 	
 	//Setters
 	public void setListeGenre(String[] tab){ 
-		ListeGenre=tab;
+		listeGenre=tab;
 	} 
 	
     public void setListeTypeCheveux(String[] tab){
-		ListeTypeCheveux=tab;
+		listeTypeCheveux=tab;
 	}
 	
     public void setListeCouleurCheveux(String[] tab){
-		ListeCouleurCheveux=tab;
+		listeCouleurCheveux=tab;
 	}
 	
     public void setListeCouleurYeux(String[] tab){
-		ListeCouleurYeux=tab;
+		listeCouleurYeux=tab;
 	}
 	
     public void setListeAccessoire(String[] tab){
-		ListeAccessoire=tab;
+		listeAccessoire=tab;
 	}
 	
     public void setListePays(String[] tab){
-		ListePays=tab;
+		listePays=tab;
 	}
 	
 	 public void setListeEnCours(String[] tab){
@@ -299,9 +299,16 @@ public class FenetreJeu2  extends JFrame{
     
     //Méthode de maj des attributs contenue dans boxValeur en fonction de la question posée
     public void refreshList(){
-        
+        System.out.println("contenu de la liste  avant question");
+       for (int i=0; i<listeTypeCheveux.length; i++){
+		   System.out.println(listeTypeCheveux[i]);  
+		   }
         valeurSelectionnee= (String)boxValeur.getSelectedItem();
         String[] tab = getListeEnCours(); //on récupère les valeurs possible avant la question posée
+        System.out.println("contenu de la liste  testé pendant la question");
+       for (int i=0; i<tab.length; i++){
+		   System.out.println(tab[i]);  
+		   }
 		ArrayList<String> ListeIntermediaire = new ArrayList<String>(); //on crée une liste intermédiaire
 		for(int i=0; i<tab.length; i++) {
 			ListeIntermediaire.add(tab[i]);//on récupère les éléments présents dans boxValeurs et on les places dans ListeIntermédiaire
@@ -349,12 +356,17 @@ public class FenetreJeu2  extends JFrame{
 			break;
         
 		}
-        System.out.println("FIN REFRESH"+valeurSelectionnee); 
-	}		
+		System.out.println("contenu de la liste MAJ après question");
+       for (int i=0; i<listeTypeCheveux.length; i++){
+		   System.out.println(listeTypeCheveux[i]);
+		   
+		   }
+	}
+			
     
     public String donnerReponse(){
         String res = "Non"; 
-        System.out.println("DEBUT DONNER REPONSE"+valeurSelectionnee); 
+        /*System.out.println("DEBUT DONNER REPONSE"+valeurSelectionnee); 
         
         System.out.println(jeu.getQui()); 
         System.out.println(jeu.getQui().getGenre());
@@ -363,7 +375,7 @@ public class FenetreJeu2  extends JFrame{
         System.out.println(jeu.getQui().getAccessoire());
         System.out.println(jeu.getQui().getCouleurYeux());
         System.out.println(jeu.getQui().getNom());
-        System.out.println(jeu.getQui().getPays());
+        System.out.println(jeu.getQui().getPays());*/
         
         
         
