@@ -12,7 +12,7 @@ public class EcouteurJouer implements ActionListener{
 	
 	//Constructeur
 	public EcouteurJouer(FenetreAccueil fen) {
-		this.fen = fen;
+		this.fen = fen; //récupération de la fenetre d'acceuil courante
 		this.jeu=fen.getJeu(); //récuprération du jeu courant		
 	}
 	

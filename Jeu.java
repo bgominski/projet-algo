@@ -17,8 +17,8 @@ public class Jeu {
 	//ATTRIBUTS
 	private String pseudo;
 	private Personnage qui;
-	private ArrayList<Personnage> listePersonnage=new ArrayList<Personnage>();
-	private Question question;
+	private ArrayList<Personnage> listePersonnage=new ArrayList<Personnage>(); //contient tous les personnages possibles initialement
+	private Question question; //contient la dernière question posée par l'IA
 	private IA ia;
 	
 	//MÉTHODES
@@ -142,7 +142,7 @@ public class Jeu {
 		this.question=q;
 		}
     
-    //Méthode pour le son     
+   //Méthode pour le son     
    public void playSound(String soundName){
    try 
    {
@@ -163,11 +163,11 @@ public class Jeu {
 	public void jouerVersion1(){
 		ia = new IA(this);
 		question = ia.QuestionIA(); //récupère une première question	
-        FenetreAccueil f1= new FenetreAccueil(this); 	
+        FenetreAccueil f1= new FenetreAccueil(this); //ouvre une fenêtre de jeu de version 1	
 	}
     
     public void jouerVersion2(){
-		FenetreJeu2 f2 = new FenetreJeu2(this); 
+		FenetreJeu2 f2 = new FenetreJeu2(this); //ouvre une fenêtre de jeu de version 2
 	}
     
 }

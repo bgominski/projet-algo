@@ -38,8 +38,8 @@ public class FenetreJeu2  extends JFrame{
     //Jeu courant
     Jeu jeu ; 
     
-    //Stock de la valeur du selected item Attribut
-    String valeurSelectionnee;
+    //Stock de la valeur du selected item de boxValeur
+    String valeurSelectionnee; //permet de tester cette valeur lorsqu'une question est posée
     
     //Liste des persos possibles à mettre à jour à chaque questions
     ArrayList<String> listePersonnagePossibles ;
@@ -299,16 +299,9 @@ public class FenetreJeu2  extends JFrame{
     
     //Méthode de maj des attributs contenue dans boxValeur en fonction de la question posée
     public void refreshList(){
-        System.out.println("contenu de la liste  avant question");
-       for (int i=0; i<listeTypeCheveux.length; i++){
-		   System.out.println(listeTypeCheveux[i]);  
-		   }
-        valeurSelectionnee= (String)boxValeur.getSelectedItem();
+   
+        valeurSelectionnee = (String)boxValeur.getSelectedItem(); //on récupère la valeur sélectionné dans boxValeur
         String[] tab = getListeEnCours(); //on récupère les valeurs possible avant la question posée
-        System.out.println("contenu de la liste  testé pendant la question");
-       for (int i=0; i<tab.length; i++){
-		   System.out.println(tab[i]);  
-		   }
 		ArrayList<String> ListeIntermediaire = new ArrayList<String>(); //on crée une liste intermédiaire
 		for(int i=0; i<tab.length; i++) {
 			ListeIntermediaire.add(tab[i]);//on récupère les éléments présents dans boxValeurs et on les places dans ListeIntermédiaire
@@ -321,6 +314,7 @@ public class FenetreJeu2  extends JFrame{
 		}
 		
 		boxValeur = new JComboBox(tabMAJ); //On met à jour les éléments de boxValeur grâce à tabMAJ
+		
 		//Mise à jour du panel
         panelTerciaire.removeAll() ; 
         panelTerciaire.add(boxAttribut);
@@ -328,7 +322,7 @@ public class FenetreJeu2  extends JFrame{
         panelTerciaire.add(btnDemander); 
         validate(); 
         
-        //Mise à jour des Liste passées en attribut
+        //Mise à jour des listes passées en attribut (pour éviter que les caractéristiques déjà testées réapparaissent)
 		String attribut=this.getAttribut();
 		switch(attribut) {
 			case "Genre":
@@ -356,112 +350,31 @@ public class FenetreJeu2  extends JFrame{
 			break;
         
 		}
-		System.out.println("contenu de la liste MAJ après question");
-       for (int i=0; i<listeTypeCheveux.length; i++){
-		   System.out.println(listeTypeCheveux[i]);
-		   
-		   }
 	}
 			
     
     public String donnerReponse(){
-        String res = "Non"; 
-        /*System.out.println("DEBUT DONNER REPONSE"+valeurSelectionnee); 
-        
-        System.out.println(jeu.getQui()); 
-        System.out.println(jeu.getQui().getGenre());
-        System.out.println(jeu.getQui().getCouleurCheveux());
-        System.out.println(jeu.getQui().getTypeCheveux());
-        System.out.println(jeu.getQui().getAccessoire());
-        System.out.println(jeu.getQui().getCouleurYeux());
-        System.out.println(jeu.getQui().getNom());
-        System.out.println(jeu.getQui().getPays());*/
-        
-        
-        
-        //Vérifier si ça correspond au personnage
-        
-        //SOLUTION 1 QUI MARCHE PAS
-		/**switch(valeurSelectionnee) {
-			case (String)jeu.getQui().getGenre():
-			res = "oui"; 
-			break;
-			
-			case jeu.getQui().getCouleurCheveux():
-			res = "oui"; 
-			break;
-			
-			case getTypeCheveux():
-			res = "oui"; 
-			break;
-			
-            case getCouleurYeux():
-            res = "oui"; 
-			break;
+        String res = "Non"; //Initialisation de la réponse
+  
+		ArrayList<String> caractéristiquesPerso = new ArrayList<String>(); //on crée une liste 
+        //On stocke toutes les caractéristqieus du perso dans cette liste
+        caractéristiquesPerso.add(jeu.getQui().getGenre()) ;
+        caractéristiquesPerso.add(jeu.getQui().getCouleurCheveux()) ;
+        caractéristiquesPerso.add(jeu.getQui().getTypeCheveux()) ;
+        caractéristiquesPerso.add(jeu.getQui().getAccessoire()) ;
+        caractéristiquesPerso.add(jeu.getQui().getCouleurYeux()) ;
+        caractéristiquesPerso.add(jeu.getQui().getPays()) ;
+        caractéristiquesPerso.add(jeu.getQui().getNom()) ;
             
-            case getAccessoire():
-            res = "oui"; 
-			break;
-            
-            case getPays():
-            res = "oui"; 
-			break;
-            
-            case getNom():
-            res = "oui"; 
-			break;
-        }**/
-        //SOLUTION 2 QUI MARCHE
-        /**
-        if(jeu.getQui().getGenre().equals(valeurSelectionnee)){
-        res = "Oui"; 
-        }
-        
-        if(jeu.getQui().getCouleurCheveux().equals(valeurSelectionnee)){
-        res = "Oui"; 
-        }
-         
-        if(jeu.getQui().getTypeCheveux().equals(valeurSelectionnee)){
-        res = "Oui"; 
-        }
-        
-        if(jeu.getQui().getAccessoire().equals(valeurSelectionnee)){
-        res = "Oui"; 
-        }
-        
-        if(jeu.getQui().getCouleurYeux().equals(valeurSelectionnee)){
-        res = "Oui"; 
-        }
-        if(jeu.getQui().getNom().equals(valeurSelectionnee)){
-        res = "Oui"; 
-        }
-         if(jeu.getQui().getPays().equals(valeurSelectionnee)){
-        res = "Oui"; 
-        }
-        **/
-        
-          //SOLUTION 3 QUI MARCHE
-        
-         //Stocket toutes les caractéristqieus du perso dans une liste
-        ArrayList<String> caractéristiquesPerso = new ArrayList<String>(); //on crée une liste intermédiaire
-            caractéristiquesPerso.add(jeu.getQui().getGenre()) ; 
-            caractéristiquesPerso.add(jeu.getQui().getCouleurCheveux()) ;
-            caractéristiquesPerso.add(jeu.getQui().getTypeCheveux()) ;
-            caractéristiquesPerso.add(jeu.getQui().getAccessoire()) ;
-            caractéristiquesPerso.add(jeu.getQui().getCouleurYeux()) ;
-            caractéristiquesPerso.add(jeu.getQui().getPays()) ;
-            caractéristiquesPerso.add(jeu.getQui().getNom()) ;
-            
-        //On parcourt les éléments de la liste et ça renvoie oui s'il y a une correspondance
+        //On parcourt les éléments de la liste et on renvoie oui s'il y a une correspondance
 		for(String s : caractéristiquesPerso){
             if(valeurSelectionnee.equals(s)){
                 res="oui";
-                aAttribut=true; 
-                
+                aAttribut=true;       
             }	
 		}  
 		    
-        //Affiche la réponse
+        //On affiche la réponse
         reponse.setText("Réponse : "+res); 
         repaint(); 
         revalidate() ; 

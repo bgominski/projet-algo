@@ -14,8 +14,8 @@ public class EcouteurRejouer implements ActionListener{
 	private FenetreRejouer fenetreRejouer; //fenetre rejouer liée au jeu courant
 	private FenetreAccueil fenetreAcceuil; //nouvelle fenetre d'accueil
 	private Jeu jeu; //nouveau jeu
-	private AudioInputStream audio;
-   // private AudioSystem system = new AudioSystem();
+	private AudioInputStream audio; //son
+
 	//MÉTHODES
 	
 	//Constructeur
@@ -24,11 +24,11 @@ public class EcouteurRejouer implements ActionListener{
 		this.jeu=new Jeu(1); //création d'un nouveau jeu	
 	}
     
-	
+	 //Instructions a executer au clic du bouton 
 	public void actionPerformed(ActionEvent e){		
 		fenetreRejouer.hide(); //Ferme la fenêtre d'accueil
 		fenetreAcceuil = new FenetreAccueil(jeu);  //Ouvre la fenêtre de jeu
-        jeu.playSound("/Users/alainboulard/Downloads/Double-Mixte-59.wav");
+        jeu.playSound("/Users/alainboulard/Downloads/Double-Mixte-59.wav"); //son
 
 	}
 }

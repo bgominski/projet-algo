@@ -4,7 +4,7 @@ import java.util.*;
 public class EcouteurChoixVersion2 implements ActionListener{
 	
 	//ATTRIBUTS
-	private Jeu jeu ; //jeu courant
+	private Jeu jeu ; 
     private FenetreLancement fen; 
 	
 	//MÉTHODES
@@ -14,20 +14,11 @@ public class EcouteurChoixVersion2 implements ActionListener{
 		this.fen=fen;
 	}
 	
-    //Instructions a executer au clic du bouton jouer
+    //Instructions a executer au clic du bouton 
     public void actionPerformed(ActionEvent e){
-     
-    //On aurait pu comparer un getText, méthode créée dans l'interface de lancement mais j'ai 
-    //préféré faire deux écouteurs différents pour ne pas avoir à modifier cette classe si onchange le texte des boutons
-    //Dans ce cas on aurait mis un 2e attribut à l'écouteur 
-    
-    jeu = new Jeu(2) ; 
-    //FenetreJeu2 f2 = new FenetreJeu2(); 
-    int persoChoisi = (int)(Math.random()*jeu.getListePersonnage().size()); 
-    System.out.println(persoChoisi) ; 
-    jeu.setQui(jeu.getListePersonnage().get(persoChoisi)) ; 
-    //System.out.println(jeu.getQui()) ; 
-   
-
+    jeu = new Jeu(2) ; //on instencie un jeu de version 2
+    int persoChoisi = (int)(Math.random()*jeu.getListePersonnage().size()); //on choisit un personnage aléatoirement
+    jeu.setQui(jeu.getListePersonnage().get(persoChoisi)) ; //on affecte ce personnage au jeu
+ 
     }
 }

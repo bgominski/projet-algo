@@ -4,7 +4,6 @@ import java.util.*;
 public class EcouteurDemander implements ActionListener{
 	
 	//ATTRIBUTS
-	private Jeu jeu ; 
     private FenetreJeu2 fen; 
 	
 	

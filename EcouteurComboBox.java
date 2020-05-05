@@ -4,7 +4,6 @@ import java.util.*;
 public class EcouteurComboBox implements ActionListener{
 	
 	//ATTRIBUTS
-	private Jeu jeu ; 
     private FenetreJeu2 fen; 
 	
 	
@@ -15,7 +14,7 @@ public class EcouteurComboBox implements ActionListener{
     
     //MÉTHODES
      public void actionPerformed(ActionEvent e){
-     fen.adapterBoxValeur(); 
+     fen.adapterBoxValeur(); //on adapte le contenu de boxValeur en fonction de l'attribut choisit dans boxType
      }
 	
   

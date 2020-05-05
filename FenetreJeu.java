@@ -38,7 +38,7 @@ public class FenetreJeu  extends JFrame{
     public FenetreJeu(FenetreAccueil fenA){
         super("Qui-est-ce ? - Fenêtre de jeu ") ;  //on definit le nom de la fenetre
         
-        jeu= fenA.getJeu(); 
+        jeu= fenA.getJeu(); //récupération du jeu courant
 		
 		//Dimensions de la fenetre graphique et fermeture
 		setSize(1600, 500) ; 
@@ -54,13 +54,12 @@ public class FenetreJeu  extends JFrame{
         panelPersoChoisi= new JPanel( new BorderLayout());
         labelCaracPerso = new JTextArea("Votre personnage :\nNom: "+jeu.getQui().getNom()+"\nGenre: "+
         jeu.getQui().getGenre()+"\nCouleur cheveux: "+jeu.getQui().getCouleurCheveux()
-        +"\nType cheveux: "+jeu.getQui().getTypeCheveux() +"\nYeux: "+jeu.getQui().getCouleurYeux());     
+        +"\nType cheveux: "+jeu.getQui().getTypeCheveux() +"\nYeux: "+jeu.getQui().getCouleurYeux()); //description du personnage choisi  
 		labelCaracPerso.setEditable(false);
 		labelCaracPerso.setBackground(new Color(187,210,225)) ;		
-        imagePersoChoisi = new JLabel((jeu.getQui()).getImage());
+        imagePersoChoisi = new JLabel((jeu.getQui()).getImage()); //récuparation de l'image du personnage choisi
         panelPersoChoisi.add(labelCaracPerso,BorderLayout.SOUTH);
         panelPersoChoisi.add(imagePersoChoisi,BorderLayout.CENTER);
-        //panelPersoChoisi.add(new JLabel("	 "),BorderLayout.EAST);
         
         //Milieu
         aireQIA = new JLabel() ;
@@ -81,7 +80,6 @@ public class FenetreJeu  extends JFrame{
         
         
         //=========== Organisation structurelle ======//
-		//Ajout de tous les widgets dans le conteneurHaut
 		
 		//Déclaration et instanciation du conteneur du Haut 
 		JPanel panelHaut = new JPanel(); 
@@ -104,8 +102,7 @@ public class FenetreJeu  extends JFrame{
         
         //Déclaration et instanciation sous-conteneurCentre
         JPanel panelBoutons = new JPanel(new GridLayout());  
-        //panelBoutons.setBackground(Color.BLUE) ;
-        panelBoutons.setOpaque(false); /** Pour ne pas laisser apparaître la couleur initiale du panel et permettre de voir la couleur du panel parent**/
+        panelBoutons.setOpaque(false); 
         //Ajout des widgets (dans l'ordre de gauche à droite)
         panelBoutons.add(bOui) ; 
         panelBoutons.add(bNon) ; 
@@ -115,9 +112,9 @@ public class FenetreJeu  extends JFrame{
         panelCentre.add(panelBoutons,BorderLayout.CENTER); 
         
     
-        //Déclaration et instanciation du conteneur Droite
+        //Déclaration et instanciation du conteneur droite
         JPanel panelDroite = new JPanel(new BorderLayout()); 
-        //Ajout des widgets (dans l'ordre de gauche à droite) dans conteneurCentre
+        //Ajout des widgets (dans l'ordre de gauche à droite) dans conteneur droite
         panelDroite.add(PersoPossibles) ; 
              
        
@@ -138,13 +135,14 @@ public class FenetreJeu  extends JFrame{
         cadrePrincipal.add(panelBas,BorderLayout.SOUTH);
 		
 		
-		//Ajout le gros conteneur à la fenêtre
+		//Ajout du conteneur principal à la fenêtre
 		add(cadrePrincipal) ;       
         setVisible(true) ;      
     }
     
     //MÉTHODES
    
+   //Getters
     public Jeu getJeu() {
 		return jeu;
 	}
