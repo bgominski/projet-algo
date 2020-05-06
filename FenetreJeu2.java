@@ -39,13 +39,8 @@ public class FenetreJeu2  extends JFrame{
     //Jeu courant
     Jeu jeu ; 
     
-<<<<<<< HEAD
     //Stock de la valeur du selected item de boxValeur
     String valeurSelectionnee; //permet de tester cette valeur lorsqu'une question est posée
-=======
-    //Stockage de la valeur du selected item Attribut
-    String valeurSelectionnee;
->>>>>>> 05b19320e34eda3a02448d4470367ecfbff3adc0
     
     //Liste des persos possibles à mettre à jour à chaque questions
     ArrayList<String> listePersonnagePossibles ;
@@ -231,8 +226,8 @@ public class FenetreJeu2  extends JFrame{
             
             
             case "Type de cheveux":
-            boxValeur = new JComboBox(getListeTypeCheveux()); 
-            valeurs = getListeTypeCheveux();
+            boxValeur = new JComboBox(getListeTypeCheveux()); //Mise à jour du contenu de boxValeur
+            valeurs = getListeTypeCheveux(); //Mise à jour de la liste des valeurs testées
             //Mise à jour du panel
             panelTerciaire.removeAll() ; 
             panelTerciaire.add(boxAttribut);
@@ -243,8 +238,8 @@ public class FenetreJeu2  extends JFrame{
             
             
             case "Couleur de cheveux":
-            boxValeur = new JComboBox(getListeCouleurCheveux()); 
-            valeurs = getListeCouleurCheveux();
+            boxValeur = new JComboBox(getListeCouleurCheveux()); //Mise à jour du contenu de boxValeur
+            valeurs = getListeCouleurCheveux(); //Mise à jour de la liste des valeurs testées
             //Mise à jour du panel
             panelTerciaire.removeAll() ; 
             panelTerciaire.add(boxAttribut);
@@ -255,8 +250,8 @@ public class FenetreJeu2  extends JFrame{
             
             
             case "Couleur des yeux":
-            boxValeur = new JComboBox(getListeCouleurYeux()); 
-            valeurs = getListeCouleurYeux();
+            boxValeur = new JComboBox(getListeCouleurYeux()); //Mise à jour du contenu de boxValeur
+            valeurs = getListeCouleurYeux(); //Mise à jour de la liste des valeurs testées
             //Mise à jour du panel
             panelTerciaire.removeAll() ; 
             panelTerciaire.add(boxAttribut);
@@ -266,8 +261,8 @@ public class FenetreJeu2  extends JFrame{
 			break;
             
             case "Accessoire":
-            boxValeur = new JComboBox(getListeAccessoire()); 
-            valeurs = getListeAccessoire();
+            boxValeur = new JComboBox(getListeAccessoire()); //Mise à jour du contenu de boxValeur
+            valeurs = getListeAccessoire(); //Mise à jour de la liste des valeurs testées
             //Mise à jour du panel
             panelTerciaire.removeAll() ; 
             panelTerciaire.add(boxAttribut);
@@ -277,8 +272,8 @@ public class FenetreJeu2  extends JFrame{
 			break;
             
             case "Pays":
-            boxValeur = new JComboBox(getListePays()); 
-            valeurs = getListePays();
+            boxValeur = new JComboBox(getListePays()); //Mise à jour du contenu de boxValeur
+            valeurs = getListePays(); //Mise à jour de la liste des valeurs testées
             //Mise à jour du panel
             panelTerciaire.removeAll() ; 
             panelTerciaire.add(boxAttribut);
@@ -288,8 +283,8 @@ public class FenetreJeu2  extends JFrame{
 			break;
             
             case "Nom":
-            boxValeur = new JComboBox(getListeNoms()); 
-            panelTerciaire.removeAll() ; 
+            boxValeur = new JComboBox(getListeNoms()); //Mise à jour du contenu de boxValeur
+            panelTerciaire.removeAll() ; //Mise à jour de la liste des valeurs testées
             panelTerciaire.add(boxAttribut);
             panelTerciaire.add(boxValeur);
             panelTerciaire.add(btnDemander);
@@ -360,7 +355,7 @@ public class FenetreJeu2  extends JFrame{
 			
     //METHODE POUR VERIFIER SI LA CARACTÉRISTIQUE DEMANDÉE CORRESPOND AU PERSONNAGE
     public String donnerReponse(){
-<<<<<<< HEAD
+
         String res = "Non"; //Initialisation de la réponse
   
 		ArrayList<String> caractéristiquesPerso = new ArrayList<String>(); //on crée une liste 
@@ -372,36 +367,9 @@ public class FenetreJeu2  extends JFrame{
         caractéristiquesPerso.add(jeu.getQui().getCouleurYeux()) ;
         caractéristiquesPerso.add(jeu.getQui().getPays()) ;
         caractéristiquesPerso.add(jeu.getQui().getNom()) ;
-=======
-        String res = "Non"; 
-        System.out.println(jeu.getQui()); 
-        /**TESTS
-         * System.out.println("DEBUT DONNER REPONSE"+valeurSelectionnee); 
-        
-        System.out.println(jeu.getQui()); 
-        System.out.println(jeu.getQui().getGenre());
-        System.out.println(jeu.getQui().getCouleurCheveux());
-        System.out.println(jeu.getQui().getTypeCheveux());
-        System.out.println(jeu.getQui().getAccessoire());
-        System.out.println(jeu.getQui().getCouleurYeux());
-        System.out.println(jeu.getQui().getNom());
-        System.out.println(jeu.getQui().getPays());**/
-        
-        
-         //Stocker toutes les caractéristqieus du perso dans une liste
-        ArrayList<String> caractéristiquesPerso = new ArrayList<String>(); //on crée une liste intermédiaire
-            caractéristiquesPerso.add(jeu.getQui().getGenre()) ; 
-            caractéristiquesPerso.add(jeu.getQui().getCouleurCheveux()) ;
-            caractéristiquesPerso.add(jeu.getQui().getTypeCheveux()) ;
-            caractéristiquesPerso.add(jeu.getQui().getAccessoire()) ;
-            caractéristiquesPerso.add(jeu.getQui().getCouleurYeux()) ;
-            caractéristiquesPerso.add(jeu.getQui().getPays()) ;
-            caractéristiquesPerso.add(jeu.getQui().getNom()) ;
->>>>>>> 05b19320e34eda3a02448d4470367ecfbff3adc0
-            
+
         //On parcourt les éléments de la liste et on renvoie oui s'il y a une correspondance
-		for(String s : caractéristiquesPerso){
-            
+		for(String s : caractéristiquesPerso){  
             if(valeurSelectionnee.equals(s)){
                 if(s.equals(jeu.getQui().getNom())){
                    FenetreRejouer fenRejouer  = new FenetreRejouer(this);
