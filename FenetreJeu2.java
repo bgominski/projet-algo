@@ -304,7 +304,7 @@ public class FenetreJeu2  extends JFrame{
     public void refreshList(){
    
         valeurSelectionnee = (String)boxValeur.getSelectedItem(); //on récupère la valeur sélectionné dans boxValeur
-        String[] tab = getListeEnCours(); //on récupère les valeurs possible avant la question posée
+        String[] tab = getListeEnCours(); //on récupère les valeurs possibles avant la question posée
 		ArrayList<String> ListeIntermediaire = new ArrayList<String>(); //on crée une liste intermédiaire
 		for(int i=0; i<tab.length; i++) {
 			ListeIntermediaire.add(tab[i]);//on récupère les éléments présents dans boxValeurs et on les places dans ListeIntermédiaire
