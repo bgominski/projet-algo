@@ -24,7 +24,7 @@ public class FenetreLancement extends JFrame{
 		
 		//Nom, dimensions  et fermeture de la fenetre graphique
 		super("Qui-est-ce ? - Fenêtre de lancement ") ;
-		setSize(1200,1200) ;
+		setSize(1000,250) ;
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE) ; 
 		
 	
@@ -33,7 +33,9 @@ public class FenetreLancement extends JFrame{
 		labelAccueil=new JLabel("BIENVENUE DANS 'QUI EST-CE?', ÉDITION AMERINSA 2020 !");
 	
 		//Conteneur Gauche
-		texteInstructions= new JTextArea("Ici tu peux choisir si tu veux que \n l'IA devine le personnage que tu auras choisi (Version 1) \n ou bien si tu veux deviner celui que l'IA aura choisi");
+		texteInstructions= new JTextArea("Le but du jeu est de deviner l'identité d'un personnage \nen posant des questions sur ses caractéristiques physiqyes \n" + 
+		"Tu as donc le choix entre deux versions:\n Version 1: notre IA devine le personnageque tu auras choisi \n Version 2: Tu dois deviner le personnage choisi  par l'IA "+
+		"\n"+" \n Clique sur un des deux boutons (Version 1 ou Version 2)\n pour commencer à jouer!");
 		texteInstructions.setEditable(false);
 		texteInstructions.setBackground(new Color(187,210,225)) ;
 	

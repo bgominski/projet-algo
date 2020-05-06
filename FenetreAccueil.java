@@ -68,14 +68,15 @@ public class FenetreAccueil extends JFrame{
         panelAcceuil.add(labelAccueil2,BorderLayout.CENTER);
         panelAcceuil.add(labelAccueil3,BorderLayout.SOUTH);
         
-        labelDescription = new JTextArea ("Clique sur le joueur de ton choix et\nla machine virtuelle\n tentera de lire dans tes pensées.\n Une fois que tu auras cliqué\n n'oublie pas\n pas de cliquer sur le bouton 'jouer' en bas de l'écran ! ");
-        labelDescription.setBounds(20, 20, 20, 20) ; 
-        labelDescription.setBackground(Color.WHITE) ; 
+        labelDescription = new JTextArea ("\n"+"\n"+"\n"+"\n"+"\n"+"\n"+"\n"+"\n"+"\n"+"\n"+"\n"+"\n"+ //pour centrer le texte
+        "Clique sur le joueur de ton choix et\nla machine virtuelle\n tentera de lire dans tes pensées."+
+        "Une fois que tu auras cliqué\n n'oublie pas\n pas de cliquer sur le bouton 'jouer' en bas de l'écran ! ");
+        labelDescription.setOpaque(true);
+        labelDescription.setBackground(new Color(187,210,225)) ; 
         labelDescription.setEditable(false) ; 
         
         
         btnJouer= new JButton("Jouer");
-        btnJouer.setForeground(new Color(0,123, 123));
         btnJouer.setOpaque(true);
         btnJouer.setBorderPainted(false);
         btnJouer.setBackground(Color.green) ; 

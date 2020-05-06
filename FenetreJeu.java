@@ -47,14 +47,15 @@ public class FenetreJeu  extends JFrame{
         
         //===== Instanciation des widgets de la fenêtre ====
         //Haut
-		labelExplication = new JLabel("Répondre par oui ou par non à la question suivante :  ") ; 
+		labelExplication = new JLabel("Répond par oui ou par non à la question suivante :  ") ; 
         
         
         //Gauche   ("Ton texte\nTon texte");
         panelPersoChoisi= new JPanel( new BorderLayout());
         labelCaracPerso = new JTextArea("Votre personnage :\nNom: "+jeu.getQui().getNom()+"\nGenre: "+
         jeu.getQui().getGenre()+"\nCouleur cheveux: "+jeu.getQui().getCouleurCheveux()
-        +"\nType cheveux: "+jeu.getQui().getTypeCheveux() +"\nYeux: "+jeu.getQui().getCouleurYeux()); //description du personnage choisi  
+        +"\nType cheveux: "+jeu.getQui().getTypeCheveux() +"\nYeux: "+jeu.getQui().getCouleurYeux()+"\nAccessoire: "+jeu.getQui().getAccessoire()+
+        "\nPays: "+jeu.getQui().getPays()); //description du personnage choisi  
 		labelCaracPerso.setEditable(false);
 		labelCaracPerso.setBackground(new Color(187,210,225)) ;		
         imagePersoChoisi = new JLabel((jeu.getQui()).getImage()); //récuparation de l'image du personnage choisi

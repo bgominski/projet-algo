@@ -57,17 +57,19 @@ public class FenetreJeu2  extends JFrame{
         this.jeu=jeu; //récupération du jeu
   	
 		//Dimensions de la fenetre graphique et fermeture
-        setSize(950, 1200) ; 
+        setSize(1500, 1200) ; 
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE) ;
         
         //===== Instanciation des widgets de la fenêtre ====//
         
         //Conteneur Haut
-        labelExplication = new JLabel("Pour poser une question, choisissez la caractéristique grâce aux menus déroulants puis cliquez sur DEMANDER") ;
+        labelExplication = new JLabel("Pour poser une question, choisis la caractéristique grâce aux menus déroulants puis clique sur DEMANDER") ;
         
         //Conteneur Gauche
         textRegles= new JTextArea("\n\n\n L'IA te dira alors \n si tu es sur la bonne piste. \nTu pourras donc ensuite cliquer sur \n les personnages que tu souhaites pour\n pour les supprimer") ; 
         textRegles.setEditable(false);
+        textRegles.setOpaque(true);
+        textRegles.setBackground(new Color(240,255,255)) ;
         
         //Conteneur Bas
         labelNomAuteurs = new JLabel ("Auteurs : BOULARD Solenn, GOMINSKI Benjamin, ROUSSI Emmanuelle");

@@ -19,7 +19,7 @@ public class FenetreRejouer  extends JFrame{
 		jeu=fenetreJeu.getJeu(); //on écupère le jeu courant
 		
 		//Dimensions et fermetrure de la fenêtre
-		setSize(1280, 1024) ; 
+		setSize(500,500) ; 
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE) ; 
         
         //Ajout du fond d'écran
