@@ -1,3 +1,40 @@
+/*
+ * IA.java
+ * 
+ * Copyright 2020 GOMINSKI BENJAMIN
+ * 
+ * This program is free software; you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation; either version 2 of the License, or
+ * (at your option) any later version.
+ * 
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ * 
+ * You should have received a copy of the GNU General Public License
+ * along with this program; if not, write to the Free Software
+ * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston,
+ * MA 02110-1301, USA.
+ * 
+ * 
+ */
+ 
+ 
+ 
+ /*
+  * Lexique : 
+  * Attributs :  pour désigner les attributs d'un personnage, comme les yeux, les cheveux...
+  * Valeur : pour désigner la valeur de l'attribut, comme vert, bleu, blanc...
+  * 
+  * 
+  * 
+  * ajouter accessoire pays
+  * 
+  * 
+  */
+  
 import java.util.*;
 
 public class IA {
@@ -20,6 +57,7 @@ public class IA {
     
     private ArrayList<String> ListeAccessoire= new ArrayList<String>();
     private ArrayList<String> ListePays= new ArrayList<String>();
+	//private ArrayList<String> ListeCouleurPeau=new ArrayList<String>();
 	//Indexation de ces listes pour une utilisation plus rapide
     private ArrayList<ArrayList<String>> ListeListe= new ArrayList<ArrayList<String>>();
     
@@ -37,11 +75,13 @@ public class IA {
 		    
 	}
 	
-	//CHOISIR LA QUESTION A POSER
+	
 	public Question QuestionIA(){
        
         
         //On détermine la liste la plus petite 
+     
+        // && indiceListe!=(ListeListe.size()-1) : condition pour éviter IndexOutofBounds 
         int compteur=20;            //valeur pour initialiser
         int indiceListe=0;
         for(ArrayList A : ListeListe){
@@ -67,6 +107,8 @@ public class IA {
        
         
         //On choisit un élément dans liste d'indice indiceListe
+        //Random rand1 = new Random(); 
+		//int indiceAttribut = rand1.nextInt(ListeListe.get(indiceListe).size()  );
         
         int indiceAttribut =(int)(Math.random() * (ListeListe.get(indiceListe).size())); 
         System.out.println("indiceattribut= "+indiceAttribut);
@@ -76,10 +118,9 @@ public class IA {
         System.out.println(Q.toString());
         
         return Q;
-    }
+   }
      
-    
-    public void UpdateListes(boolean Ans,Question Q){
+   public void UpdateListes(boolean Ans,Question Q){
        
        
       
@@ -169,6 +210,8 @@ public class IA {
         ListeListe.add(ListeAccessoire);
         ListeListe.add(ListePays);
         
+		
+        //ListeListe.add(ListeCouleurPeau);
         
         //débuggage
           for(ArrayList A : ListeListe){
@@ -180,7 +223,7 @@ public class IA {
         
     }
    
-   //POUR RENVOYER LE PERSONNAGE TROUVÉ
+   //Pour renvoyer le personnage trouvé
    public Personnage affichePersonnage(){
         return ListePersonnagePossibles.get(0);
       }
@@ -196,6 +239,7 @@ public class IA {
    //Renvoie TRUE si le personnage a été trouvé
     public boolean PersonnageFound(){
        if (ListePersonnagePossibles.size()==1){
+           //System.out.println("Notre ordinateur t'as démasqué... aurais-tu un crush sur "+" ? :)"+ListePersonnagePossibles.get(0).toString());
            return true;
        }
        return false;

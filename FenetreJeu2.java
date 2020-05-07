@@ -122,7 +122,9 @@ public class FenetreJeu2  extends JFrame{
         //Ajout du conteneur principal à la fenêtre
         this.add(panelPrincipal);
         this.setVisible(true);
-        
+           
+        //Pour vérifier le personnage choisi lors de nos tests et démonstration
+        System.out.println(jeu.getQui()) ; 
         }
         
         //MÉTHODES

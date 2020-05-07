@@ -19,7 +19,6 @@ public class EcouteurChoixVersion2 implements ActionListener{
     jeu = new Jeu(2) ; //on instencie un jeu de version 2
     int persoChoisi = (int)(Math.random()*jeu.getListePersonnage().size()); //on choisit un personnage aléatoirement
     jeu.setQui(jeu.getListePersonnage().get(persoChoisi)) ; //on affecte ce personnage au jeu
-    System.out.println(jeu.getListePersonnage().get(persoChoisi)); //Pour aller plus vite pour les tests
-    System.out.println(jeu.getQui()); 
+ 
     }
 }

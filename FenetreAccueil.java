@@ -52,7 +52,7 @@ public class FenetreAccueil extends JFrame{
         labelAccueil1.setFont(f1); 
         
         
-        imageQuiEstCe = new ImageIcon("../Multimedia/Images_autres/Image_Qui-est-ce.png"); //Instanciation de l'icone du jeu
+        imageQuiEstCe = new ImageIcon("/Users/alainboulard/Desktop/Image Algo/Capture d’écran 2020-04-12 à 11.11.14.png"); //Instanciation de l'icone du jeu
         JLabel imageAccueil = new JLabel(imageQuiEstCe); //Création d'un JLabel pour stocker le logo du jeu
         labelAccueil2= new JLabel("                                                                           "
         +"CHOISIS UN PERSONNAGE PUIS CLIQUE SUR 'JOUER' POUR COMMENCER LA PARTIE!");
@@ -91,10 +91,16 @@ public class FenetreAccueil extends JFrame{
         for (int i=0;i<nbPersos;i++){
 			panel2.add(tabPan[i]);
 		}
-    
+       
+        ImageIcon image = new ImageIcon(new ImageIcon("/Users/alainboulard/Desktop/salle de classe.jpg").getImage().getScaledInstance(1200,800, Image.SCALE_DEFAULT)) ; 
+        
+        JLabel imageFond = new JLabel(image); 
+        JPanel panelImage = new JPanel(); //pour contenir l'image de fond
+        panelImage.add(imageFond) ; 
+        
 		
 		//Ajout des éléments au cadre principal      
-        setContentPane(new AfficheImage("../Multimedia/Images_autres/Image_salle-de-classe.jpg")); 
+        setContentPane(new AfficheImage("/Users/alainboulard/Desktop/salle de classe.jpg")); 
         getContentPane().setLayout(new BorderLayout());
         getContentPane().setBackground(new Color(187,210,225)) ;
         getContentPane().add(panelAcceuil, BorderLayout.NORTH);

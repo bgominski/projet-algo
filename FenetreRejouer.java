@@ -23,7 +23,7 @@ public class FenetreRejouer  extends JFrame{
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE) ; 
         
         //Ajout du fond d'écran
-        setContentPane(new AfficheImage("../Multimedia/Images_autres/Image_Confettis.png")); 
+        setContentPane(new AfficheImage("/Users/alainboulard/Desktop/Image Algo/fond-colore-confettis-qui-est-baisse-illustration-vectorielle_41084-389.png")); 
         getContentPane().setLayout(null);
         getContentPane().setBackground(new Color(187,210,225)) ; 
 		

@@ -28,6 +28,7 @@ public class Question {
         
         if(indiceListe==4){nomListe="Accessoires";}
         if(indiceListe==5){nomListe="Pays";}
+		//if(indiceListe==4){nomListe="Couleur Peau";}
         
         this.nomListe = nomListe;
     }

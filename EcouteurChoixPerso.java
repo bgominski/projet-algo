@@ -17,15 +17,20 @@ public class EcouteurChoixPerso implements ActionListener{
     //actionPerformed indique les instructions a executer au clic du bouton
     public void actionPerformed(ActionEvent e){
         
-        //Instructions a executer au clic d'un des boutons 
-       
+        // On cherche l'indice du bouton qui a été appuyé
+        //On parcourt le tableau de bouton et on prend l'indice de celui qui a été appuyé
+       /** int a=0; 
+        for(int i=0; i<nbPersos; i++){
+            if (e.getSource() == tabBtn[i]) {
+			a=i;
+            }
+        }**/
         //Instancier un jeu en récupérant celui en cours dans la fenêtre Accueil
-        jeu=fen.getJeu() ; 
         
-        // Récupérer le personnage associé au bouton et le transmettre à la classe Jeu
+        jeu=fen.getJeu() ; 
         qui = jeu.getListePersonnage().get(theIndex); 
         jeu.setQui(qui);
-        
+        //System.out.println(qui.toString()) ;  Vérifier si quand on clique sur le bouton ça set bien le personnage "qui"
     
         }
 }
@@ -37,7 +42,7 @@ public class EcouteurChoixPerso implements ActionListener{
 
 
         
-      
+        // Récupérer le personnage associé du bouton et le transmettre à la classe Jeu
      
     
 
