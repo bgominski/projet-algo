@@ -1,5 +1,5 @@
 /*
- * IA.java   used by Jeu.java
+ * IA.java
  * 
  * Copyright 2020 GOMINSKI BENJAMIN
  * 
@@ -21,12 +21,16 @@
  * 
  */
  
- // LAST EDIT : 07/05/2020 14:20
+ 
  
  /*
   * Lexique : 
   * Attributs :  pour désigner les attributs d'un personnage, comme les yeux, les cheveux...
   * Valeur : pour désigner la valeur de l'attribut, comme vert, bleu, blanc...
+  * 
+  * 
+  * 
+  * ajouter accessoire pays
   * 
   * 
   */
@@ -53,26 +57,14 @@ public class IA {
     
     private ArrayList<String> ListeAccessoire= new ArrayList<String>();
     private ArrayList<String> ListePays= new ArrayList<String>();
-    
-    /* La première version comprenait l'attribut couleur peau que nous avons par la suite enlevé
-     */
 	//private ArrayList<String> ListeCouleurPeau=new ArrayList<String>();
-    
-    
 	//Indexation de ces listes pour une utilisation plus rapide
     private ArrayList<ArrayList<String>> ListeListe= new ArrayList<ArrayList<String>>();
     
   
     
     
-	/* Constructeur
-     * 
-     * @param : jeu de type Jeu
-     * 
-     * Crée la liste de personnage possibles : c'est le "pool" des choix pour l'ordinateur
-     * 
-     * Utilise méthode MAJListes */
-     
+	//Constructeur
 	public IA(Jeu jeu){
 		
 		this.ListePersonnageInit=(ArrayList<Personnage>)(jeu.getListePersonnage().clone());
@@ -82,38 +74,24 @@ public class IA {
         this.MAJListes(ListePersonnageInit);
 		    
 	}
-    
 	
-	/* Méthode principale : 
-     * 
-     * Aucun paramètre.
-     * 
-     * Renvoie une Question, cf Question.java 
-     */
-     
+	
 	public Question QuestionIA(){
        
         
         //On détermine la liste la plus petite 
      
         // && indiceListe!=(ListeListe.size()-1) : condition pour éviter IndexOutofBounds 
-        
-        int compteur=100;            //valeur maximale non atteinte pour initialiser
+        int compteur=20;            //valeur pour initialiser
         int indiceListe=0;
         for(ArrayList A : ListeListe){
-            
-              
-            //Si deux listes de taille égales, la liste choisie sera celle avec l'indice le plus élevé
+              //Si une liste ne comporte qu'1 élément,la question ne peut pas porter dessus
+                
             if( A.size()<=compteur && indiceListe!=(ListeListe.size()-1) ){
                 compteur=A.size();
                 indiceListe++;
                 
                 }
-            /* Si une liste ne comporte qu'1 élément,la question ne peut pas porter dessus
-             * 
-             * De plus, on s'assure que l'indice choisi n'est pas OutOfBounds dans ListeListe
-             */
-             
             if (A.size()==1 && indiceListe!=(ListeListe.size()-1)){
                 indiceListe++;
             }
@@ -125,52 +103,33 @@ public class IA {
         
             
         }
-        
+        System.out.println("indiceListe= "+indiceListe);
        
         
-        /* On choisit un élément dans liste d'indice indiceListe
-         * 
-         * 1ère version : utilisation de l'objet Random, qui s'avère ne pas être nécessaire
-         * 
-         * Random rand1 = new Random(); 
-         * int indiceAttribut = rand1.nextInt(ListeListe.get(indiceListe).size()  );
-         * 
-         */
-         
-        
+        //On choisit un élément dans liste d'indice indiceListe
+        //Random rand1 = new Random(); 
+		//int indiceAttribut = rand1.nextInt(ListeListe.get(indiceListe).size()  );
         
         int indiceAttribut =(int)(Math.random() * (ListeListe.get(indiceListe).size())); 
-
+        System.out.println("indiceattribut= "+indiceAttribut);
         
         //Question :
         Question Q = new Question(indiceListe,indiceAttribut,ListeListe.get(indiceListe).get(indiceAttribut));
-        
+        System.out.println(Q.toString());
         
         return Q;
    }
      
-     
-    /* Méthode UpdateListes
-     * 
-     * @param : boolean Ans : réponse à la question donnée par l'utilisateur par l'interface
-     *          Question Q : la question auquelle l'utilisateur a répondu
-     * 
-     * Ne renvoie rien.
-     * 
-     * Utilise méthode MAJListes afin de reconstituer le "pool" de l'ordinateur, en fonction de la réponse à la Question posée.
-     */
-     
-     
-    public void UpdateListes(boolean Ans,Question Q){
+   public void UpdateListes(boolean Ans,Question Q){
        
        
       
         //Pour chaque personnage dans liste des choix possibles
-        //on crée une  liste Personnage TEMPoraire pour pouvoir modifier ListePersonnagePossible DANS la boucle for each
+        //on crée une  liste Personnage pour pouvoir modifier ListePersonnagePossible DANS la boucle for each
         ArrayList<Personnage> ListePersonnageTEMP=new ArrayList<Personnage>();
         ListePersonnageTEMP=(ArrayList<Personnage>)(ListePersonnagePossibles.clone());
         
-        
+        System.out.println("//INFO DEBUG\\");
         for (Personnage P : ListePersonnagePossibles){
            
             //Valeur à éliminer ou à garder (Question posée par QuestionIA)
@@ -185,7 +144,7 @@ public class IA {
                 case 5 : V=P.getPays();break;
                 //case 4 : V=P.getCouleurPeau();break;
             }
-         
+            System.out.println(V+Q.getvaleurAttribut());
             
         
         
@@ -204,12 +163,12 @@ public class IA {
             
             
         }
-       
+        System.out.println("//FIN INFO DEBUG\\");
         
        
         ListePersonnagePossibles.clear();
         ListePersonnagePossibles=(ArrayList<Personnage>)(ListePersonnageTEMP.clone());
-        
+        System.out.println("Il reste "+ListePersonnagePossibles.size()+" personnages");
        
         //UPDATE FINAL DES LISTES
         MAJListes(ListePersonnagePossibles);
@@ -223,12 +182,9 @@ public class IA {
         ListeTypeCheveux.clear();
         ListeCouleurCheveux.clear();
         ListeCouleurYeux.clear();
+        //ListeCouleurPeau.clear();
         ListeAccessoire.clear();  
-        ListePays.clear(); 
-        //ListeCouleurPeau.clear(); enlevé
-        
-         
-        //Listes sans doublons
+        ListePays.clear();      
 		for(Personnage a : ListePersonnage){
 			if(!ListeGenre.contains(a.getGenre())){ListeGenre.add(a.getGenre());}
 			
@@ -255,12 +211,19 @@ public class IA {
         ListeListe.add(ListePays);
         
 		
-        //ListeListe.add(ListeCouleurPeau); enlevé
+        //ListeListe.add(ListeCouleurPeau);
+        
+        //débuggage
+          for(ArrayList A : ListeListe){
+              System.out.println(A.size());
+          }
+        
+        
         
         
     }
    
-   //Renvoie le personnage trouvé
+   //Pour renvoyer le personnage trouvé
    public Personnage affichePersonnage(){
         return ListePersonnagePossibles.get(0);
       }
@@ -276,11 +239,14 @@ public class IA {
    //Renvoie TRUE si le personnage a été trouvé
     public boolean PersonnageFound(){
        if (ListePersonnagePossibles.size()==1){
+           //System.out.println("Notre ordinateur t'as démasqué... aurais-tu un crush sur "+" ? :)"+ListePersonnagePossibles.get(0).toString());
            return true;
        }
        return false;
    
    }
    
+       
+	   
 }
 
