@@ -32,7 +32,7 @@ public class EcouteurReponse implements ActionListener{
         jeu.setQuestion(query); //affectation de cette question au jeu
         fen.afficheQuestion(); //Affichage de la question
         fen.affichePerso(); //Mise à jour des persos possible
-        jeu.playSound("/Users/alainboulard/Desktop/YES.wav"); //son au clic du bouton
+        jeu.playSound("../Multimedia/Sons/YES.wav"); //son au clic du bouton
         
             if(jeu.getIA().PersonnageFound()==true){
                 FenetreRejouer fenetreRejouer = new FenetreRejouer(fen) ; //si le personnage est trouvé, le jeu est fini
@@ -48,7 +48,7 @@ public class EcouteurReponse implements ActionListener{
         System.out.println(jeu.getQuestion().toString()); //Pour vérifier la question
         fen.afficheQuestion(); //Affichage de la question
         fen.affichePerso(); //Mise à jour des persos possible
-        jeu.playSound("/Users/alainboulard/Desktop/NON.wav"); //son au clic du bouton
+        jeu.playSound("../Multimedia/Sons/NON.wav"); //son au clic du bouton
         
             if(jeu.getIA().PersonnageFound()==true){
                     FenetreRejouer fenetreRejouer = new FenetreRejouer(fen) ; //si le personnage est trouvé, le jeu est fini
