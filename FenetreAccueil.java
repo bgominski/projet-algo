@@ -81,8 +81,8 @@ public class FenetreAccueil extends JFrame{
         btnJouer.setBorderPainted(false);
         btnJouer.setBackground(Color.green) ; 
         btnJouer.addActionListener(new EcouteurJouer(this));
-        JPanel panelBouton = new JPanel() ; 
-        panelBouton.add(btnJouer) ; 
+        //JPanel panelBouton = new JPanel() ; 
+        //panelBouton.add(btnJouer) ; 
         
         //Instanciation  des widgets du panel secondaire
         int l =nbPersos/3;
@@ -104,7 +104,7 @@ public class FenetreAccueil extends JFrame{
         getContentPane().setLayout(new BorderLayout());
         getContentPane().setBackground(new Color(187,210,225)) ;
         getContentPane().add(panelAcceuil, BorderLayout.NORTH);
-        getContentPane().add(panelBouton,BorderLayout.SOUTH);
+        getContentPane().add(btnJouer,BorderLayout.SOUTH);
         getContentPane().add(labelDescription, BorderLayout.WEST);
         getContentPane().add(panel2,BorderLayout.CENTER);
         getContentPane().add(labelAccueil3,BorderLayout.EAST);
